@@ -1,0 +1,56 @@
+local unitName  =  "extractor"
+
+local unitDef  =  {
+--Internal settings
+BuildPic = "Extractor.bmp",
+    Category = "TANK SMALL NOTAIR NOTSUB",
+    ObjectName = "Extractor.s3o",
+    name = "Extractor",
+    Side = "Vroomers",
+    TEDClass = "Building",
+    UnitName = "Extractor",
+    script = "extractorscript.lua",
+
+--Unit limitations and properties
+    Description = "Extracts Metal",
+    MaxDamage = 400,
+    idleTime = 0,
+    idleAutoHeal = 0,
+    RadarDistance = 0,
+    SightDistance = 400,
+    SoundCategory = "Building",
+    Upright = 0,
+    floater = true,
+--Energy and metal related
+    BuildCostEnergy = 60,
+    BuildCostMetal = 60,
+    Buildtime = 60,
+	extractsMetal = 0.001,
+	EnergyUse = 0.6,
+--Size and Abilites
+   MaxSlope = 33,
+   FootprintX = 3,
+   FootprintZ = 3,
+   canSelfDestruct = 1,
+   repairable = 1,
+   CanMove = 0,
+   CanPatrol = 0,
+   onOffable = 1,
+   activateWhenBuilt = 1, 
+
+
+--Hitbox
+--    collisionVolumeOffsets    =  "0 0 0",
+--    collisionVolumeScales     =  "22 30 22",
+--    collisionVolumeTest       =  1,
+--    collisionVolumeType       =  "box",
+	YardMap = "ooooooooo",
+--Weapons and related
+explodeAs = [[SmallBuildingExplosion]],
+	selfDestructAs = [[SmallBuildingExplosion]],
+    
+
+
+}
+
+return lowerkeys({ [unitName]  =  unitDef })
