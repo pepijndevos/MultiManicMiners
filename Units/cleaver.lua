@@ -51,7 +51,7 @@ BuildPic = "Cleaver.bmp",
     
 
 --Hitbox
-    collisionVolumeOffsets    =  "0 0 0",
+    collisionVolumeOffsets    =  "0 -5 0",
     collisionVolumeScales     =  "30 35 44",
     collisionVolumeType       =  "box",
 
