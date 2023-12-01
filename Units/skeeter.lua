@@ -55,10 +55,9 @@ explosionGenerators = {
     
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "20 20 20",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 5 0",
+collisionVolumeScales     =  "20.5 19 37",
+collisionVolumeType       =  "box",
 
    
 --Weapons and related

@@ -52,10 +52,9 @@ BuildPic = "Panther.bmp",
     activateWhenBuilt = 1,
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "32 32 36",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+    collisionVolumeOffsets    =  "0 -6 0",
+    collisionVolumeScales     =  "30.5 34 44",
+    collisionVolumeType       =  "box",
 
    
 --Weapons and related

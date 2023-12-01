@@ -42,10 +42,9 @@ BuildPic = "Solar Pannel.bmp",
 	
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "30 25 30",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 0 0",
+collisionVolumeScales     =  "33 45 33",
+collisionVolumeType       =  "box",
 YardMap = "oooo oooo oooo oooo",
 --Weapons and related
   explodeAs = [[MediumBuildingExplosion]],

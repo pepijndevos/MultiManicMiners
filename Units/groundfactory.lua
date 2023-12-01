@@ -57,10 +57,9 @@ buildoptions =
 	[[mangonel]],
 	},
 	--Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "60 60 60",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 0 -7.5",
+collisionVolumeScales     =  "120 98 175",
+collisionVolumeType       =  "box",
 	YardMap ="oooooooo oooooooo oyyyyyyo oyyyyyyo oyyyyyyo oyyyyyyo oyyyyyyo oyyyyyyo oyyyyyyo oyyyyyyo yyyyyyyy",
 --Weapons and related
 	explodeAs = [[FactoryExplosion]],

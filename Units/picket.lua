@@ -50,8 +50,8 @@ BuildPic = "Picket.bmp",
     
 
 --Hitbox
-collisionVolumeOffsets    =  "0 -3 0",
-collisionVolumeScales     =  "15.5 18 36",
+collisionVolumeOffsets    =  "0 -3.5 0",
+collisionVolumeScales     =  "15.5 21 36",
 collisionVolumeType       =  "box",
 
    

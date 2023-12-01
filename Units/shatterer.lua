@@ -51,10 +51,9 @@ BuildPic = "Shatterer.bmp",
     
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "32 30 36",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+  collisionVolumeOffsets    =  "0 6 0",
+    collisionVolumeScales     =  "27 30 43",
+    collisionVolumeType       =  "box",
 
    
 --Weapons and related

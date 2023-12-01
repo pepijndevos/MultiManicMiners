@@ -52,10 +52,9 @@ BuildPic = "Stunburst.bmp",
     
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "15 18 17",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 -3 3",
+collisionVolumeScales     =  "15.5 26 26",
+collisionVolumeType       =  "box",
 
    
 --Weapons and related

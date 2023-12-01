@@ -43,10 +43,9 @@ BuildPic = "Radar Tower.bmp",
    activateWhenBuilt = 1, 
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 30 0",
---    collisionVolumeScales     =  "25 50 25",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+ collisionVolumeOffsets    =  "0 25 0",
+ collisionVolumeScales     =  "25 85 25",
+ collisionVolumeType       =  "box",
 
 --Weapons and related
 	explodeAs = [[MediumBuildingExplosion]],

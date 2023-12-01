@@ -40,10 +40,9 @@ BuildPic = "Extractor.bmp",
 
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "22 30 22",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+ collisionVolumeOffsets    =  "0 -35 0",
+ collisionVolumeScales     =  "30.5 100 30.5",
+ collisionVolumeType       =  "box",
 	YardMap = "ooooooooo",
 --Weapons and related
 explodeAs = [[SmallBuildingExplosion]],

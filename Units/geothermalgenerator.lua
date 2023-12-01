@@ -39,10 +39,9 @@ BuildPic = "Geothermal Generator.bmp",
 
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "22 30 22",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 10 0",
+collisionVolumeScales     =  "60 70 60",
+collisionVolumeType       =  "box",
 	YardMap = "oooooo oggggo oggggo oggggo oggggo oooooo",
 --Weapons and related
 	explodeAs = [[GeothermalExplosion]],

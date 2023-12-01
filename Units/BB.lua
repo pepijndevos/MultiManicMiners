@@ -43,10 +43,9 @@ explosionGenerators = {
    activateWhenBuilt = 1,
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 30 0",
---    collisionVolumeScales     =  "25 50 25",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 75 0",
+collisionVolumeScales     =  "77 300 77",
+collisionVolumeType       =  "box",
 YardMap = "ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo",
 --Weapons and related
     	explodeAs = [[BBExplosion]],

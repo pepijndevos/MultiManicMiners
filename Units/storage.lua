@@ -41,9 +41,9 @@ BuildPic = "Storage.bmp",
 
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 30 0",
---    collisionVolumeScales     =  "25 50 25",
---    collisionVolumeTest       =  1,
+ collisionVolumeOffsets    =  "0 15 0",
+ collisionVolumeScales     =  "25 42 25",
+ collisionVolumeType       =  "box",
 --    collisionVolumeType       =  "box",
 YardMap = "ooooooooo",
 --Weapons and related

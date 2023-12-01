@@ -78,10 +78,9 @@ buildoptions =
 	},
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "45 40 45",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+   collisionVolumeOffsets    =  "0 -5 0",
+   collisionVolumeScales     =  "51.5 46 61.5",
+    collisionVolumeType       =  "box",
 
    
 --Weapons and related

@@ -38,10 +38,9 @@ BuildPic = "Fusion Reactor.bmp",
 	
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 0 0",
---    collisionVolumeScales     =  "30 25 30",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+collisionVolumeOffsets    =  "0 0 0",
+collisionVolumeScales     =  "68 103 102",
+collisionVolumeType       =  "box",
 YardMap = "oooo oooo oooo oooo",
 --Weapons and related
 	explodeAs = [[FusionExplosion]],

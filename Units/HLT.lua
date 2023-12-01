@@ -40,10 +40,9 @@ BuildPic = "HLT.bmp",
 
 
 --Hitbox
---    collisionVolumeOffsets    =  "0 30 0",
---    collisionVolumeScales     =  "25 50 25",
---    collisionVolumeTest       =  1,
---    collisionVolumeType       =  "box",
+ collisionVolumeOffsets    =  "0 32.5 0",
+ collisionVolumeScales     =  "30 116 30",
+ collisionVolumeType       =  "box",
 YardMap = "oooo oooo oooo oooo",
 --Weapons and related
 	explodeAs = [[MediumBuildingExplosion]],
