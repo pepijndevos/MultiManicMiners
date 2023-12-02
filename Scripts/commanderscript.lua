@@ -62,6 +62,33 @@ function script.FireWeapon1()
 	if (Laser > LaserNumber) then Laser = 1 end
 end
 
+----aimining & fire weapon
+function script.AimFromWeapon2() 
+	return Turret
+	
+end
+
+function script.QueryWeapon2()
+if (Laser == 1) then return Flare2 end
+if (Laser == 2) then return Flare3 end
+ 
+end
+
+function script.AimWeapon2( heading, pitch )
+  Turn(Turret, y_axis, heading, aimSpeed)
+    Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
+	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+    return true
+end
+
+function script.Shot2()	
+	--switch to the next barrel:
+	Laser = Laser + 1
+	--if all barrels have fired, start the cyclus from the beginning:
+	if (Laser > LaserNumber) then Laser = 1 end
+end
+
 function script.Killed(recentDamage, maxHealth)
 	Explode (Body, SFX.SHATTER)
 	  

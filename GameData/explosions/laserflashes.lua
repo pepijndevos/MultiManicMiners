@@ -5,6 +5,7 @@
 --commander
 --panther
 --shatterer
+--commander2
 return {
 --llt
   ["llthit"] = {
@@ -428,6 +429,63 @@ return {
                 color              = [[0.35,0.6,1]],
                 expansionspeed     = 6.2,
                 ttl                = 14,
+            },
+        },
+},
+--commander2
+["commanderhit2"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 3,
+      flashalpha         = 0.8,
+      flashsize          = 18,
+      ttl                = 8,
+      color = {
+        [1]  = 1,
+        [2]  = 0.4,
+        [3]  = 0.4,
+      },
+    },
+   spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[1 0.4 0.4 0.01   0.8 0.3 0.3 0.01   0.6 0.15 0.15 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 7,
+        particlelife       = 24,
+        particlelifespread = 4.5,
+        particlesize       = 6,
+        particlesizespread = 4.5,
+        particlespeed      = 5,
+        particlespeedspread = 18, --4
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[1,0.4,0.4]],
+                expansionspeed     = 5,
+                ttl                = 12,
             },
         },
 },

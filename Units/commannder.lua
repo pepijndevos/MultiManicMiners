@@ -51,6 +51,7 @@ BuildPic = "filename.bmp",
     repairable = 1,
     onOffable =0,
    activateWhenBuilt = 1,
+   canManualFire = 1,
    
 --building
 Builder = true,
@@ -90,6 +91,10 @@ buildoptions =
     NoChaseCategory = "AIR",
 weapons = {
 [1]={name  = "RapidCommanderLaser",
+	   onlyTargetCategory = [[Tank]],
+       turret = true
+	},
+[2]={name  = "CommanderTempDLaser",
 	   onlyTargetCategory = [[Tank]],
        turret = true
 	},

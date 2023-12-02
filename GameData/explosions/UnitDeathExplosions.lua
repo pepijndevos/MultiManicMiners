@@ -1,6 +1,10 @@
 --Stunburstdeath
 --smallunitdeath
-
+--Mediumdeath
+--Commanderdeath
+--Geothermaldeath
+--Factorydeath
+--BBdeath
 return {
     ["Stunburstdeath"] = {
 	usedefaultexplosions = false,
@@ -96,6 +100,7 @@ return {
 	},
    },
   },
+  --Mediumdeath
   ["Mediumdeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -144,6 +149,7 @@ return {
 	},
    },
   },
+  --Commanderdeath
   ["Commanderdeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -192,6 +198,7 @@ return {
 	},
    },
   },
+  --Geothermaldeath
    ["Geothermaldeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -240,6 +247,7 @@ return {
 	},
    },
   },
+  --Factorydeath
   ["Factorydeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -288,6 +296,7 @@ return {
 	},
    },
   },
+  --BBdeath
   ["BBdeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
