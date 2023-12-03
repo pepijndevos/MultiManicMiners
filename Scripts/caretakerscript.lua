@@ -6,10 +6,15 @@ local TurretBuilder = piece "TurretBuilder"
 local Flare = piece "Flare"
 aimSpeed = 3.0
 
+local function IsImmobileBuilder(ud)         
+return(ud and ud.isBuilder and not ud.canMove and not ud.isFactory)
+end 
+
 Spring.SetUnitNanoPieces(unitID, { Flare })
 
 
 function script.Create()
+--StartThread(IsImmobileBuilder(ud))         
 end
 
 function script.QueryNanoPiece()
@@ -31,7 +36,7 @@ end
 
 
 ---death animation
-function script.Killed(recentDamage, maxHealth)
+function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (TrueBase, SFX.SHATTER)
-	  
+	return 1
 end

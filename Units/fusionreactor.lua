@@ -10,7 +10,7 @@ BuildPic = "Fusion Reactor.bmp",
     TEDClass = "Building",
     UnitName = "Fusion Reactor",
     script = "fusionreactorscript.lua",
-
+	corpse = [[fusionreactor_dead]],
 --Unit limitations and properties
     Description = "Advanced energy generator (35E).",
     MaxDamage = 2500,

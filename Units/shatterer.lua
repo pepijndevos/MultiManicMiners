@@ -20,7 +20,7 @@ BuildPic = "Shatterer.bmp",
     SightDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
-
+	corpse = [[shatterer_dead]],
 --Energy and metal related
     BuildCostEnergy = 300,
     BuildCostMetal = 300,

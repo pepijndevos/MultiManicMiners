@@ -49,7 +49,7 @@ function script.Shot1()
 	if (Laser > LaserNumber) then Laser = 1 end
 end
 
-function script.Killed(recentDamage, maxHealth)
+function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	  
+	return 1
 end

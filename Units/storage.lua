@@ -21,6 +21,7 @@ BuildPic = "Storage.bmp",
     SoundCategory = "Building",
     Upright = 0,
     floater = true,
+	corpse = [[storage_dead]],
 --Energy and metal related
     BuildCostEnergy = 100,
     BuildCostMetal = 100,

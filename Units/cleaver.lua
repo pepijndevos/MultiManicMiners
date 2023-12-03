@@ -20,7 +20,7 @@ BuildPic = "Cleaver.bmp",
     SightDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
-
+	corpse = [[cleaver_dead]],
 --Energy and metal related
     BuildCostEnergy = 235,
     BuildCostMetal = 235,

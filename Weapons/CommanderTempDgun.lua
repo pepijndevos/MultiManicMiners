@@ -6,7 +6,7 @@ weaponDef = {
 	--physics / aiming--
 	beamTime                = 0.5,
 	beamburst  				= true,
-	lineOfSight             = true,
+	lineOfSight             = false,
 	minIntensity            = 1,      
 	range                   = 500,
 	reloadtime              = 4,

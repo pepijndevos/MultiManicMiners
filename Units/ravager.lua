@@ -25,6 +25,7 @@ explosionGenerators = {
 	[[custom:ravagermuzzleflash]],
 	},
 	},
+	corpse = [[ravager_dead]],
 --Energy and metal related
     BuildCostEnergy = 245,
     BuildCostMetal = 245,

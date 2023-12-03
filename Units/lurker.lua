@@ -20,7 +20,7 @@ BuildPic = "Lurker.bmp",
     SightDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
-
+	corpse = [[lurker_dead]],
 --Energy and metal related
     BuildCostEnergy = 320,
     BuildCostMetal = 320,

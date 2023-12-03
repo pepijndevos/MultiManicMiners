@@ -86,7 +86,7 @@ function script.FireWeapon2()
 
 end
 
-function script.Killed(recentDamage, maxHealth)
+function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return nil
+	return 1         
 end

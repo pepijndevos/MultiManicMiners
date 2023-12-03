@@ -10,7 +10,7 @@ BuildPic = "Hover Factory.bmp",
     TEDClass = "Building",
     UnitName = "Hover Factory",
     script = "hoverfactoryscript.lua",
-
+	corpse = [[hoverfactory_dead]],
 --Unit limitations and properties
     Description = "Makes Hover units. (10 buildpower)",
     MaxDamage = 3500,

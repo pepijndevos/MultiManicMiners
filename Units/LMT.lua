@@ -21,6 +21,7 @@ BuildPic = "LMT.bmp",
     SoundCategory = "Building",
     Upright = 0,
     floater = true,
+	corpse = [[lmt_dead]],
 --Energy and metal related
     BuildCostEnergy = 140,
     BuildCostMetal = 140,

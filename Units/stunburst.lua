@@ -22,6 +22,7 @@ BuildPic = "Stunburst.bmp",
     Upright = 0,
 	explodeAs = [[StunBurstExplosion]],
 	selfDestructAs = [[StunBurstExplosion]],
+	corpse = [[stunburst_dead]],
 --Energy and metal related
     BuildCostEnergy = 45,
     BuildCostMetal = 45,

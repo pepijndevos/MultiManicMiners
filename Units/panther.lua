@@ -21,6 +21,7 @@ BuildPic = "Panther.bmp",
     SoundCategory = "TANK",
     Upright = 0,
 	stealth = true,
+	corpse = [[panther_dead]],
 --Energy and metal related
     BuildCostEnergy = 290,
     BuildCostMetal = 290,

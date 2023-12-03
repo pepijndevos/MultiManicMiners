@@ -21,6 +21,7 @@ BuildPic = "Extractor.bmp",
     SoundCategory = "Building",
     Upright = 0,
     floater = true,
+	corpse = [[extractor_dead]],
 --Energy and metal related
     BuildCostEnergy = 60,
     BuildCostMetal = 60,

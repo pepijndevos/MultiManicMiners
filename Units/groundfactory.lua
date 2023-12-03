@@ -10,7 +10,7 @@ BuildPic = "Factory.bmp",
     TEDClass = "Building",
     UnitName = "Ground Factory",
     script = "factoryscript.lua",
-
+	corpse = [[groundfactory_dead]],
 --Unit limitations and properties
     Description = "Makes ground units. (10 buildpower)",
     MaxDamage = 3500,

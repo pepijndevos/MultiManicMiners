@@ -20,7 +20,7 @@ BuildPic = "flow.bmp",
     SightDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
-
+	corpse = [[flow_dead]],
 --Energy and metal related
     BuildCostEnergy = 90,
     BuildCostMetal = 90,

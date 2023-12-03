@@ -25,6 +25,7 @@ explosionGenerators = {
 	[[custom:mangonelmuzzleflash]],
 	},
 	},
+	corpse = [[mangonel_dead]],
 --Energy and metal related
     BuildCostEnergy = 450,
     BuildCostMetal = 450,

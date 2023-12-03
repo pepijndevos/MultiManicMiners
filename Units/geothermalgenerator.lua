@@ -10,7 +10,7 @@ BuildPic = "Geothermal Generator.bmp",
     TEDClass = "Building",
     UnitName = "Geothermal Generator",
     script = "geothermalgeneratorscript.lua",
-
+	corpse = [[geothermalgenerator_dead]],
 --Unit limitations and properties
     Description = "Makes 25 enegry and 5 metal. Must be placed on a geo spot.",
     MaxDamage = 2500,

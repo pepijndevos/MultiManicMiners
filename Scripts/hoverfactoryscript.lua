@@ -42,7 +42,7 @@ end
 
 
 ---death animation
-function script.Killed(recentDamage, maxHealth)
+function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Tower, SFX.SHATTER)
-	  
+	return 1
 end

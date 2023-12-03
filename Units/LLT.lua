@@ -21,6 +21,7 @@ BuildPic = "LLT.bmp",
     SoundCategory = "Building",
     Upright = 0,
     floater = true,
+	corpse = [[llt_dead]],
 --Energy and metal related
     BuildCostEnergy = 100,
     BuildCostMetal = 100,

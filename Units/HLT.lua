@@ -21,6 +21,7 @@ BuildPic = "HLT.bmp",
     SoundCategory = "Building",
     Upright = 0,
     floater = true,
+	corpse = [[hlt_dead]],
 --Energy and metal related
     BuildCostEnergy = 450,
     BuildCostMetal = 450,

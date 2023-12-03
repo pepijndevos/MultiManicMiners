@@ -20,7 +20,7 @@ BuildPic = "filename.bmp",
     SightDistance = 600,
     SoundCategory = "TANK",
     Upright = 0,
-	
+	corpse = [[commander_dead]],
 --Energy and metal related
     BuildCostEnergy = 1000,
     BuildCostMetal = 1000,

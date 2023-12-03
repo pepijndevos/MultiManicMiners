@@ -10,7 +10,7 @@ BuildPic = "BB.bmp",
     TEDClass = "Building",
     UnitName = "Big Bertha",
     script = "bbscript.lua",
-
+	corpse = [[bb_dead]],
 --Unit limitations and properties
     Description = "Large Tactical Cannon (drains 50 e per second.)",
     MaxDamage = 5600,

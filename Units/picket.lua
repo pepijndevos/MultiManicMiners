@@ -34,7 +34,7 @@ BuildPic = "Picket.bmp",
     MaxWaterDepth = 5,
     MovementClass = "Small Vechicle",
     TurnRate = 1475,
-
+	corpse = [[picket_dead]],
     
 --Abilities
     Builder = 0,

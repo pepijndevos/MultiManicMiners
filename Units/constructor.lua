@@ -20,7 +20,7 @@ BuildPic = "Constructor.bmp",
     SightDistance = 500,
     SoundCategory = "TANK",
     Upright = 0,
-
+	corpse = [[constructor_dead]],
 --Energy and metal related
     BuildCostEnergy = 80,
     BuildCostMetal = 80,

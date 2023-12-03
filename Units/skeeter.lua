@@ -25,6 +25,7 @@ explosionGenerators = {
 	[[custom:skeetermuzzleflash]],
 	},
 	},
+	corpse = [[skeeter_dead]],
 --Energy and metal related
     BuildCostEnergy = 75,
     BuildCostMetal = 75,

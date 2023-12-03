@@ -38,7 +38,7 @@ function script.FireWeapon1()
 end
 
 ---death animation
-function script.Killed(recentDamage, maxHealth)
-	Explode (TrueBase, SFX.SHATTER)
-	  
+function script.Killed(recentDamage, maxHealth, corpsetype)
+	Explode (Base, SFX.SHATTER)
+	return 1
 end
