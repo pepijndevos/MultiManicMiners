@@ -3,6 +3,8 @@
 --mangonel
 --skeeter
 --bb
+--swatter
+--stormcloud
 return {
 --hunter
   ["hunterflash"] = {
@@ -337,4 +339,136 @@ sphere = {
             },
         },	
 	},
+	--swatter
+  ["swatterflash"] = {
+    usedefaultexplosions = false,
+  spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.85 0.75 0.4 0.01   0.7 0.6 0.35 0.01   0.6 0.45 0.3 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[dir]],
+        gravity            = [[0, -0.2, 0]],
+        numparticles       = 5,
+        particlelife       = 8,
+        particlelifespread = 0,
+        particlesize       = 8,
+        particlesizespread = 0,
+        particlespeed      = 3,
+        particlespeedspread = 4,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        heat               = 4, --8
+        heatfalloff        = 1,
+        maxheat            = 4, --8
+        pos                = [[0, 1, 0]],
+        size               = 5.5, 
+        sizegrowth         = 1, 
+        speed              = [[0, 0.8, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+   },
+   --stormcloud
+   ["stormcloudflash"] = {
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 3,
+      flashalpha         = 0.9,
+      flashsize          = 46,
+      ttl                = 24,
+      color = {
+        [1]  = 1,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        heat               = 28, --8
+        heatfalloff        = 1,
+        maxheat            = 28, --8
+        pos                = [[0, 1, 0]],
+        size               = 32, 
+        sizegrowth         = 1.3, 
+        speed              = [[0, 1.5, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	dirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.04 0.03 0.02 0.05  0.4 0.3 0.2 0.5  0.04 0.03 0.02 0.05]],
+        directional        = false,
+        emitrot            = 85,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 20,
+        particlelife       = 20,
+        particlelifespread = 5.5,
+        particlesize       = 8,
+        particlesizespread = 4.5,
+        particlespeed      = 4,
+        particlespeedspread = 1.5,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 6,
+        sizemod            = 0.75,
+        texture            = [[dirt]],
+    },
+	},
+	speckdirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.02 0.015 0.01 0.075  0.2 0.15 0.1 0.75  0.02 0.015 0.01 0.075]],
+        directional        = false,
+        emitrot            = 25,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 4,
+        particlelife       = 34,
+        particlelifespread = 6,
+        particlesize       = 6,
+        particlesizespread = 3.75,
+        particlespeed      = 3.75,
+        particlespeedspread = 1.3,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 5,
+        sizemod            = 1,
+        texture            = [[randdots]],
+    },
+  },	
+   },
 }

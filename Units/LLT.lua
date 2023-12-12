@@ -51,7 +51,6 @@ YardMap = "ooooooooo",
 
 weapons = {
 [1]={name  = "LightLaser",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

@@ -1,7 +1,7 @@
 local weaponName = "ShattererLightningGun"
 weaponDef = {
 	weaponType              = "LightningCannon",
-	name                    = "Shatter Gun",
+	name                    = "Shatter Gun (Ground only)",
 	beamlaser               = 1,
 	--physics / aiming--
 	beamTTL 				= 16,
@@ -13,7 +13,8 @@ weaponDef = {
 	damage                  = {
 		default = 46,        
 		},
-	areaOfEffect            = 52,
+	areaOfEffect            = 72,
+	edgeEffectiveness       = 1,
 	craterBoost             = 0,
 	craterMult              = 0,
 	--apperance--	

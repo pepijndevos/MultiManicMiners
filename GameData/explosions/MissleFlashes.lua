@@ -1,6 +1,7 @@
 --generic
 --flow/stunburst
 --stunburststun
+--aamissleflash
 return {
    --generic
 	["genericmissleflash"] = {
@@ -256,5 +257,40 @@ return {
         texture            = [[randdots]],
     },
   },
+},
+--aamissleflash
+["pointermissleflash"] = {
+	usedefaultexplosions = false,
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        heat               = 8, --8
+        heatfalloff        = 1,
+        maxheat            = 9, --8
+        pos                = [[0, 1, 0]],
+        size               = 12, 
+        sizegrowth         = 1, 
+        speed              = [[0, 1, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[1,0.95,0.4]],
+                expansionspeed     = 3,
+                ttl                = 10,
+            },
+        },
 },
 }

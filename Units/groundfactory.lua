@@ -50,6 +50,7 @@ buildoptions =
 	[[constructor]],
 	[[stunburst]],
 	[[hunter]],
+	[[pointer]],
 	[[picket]],
 	[[cleaver]],
 	[[ravager]],

@@ -70,8 +70,10 @@ buildoptions =
 	[[storage]],
 	[[groundfactory]],
 	[[hoverfactory]],
+	[[airfactory]],
 	[[llt]],
 	[[lmt]],
+	[[aat]],
 	[[hlt]],
 	[[radartower]],
 	[[caretaker]],
@@ -85,17 +87,14 @@ buildoptions =
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
    explodeAs = [[CommanderExplosion]],
 	selfDestructAs = [[CommanderExplosion]],
     NoChaseCategory = "AIR",
 weapons = {
 [1]={name  = "RapidCommanderLaser",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 [2]={name  = "CommanderTempDLaser",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

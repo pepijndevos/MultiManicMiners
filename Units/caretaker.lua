@@ -35,12 +35,12 @@ BuildPic = "Caretaker.bmp",
 
 --Abilities
     CanAttack = 1,
-    CanGuard = 0,
+    CanGuard = 1,
     CanMove = 0,
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     

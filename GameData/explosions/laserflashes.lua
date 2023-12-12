@@ -6,6 +6,8 @@
 --panther
 --shatterer
 --commander2
+--hawk
+--harpy
 return {
 --llt
   ["llthit"] = {
@@ -356,7 +358,7 @@ return {
       circlegrowth       = 4,
       flashalpha         = 0.8,
       flashsize          = 34,
-      ttl                = 13,
+      ttl                = 14,
       color = {
         [1]  = 0.35,
         [2]  = 0.6,
@@ -428,7 +430,7 @@ return {
                 alwaysvisible      = true,
                 color              = [[0.35,0.6,1]],
                 expansionspeed     = 6.2,
-                ttl                = 14,
+                ttl                = 16,
             },
         },
 },
@@ -485,6 +487,124 @@ return {
                 alwaysvisible      = true,
                 color              = [[1,0.4,0.4]],
                 expansionspeed     = 5,
+                ttl                = 12,
+            },
+        },
+},
+--hawk
+["hawkhit"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 0,
+      flashalpha         = 0.8,
+      flashsize          = 7,
+      ttl                = 5,
+	  ground             = true,
+	  air				 = false,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+   spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.8 0.8 0.4 0.01   0.7 0.7 0.3 0.01   0.55 0.55 0.15 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 5,
+        particlelife       = 13,
+        particlelifespread = 2,
+        particlesize       = 4,
+        particlesizespread = 2,
+        particlespeed      = 4,
+        particlespeedspread = 18, --4
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[0.8,0.8,0.4]],
+                expansionspeed     = 3,
+                ttl                = 8,
+            },
+        },
+},
+--harpy
+["harpyhit"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 1,
+      flashalpha         = 0.8,
+      flashsize          = 12,
+      ttl                = 8.5,
+	  --ground             = true,
+	  --air				 = false,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+   spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.8 0.8 0.4 0.01   0.7 0.7 0.3 0.01   0.55 0.55 0.15 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 6,
+        particlelife       = 14,
+        particlelifespread = 2.5,
+        particlesize       = 4.5,
+        particlesizespread = 2.5,
+        particlespeed      = 5,
+        particlespeedspread = 20,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[0.8,0.8,0.4]],
+                expansionspeed     = 3,
                 ttl                = 12,
             },
         },

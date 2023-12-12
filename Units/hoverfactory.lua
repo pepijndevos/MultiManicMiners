@@ -50,8 +50,9 @@ buildoptions =
 	[[hoverconstructor]],
 	[[skeeter]],
 	[[flow]],
-	[[lurker]],
+	[[swatter]],
 	[[shatterer]],
+	[[lurker]],
 	},
 	--Hitbox
 collisionVolumeOffsets    =  "0 0 -7.5",

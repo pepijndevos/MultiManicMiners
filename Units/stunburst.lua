@@ -13,7 +13,7 @@ BuildPic = "Stunburst.bmp",
 
 --Unit limitations and properties
     Description = "Light Scout/Raider Support.",
-    MaxDamage = 200,
+    MaxDamage = 155,
     idleTime = 150,
     idleAutoHeal = 10,
     RadarDistance = 0,
@@ -47,7 +47,7 @@ BuildPic = "Stunburst.bmp",
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     
@@ -59,19 +59,16 @@ collisionVolumeType       =  "box",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
-    NoChaseCategory = "AIR",
+
 
 
 
 weapons = {
 [1]={name  = "DualStunMissles",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 	
 [2]={name  = "DualMissles",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 	

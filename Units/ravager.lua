@@ -50,7 +50,7 @@ explosionGenerators = {
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     
@@ -62,7 +62,6 @@ collisionVolumeType       =  "box",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
 	explodeAs = [[MediumExplosion]],
 	selfDestructAs = [[MediumExplosion]],
     NoChaseCategory = "AIR",
@@ -71,7 +70,6 @@ collisionVolumeType       =  "box",
 
 weapons = {
 [1]={name  = "PlasmaGun",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

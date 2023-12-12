@@ -44,7 +44,7 @@ BuildPic = "Picket.bmp",
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     
@@ -56,7 +56,6 @@ collisionVolumeType       =  "box",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
    	explodeAs = [[SmallExplosion]],
 	selfDestructAs = [[SmallExplosion]],
     NoChaseCategory = "AIR",
@@ -65,7 +64,6 @@ collisionVolumeType       =  "box",
 
 weapons = {
 [1]={name  = "Rocket",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

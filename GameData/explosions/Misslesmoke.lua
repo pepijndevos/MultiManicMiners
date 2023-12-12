@@ -1,4 +1,5 @@
 --thanks xta for always has nice effects!
+--default
 local cegs = {
   ["Rocket_trail"] = {
     usedefaultexplosions = false,
@@ -64,6 +65,7 @@ local cegs = {
       },
     },
    },
+   --stunburst
  ["StunburstRocket_trail"] = {
     usedefaultexplosions = false,
     exhale = {
@@ -128,6 +130,54 @@ local cegs = {
       },
     },
    },
-   
+   --wingtrail
+   ["AAMissleTrail"] = {
+    usedefaultexplosions = false,
+     largeflash = {
+      air                = true,
+      class              = [[CBitmapMuzzleFlame]],
+      count              = 1,
+      ground             = true,
+      underwater         = 1,
+      water              = true,
+      properties = {
+        colormap           = [[1 1 1 0.01 1 1 1 0.18 0 0 0 0.01]],
+        dir                = [[dir]],
+        frontoffset        = 0,
+        length             = -24, 
+        sidetexture        = [[smoketrail]],
+        size               = -0.75,
+        sizegrowth         = 0,
+        ttl                = 18,
+      },
+    },
+    exhale = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[1 1 1 0.01 0.1 0.1 0.1 0.18 0.0 0.0 0.0 0.01]],
+        directional        = false,
+        emitrot            = 0,
+        emitrotspread      = 20,
+        emitvector         = [[dir]],
+        gravity            = [[0, 0, 0]],
+        numparticles       = 2,
+        particlelife       = 30,
+        particlelifespread = 4.2,
+        particlesize       = 2,
+        particlesizespread = 0.75,
+        particlespeed      = 1,
+        particlespeedspread = 2,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0.65,
+        sizemod            = 1.0,
+        texture            = [[newsmoke]],
+      },
+    },
+	},
 }
 return cegs

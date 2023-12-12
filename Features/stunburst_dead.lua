@@ -1,7 +1,7 @@
 return lowerkeys({
   stunburst_dead = {
             description = "dead stunburst :(",
-            damage = 100,
+            damage = 77.5,
             object = "dead/StunburstDED.s3o",
             footprintz = 2,
             footprintx = 2,
@@ -19,7 +19,7 @@ return lowerkeys({
 },
 stunburst_heap = {
             description = "very dead stunburst :(",
-            damage = 20,
+            damage = 15.5,
             object = "dead/Pieces_Small.s3o",
             footprintz = 2,
             footprintx = 2,

@@ -1,7 +1,7 @@
 local weaponName = "HeavyLaser"
 weaponDef = {
 	weaponType              = "BeamLaser",
-	name                    = "Heavy Laser",
+	name                    = "Heavy Laser (Ground only)",
 	beamlaser               = 1,
 	--physics / aiming--
 	beamTime                = 0.1,

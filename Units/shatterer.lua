@@ -45,7 +45,7 @@ BuildPic = "Shatterer.bmp",
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     
@@ -57,7 +57,6 @@ BuildPic = "Shatterer.bmp",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
 	explodeAs = [[MediumExplosion]],
 	selfDestructAs = [[MediumExplosion]],
     NoChaseCategory = "AIR",

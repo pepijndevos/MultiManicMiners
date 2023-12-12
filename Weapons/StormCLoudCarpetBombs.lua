@@ -1,0 +1,34 @@
+local weaponName = "CarpetBombs"
+local weaponDef = {
+	      name                    = "Carpet Bombs",
+	      weaponType              = [[AircraftBomb]],
+	      --damage
+		  damage = {
+				default = 120, --80
+				},	      
+		  --physics
+		  areaOfEffect			  = 102,
+		  edgeEffectiveness       = 0.75,
+		  weaponVelocity          = 1200, --850
+		  reloadtime              = 25,
+		  range                   = 500,
+		  sprayAngle              = 8000,
+	      tolerance               = 8000,
+		  lineOfSight             = true,
+ 		  avoidfriendly 	= true,
+		  avoidGround 		= true,
+			
+	      turret                  = true,
+		  craterMult              = 0,
+		  burst					  = 20,
+		  burstrate 			  = 0.1,
+		  soundStart            = [[Weapons/bomb_drop]],
+		  soundStartVolume        = 4,	
+		  soundHit				= [[Weapons/bomb_hit]],
+		  soundHitVolume		  = 4,
+		  --apperance
+		  rgbColor                = [[1 0.75 0.4]],		  	      
+          size                    = 6,
+		  explosionGenerator = [[custom:stormcloudflash]],
+		  }
+return lowerkeys({[weaponName] = weaponDef})

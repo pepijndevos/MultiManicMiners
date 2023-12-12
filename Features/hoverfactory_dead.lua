@@ -19,7 +19,7 @@ return lowerkeys({
 },
 hoverfactory_heap = {
             description = "very dead hover factory  :(",
-            damage = 250,
+            damage = 350,
             object = "dead/Pieces_ExBig.s3o",
             footprintz = 4,
             footprintx = 4,

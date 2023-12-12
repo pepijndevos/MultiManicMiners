@@ -53,7 +53,6 @@ YardMap = "ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo
 
 weapons = {
 [1]={name  = "BBBigCannon",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

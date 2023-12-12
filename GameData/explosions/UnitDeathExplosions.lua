@@ -5,7 +5,10 @@
 --Geothermaldeath
 --Factorydeath
 --BBdeath
+--smallairdeath
+--mediumairdeath
 return {
+--Stunburstdeath
     ["Stunburstdeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -52,6 +55,7 @@ return {
 	},
    },
   },
+  --smallunitdeath
   ["Smalldeath"] = {
 	usedefaultexplosions = false,
         groundflash = {
@@ -342,6 +346,78 @@ return {
         color              = [[1,0.95,0.4]],
         expansionspeed     = 8,
         ttl                = 36,
+	},
+   },
+  },
+  --smallairdeath
+  ["Smallairdeath"] = {
+	usedefaultexplosions = false,
+        mainhit = {
+            air                = true,
+            class              = [[heatcloud]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+
+            properties = {
+                heat               = 11,
+                heatfalloff        = 1,
+                maxheat            = 11,
+                pos                = [[0, 0, 0]],
+                size               = 14, 
+                sizegrowth         = 1, 
+                speed              = [[0, 0.5, 0]],
+                texture            = [[heatcloud]],
+            },
+        },
+		explosionsphere  = {
+      air                = true,
+      class              = [[CSpherePartSpawner]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+	  
+      properties = {
+        alpha              = 0.5,
+        color              = [[1,0.95,0.4]],
+        expansionspeed     = 3.2,
+        ttl                = 16,
+	},
+   },
+  },
+  --mediumairdeath
+  ["Mediumairdeath"] = {
+	usedefaultexplosions = false,
+        mainhit = {
+            air                = true,
+            class              = [[heatcloud]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+
+            properties = {
+                heat               = 17,
+                heatfalloff        = 1,
+                maxheat            = 17,
+                pos                = [[0, 1, 0]],
+                size               = 20, 
+                sizegrowth         = 1.2, 
+                speed              = [[0, 1, 0]],
+                texture            = [[heatcloud]],
+            },
+        },
+		explosionsphere  = {
+      air                = true,
+      class              = [[CSpherePartSpawner]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+	  
+      properties = {
+        alpha              = 0.5,
+        color              = [[1,0.95,0.4]],
+        expansionspeed     = 4.25,
+        ttl                = 18,
 	},
    },
   },

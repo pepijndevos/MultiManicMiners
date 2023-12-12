@@ -47,7 +47,7 @@ BuildPic = "Panther.bmp",
     CanPatrol = 1,
     CanStop = 1,
     LeaveTracks = 0,
-    Reclaimable = 0,
+    Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
     activateWhenBuilt = 1,
@@ -59,7 +59,6 @@ BuildPic = "Panther.bmp",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
 	explodeAs = [[MediumExplosion]],
 	selfDestructAs = [[MediumExplosion]],
     NoChaseCategory = "AIR",
@@ -68,12 +67,10 @@ BuildPic = "Panther.bmp",
 
 weapons = {
 [1]={name  = "PantherLightningGun", --PantherLightningGun
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 	
 [2]={name  = "PantherLightningGunStun",  --PantherLightningGunStun
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },

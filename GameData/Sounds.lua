@@ -219,6 +219,42 @@ local Sounds = {
 			maxconcurrent = 50, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
+		LightLaser3 = {			
+			file = "Sounds/Explosions/LightLaser3.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		MiniFlak= {			
+			file = "Sounds/Explosions/Swatter_emg.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 1000, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+				BombDrop= {			
+			file = "Sounds/Explosions/bomb_drop.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 1000, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+				BombHit= {			
+			file = "Sounds/Explosions/bomb_hit.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 1000, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
 	},
 	}
 	

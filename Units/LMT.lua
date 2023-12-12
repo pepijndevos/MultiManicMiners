@@ -52,7 +52,6 @@ YardMap = "ooooooooo",
 
 weapons = {
 [1]={name  = "LMTMissle",
-	   onlyTargetCategory = [[Tank]],
        turret = true
 	},
 },
