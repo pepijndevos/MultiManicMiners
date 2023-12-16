@@ -228,7 +228,7 @@ local Sounds = {
 			maxconcurrent = 50, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
-		MiniFlak= {			
+		MiniFlak = {			
 			file = "Sounds/Explosions/Swatter_emg.wav",
 			preload, -- put in memory!
 			gain = 1, --- for uber-loudness
@@ -237,7 +237,7 @@ local Sounds = {
 			maxconcurrent = 1000, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
-				BombDrop= {			
+				BombDrop = {			
 			file = "Sounds/Explosions/bomb_drop.wav",
 			preload, -- put in memory!
 			gain = 1, --- for uber-loudness
@@ -246,7 +246,7 @@ local Sounds = {
 			maxconcurrent = 1000, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
-				BombHit= {			
+				BombHit = {			
 			file = "Sounds/Explosions/bomb_hit.wav",
 			preload, -- put in memory!
 			gain = 1, --- for uber-loudness

@@ -23,9 +23,9 @@ BuildPic = "LMT.bmp",
     floater = true,
 	corpse = [[lmt_dead]],
 --Energy and metal related
-    BuildCostEnergy = 140,
-    BuildCostMetal = 140,
-    buildTime = 140,
+    BuildCostEnergy = 150,
+    BuildCostMetal = 150,
+    buildTime = 150,
 
 
 --Size and Abilites

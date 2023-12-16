@@ -24,9 +24,9 @@ BuildPic = "Dove.bmp",
 	selfDestructAs = [[SmallAirExplosion]],
    corpse = [[dove_dead]],
 --Energy and metal related
-    BuildCostEnergy = 160,
-    BuildCostMetal = 160,
-    BuildTime = 160,
+    BuildCostEnergy = 140,
+    BuildCostMetal = 140,
+    BuildTime = 140,
 --Pathfinding and related
     maxAcc = 0.4,
     BrakeRate = 0.1,
@@ -58,7 +58,7 @@ cruiseAlt = 325, --375
 canLoopbackAttack = true,
 maxRudder = 0.009,
 maxElevator = 0.023,
-
+turnradius = 20,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 0 0",

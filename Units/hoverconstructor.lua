@@ -12,7 +12,7 @@ BuildPic = "Hover Constructor.bmp",
     script = "hoverconstructorscript.lua",
 
 --Unit limitations and properties
-    Description = "Hover Builder. (5 buildpower)",
+    Description = "Hover Builder.",
     MaxDamage = 400,
     idleTime = 300,
     idleAutoHeal = 0,

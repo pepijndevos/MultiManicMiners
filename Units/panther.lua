@@ -20,13 +20,13 @@ BuildPic = "Panther.bmp",
     SightDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
-	stealth = true,
+	--stealth = true, now a part of stealth_defs
 	corpse = [[panther_dead]],
 --Energy and metal related
-    BuildCostEnergy = 290,
-    BuildCostMetal = 290,
-	BuildTime = 290,
-	energyUpkeep = 1.6,
+    BuildCostEnergy = 300,
+    BuildCostMetal = 300,
+	BuildTime = 300,
+	--energyUpkeep = 1.6, now a part of stealth_defs
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,

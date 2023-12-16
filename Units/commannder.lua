@@ -12,7 +12,7 @@ BuildPic = "filename.bmp",
     script = "commanderscript.lua",
 
 --Unit limitations and properties
-    Description = "Commander, Make sure not to lose it! (15 buildpower)",
+    Description = "Commander, Make sure not to lose it!",
     MaxDamage = 3750,
     idleTime = 0,
     idleAutoHeal = 10,

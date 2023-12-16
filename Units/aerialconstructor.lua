@@ -12,7 +12,7 @@ BuildPic = "Aerial Constructor.bmp",
     script = "aerialconstructorscript.lua",
 
 --Unit limitations and properties
-    Description = "Flying Builder. (4 buildpower)",
+    Description = "Flying Builder.",
     MaxDamage = 375,
     idleTime = 300,
     idleAutoHeal = 5,

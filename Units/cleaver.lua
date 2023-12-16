@@ -13,7 +13,7 @@ BuildPic = "Cleaver.bmp",
 
 --Unit limitations and properties
     Description = "Slow riot unit.",
-    MaxDamage = 1000,
+    MaxDamage = 1175,
     idleTime = 300,
     idleAutoHeal = 5,
     RadarDistance = 0,

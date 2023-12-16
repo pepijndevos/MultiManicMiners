@@ -1,6 +1,8 @@
 -- Body and gun
 local Base = piece "Base"
 local Body = piece "Body"
+local TurretHolder1 = piece "TurretHolder1"
+local TurretHolder2 = piece "TurretHolder2"
 local Turret1 = piece "Turret1"
 local Turret2 = piece "Turret2"
 local Flare1 = piece "Flare1"
@@ -19,7 +21,7 @@ end
 
 ----aimining & fire weapon
 function script.AimFromWeapon1() 
- return TurretHolder1
+ return Turret1
 	
 end
 
@@ -45,7 +47,7 @@ function script.FireWeapon1()
 end
 
 function script.AimFromWeapon2() 
- return TurretHolder2
+ return Turret2
 	
 end
 
@@ -62,6 +64,8 @@ function script.AimWeapon2( heading, pitch )
 	Turn(Turret2, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret1, y_axis)
 	WaitForTurn(Turret2, y_axis)
+	WaitForTurn(Turret1, x_axis)
+	WaitForTurn(Turret2, x_axis)
     return true
 end
 

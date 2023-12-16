@@ -55,7 +55,7 @@ BuildPic = "Stormcloud.bmp",
 canFly = 1,
 hoverAttack = 0,
 cruiseAlt = 375, --375
-
+turnradius = 20,
 
 
 --Hitbox

@@ -441,12 +441,12 @@ return {
       circlealpha        = 1,
       circlegrowth       = 3,
       flashalpha         = 0.8,
-      flashsize          = 18,
-      ttl                = 8,
+      flashsize          = 36,
+      ttl                = 10,
       color = {
         [1]  = 1,
-        [2]  = 0.4,
-        [3]  = 0.4,
+        [2]  = 0.6,
+        [3]  = 0.25,
       },
     },
    spark = {
@@ -457,7 +457,7 @@ return {
 	  water              = true,
       properties = {
         airdrag            = 0.97,
-        colormap           = [[1 0.4 0.4 0.01   0.8 0.3 0.3 0.01   0.6 0.15 0.15 0.01   0 0 0 0.01]],
+        colormap           = [[1 0.6 0.25 0.01   0.8 0.5 0.2 0.01   0.6 0.35 0.15 0.01   0 0 0 0.01]],
         directional        = true,
         emitrot            = 0,
         emitrotspread      = 40,
@@ -485,9 +485,9 @@ return {
             properties = {
                 alpha              = 0.5,
                 alwaysvisible      = true,
-                color              = [[1,0.4,0.4]],
+                color              = [[1,0.6,0.25]],
                 expansionspeed     = 5,
-                ttl                = 12,
+                ttl                = 16,
             },
         },
 },

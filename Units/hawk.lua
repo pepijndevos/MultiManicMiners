@@ -58,7 +58,7 @@ cruiseAlt = 325, --375
 canLoopbackAttack = true,
 maxRudder = 0.008,
 maxElevator = 0.02,
-
+turnradius = 20,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 0 0",

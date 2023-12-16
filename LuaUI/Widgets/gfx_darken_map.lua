@@ -16,7 +16,7 @@ end
 
 
 local mapMargin = 20000
-local darknessvalue = 0
+local darknessvalue = 0 --0 
 local darknessIncrease = 'Ctrl+Alt+]'
 local darknessDecrease = 'Ctrl+Alt+['
 local darknessStep = 0.02

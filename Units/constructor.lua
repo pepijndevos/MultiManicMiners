@@ -12,7 +12,7 @@ BuildPic = "Constructor.bmp",
     script = "constructorscript.lua",
 
 --Unit limitations and properties
-    Description = "Builder. (5 buildpower)",
+    Description = "Basic Builder.",
     MaxDamage = 500,
     idleTime = 300,
     idleAutoHeal = 0,

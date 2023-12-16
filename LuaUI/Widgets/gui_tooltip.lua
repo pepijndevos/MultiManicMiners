@@ -179,7 +179,7 @@ function GetTooltipBuildPower(buildSpeed)
 	-- 13m/12 = time * spd / 11
 	-- m/time = 12*spd / (11*13) 
 	
-	return "\255\255\255\150Build Power: ".. FormatNbr(buildSpeed / 3).." Googolnanos per second"
+	return "\255\255\255\150Build Power: ".. FormatNbr(buildSpeed).." Googolnanos/Buildpower per second"
 end
 
 	

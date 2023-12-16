@@ -22,9 +22,9 @@ BuildPic = "Shatterer.bmp",
     Upright = 0,
 	corpse = [[shatterer_dead]],
 --Energy and metal related
-    BuildCostEnergy = 300,
-    BuildCostMetal = 300,
-	BuildTime = 300,
+    BuildCostEnergy = 275,
+    BuildCostMetal = 275,
+	BuildTime = 275,
 --Pathfinding and related
     maxAcc = 0.3,
     BrakeRate = 0.1,
