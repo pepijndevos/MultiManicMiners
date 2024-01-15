@@ -43,7 +43,7 @@ BuildPic = "AAT.bmp",
 
 --Hitbox
  collisionVolumeOffsets    =  "0 25 0",
- collisionVolumeScales     =  "25 92 25",
+ collisionVolumeScales     =  "25 75 25",
  collisionVolumeType       =  "box",
 YardMap = "ooooooooo",
 --Weapons and related
@@ -52,6 +52,7 @@ YardMap = "ooooooooo",
 
 weapons = {
 [1]={name  = "AATMissle",
+onlyTargetCategory = [[AIR]],
        turret = true
 	},
 },

@@ -14,9 +14,20 @@ local Laser = 1
 local LaserNumber = 2
 aimSpeed = 6.5
 local wheel_speed = math.rad(180)
-
+local SIG_AIM = 1
 function script.Create()
 end
+
+local function RestoreAfterDelay()
+Sleep(2000)
+	Turn(Turret, y_axis, 0, aimSpeed)
+      Turn(TurretMuzzle1, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle2, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretMuzzle1, x_axis)
+	WaitForTurn(TurretMuzzle2, x_axis)
+end
+
 
 function script.StartMoving()
     Signal(SIG_DELAYEDSTOP)
@@ -48,45 +59,35 @@ function script.AimFromWeapon1()
 end
 
 function script.QueryWeapon1()
-return Flare1 
+	if (Laser == 1) then return Flare1 end
+	if (Laser == 2) then return Flare2 end
 
 end
 
 function script.AimWeapon1( heading, pitch )
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
-function script.FireWeapon2()	
-
-end
-
-function script.AimFromWeapon2() 
-	return Turret
-	
-end
-
-function script.QueryWeapon2()
-return Flare2
-
-end
-
-function script.AimWeapon2( heading, pitch )
-    Turn(Turret, y_axis, heading, aimSpeed)
-    Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
-	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
-    WaitForTurn(Turret, y_axis)
-    return true
-end
-
-function script.FireWeapon2()	
-
+function script.Shot1()	
+	--switch to the next barrel:
+	Laser = Laser + 1
+	--if all barrels have fired, start the cyclus from the beginning:
+	if (Laser > LaserNumber) then Laser = 1 end
 end
 
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return 1         
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
+	return 1
+	else
+	return 2 
+	end         
 end

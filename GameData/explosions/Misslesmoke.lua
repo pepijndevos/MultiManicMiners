@@ -65,8 +65,8 @@ local cegs = {
       },
     },
    },
-   --stunburst
- ["StunburstRocket_trail"] = {
+   --small
+ ["SmallRocket_trail"] = {
     usedefaultexplosions = false,
     exhale = {
       air                = true,
@@ -119,6 +119,71 @@ local cegs = {
       water              = true,
       properties = {
         colormap           = [[1.0 0.3 0.2 0.01 0.4 0.2 0.1 0.01 0 0 0 0.01]],
+        dir                = [[dir]],
+        frontoffset        = 0,
+        fronttexture       = [[muzzlefront]],
+        length             = -16,
+        sidetexture        = [[muzzleside]],
+        size               = -4,
+        sizegrowth         = 0.6,
+        ttl                = 1,
+      },
+    },
+   },
+   --smallstun
+   ["SmallStunRocket_trail"] = {
+    usedefaultexplosions = false,
+    exhale = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.35 0.6 1 0.01 0.1 0.1 0.2 0.18 0.0 0.0 0.0 0.01]],
+        directional        = false,
+        emitrot            = 0,
+        emitrotspread      = 20,
+        emitvector         = [[dir]],
+        gravity            = [[0, 0, 0]],
+        numparticles       = 2,
+        particlelife       = 30,
+        particlelifespread = 4.2,
+        particlesize       = 2,
+        particlesizespread = 0.75,
+        particlespeed      = 1,
+        particlespeedspread = 2,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0.65,
+        sizemod            = 1.0,
+        texture            = [[newsmoke]],
+      },
+    },
+    groundflash = {
+      air                = true,
+      circlealpha        = 0,
+      circlegrowth       = 0,
+      flashalpha         = 0.40,
+      flashsize          = 15,
+      ground             = true,
+      ttl                = 5,
+      water              = true,
+      color = {
+        [1]  = 0.35,
+        [2]  = 0.6,
+        [3]  = 1,
+      },
+    },
+    largeflash = {
+      air                = true,
+      class              = [[CBitmapMuzzleFlame]],
+      count              = 1,
+      ground             = true,
+      underwater         = 1,
+      water              = true,
+      properties = {
+        colormap           = [[0.35 0.6 1 0.01 0.15 0.4 0.8 0.01 0 0 0 0.01]],
         dir                = [[dir]],
         frontoffset        = 0,
         fronttexture       = [[muzzlefront]],

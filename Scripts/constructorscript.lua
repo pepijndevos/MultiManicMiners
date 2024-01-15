@@ -6,8 +6,17 @@ local TurretBuilder = piece "TurretBuilder"
 local Flare = piece "Flare"
 aimSpeed = 3.0
 
+local SIG_AIM = 1
+
 Spring.SetUnitNanoPieces(unitID, { Flare })
 
+local function Restore()
+Sleep(2000)
+     Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(Flare, y_axis, 0, 1)
+	WaitForTurn(Turret, y_axis)
+	WaitForTurn(Flare, y_axis)
+end
 
 function script.Create()
 end
@@ -27,11 +36,17 @@ end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
+StartThread(Restore)
 end
 
 
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return 1         
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
+	return 1
+	else
+	return 2 
+	end         
 end

@@ -6,12 +6,21 @@ local TurretMuzzle = piece "TurretMuzzle"
 local Flare = piece "Flare"
 aimSpeed = 3.3
 
+local SIG_AIM = 1
 
 function script.Create()
 	
 end
 
 SIG_DELAYEDSTOP = 1
+
+local function RestoreAfterDelay()
+Sleep(2000)
+	Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(TurretMuzzle, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretMuzzle, X_axis)
+end
 
 
 ----aimining & fire weapon
@@ -25,11 +34,14 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
 
     --aiming animation: instantly turn the gun towards the enemy
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -63,5 +75,10 @@ end
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return 1         
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
+	return 1
+	else
+	return 2 
+	end     
 end

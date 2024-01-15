@@ -11,7 +11,7 @@ local weaponDef = {
 		  --physics
 		  weaponVelocity          = 500,
 		  reloadtime              = 0.75,
-		  range                   = 225,
+		  range                   = 210,
 		  sprayAngle              = 3000,
 	      tolerance               = 8000,
 		  lineOfSight             = true,
@@ -20,7 +20,7 @@ local weaponDef = {
 	      turret                  = true,
 		  craterMult              = 0,
 		  burstRate               = 0,
-		  projectiles 			  = 12,
+		  projectiles 			  = 13,
 		  soundStart = [[Weapons/shotgun]],
 		  soundStartVolume = 3,
 		  --apperance

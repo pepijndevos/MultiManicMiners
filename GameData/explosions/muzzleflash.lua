@@ -3,6 +3,8 @@
 --ravager
 --mangonel
 --swatter
+--bb
+--geothermalplasmacannon
 return {
 --hunter
 	["huntermuzzleflash"] = {
@@ -133,6 +135,28 @@ return {
         size               = 2,
         sizegrowth         = -0.75,
         ttl                = 15,
+      },
+    },
+  },
+  --geothermalplasmacannon
+	["geothermalmuzzleflash"] = {
+    bitmapmuzzleflame = {
+      air                = true,
+      class              = [[CBitmapMuzzleFlame]],
+      count              = 1,
+      ground             = true,
+      underwater         = 1,
+      water              = true,
+      properties = {
+        colormap           = [[1 0.95 0.4 0.01   1 0.8 0.35 0.01   1 0.5 0.2 0.01   0 0 0 0.01]],
+        dir                = [[dir]],
+        frontoffset        = 0,
+        fronttexture       = [[muzzlefront]],
+        length             = 125,
+        sidetexture        = [[muzzleside]],
+        size               = 25,
+        sizegrowth         = -2,
+        ttl                = 35,
       },
     },
   },

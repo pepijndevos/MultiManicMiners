@@ -4,14 +4,14 @@ local weaponDef = {
 	      weaponType              = [[Cannon]],
 	      --damage
 		  damage = {
-				default = 14.6, --18.8
+				default = 11.3, --18.8
 				},	      
 		  --physics
 		  areaOfEffect 			  = 6,
 		  weaponVelocity          = 1000,
 		  reloadtime              = 0.08,
 		  range                   = 675,
-		  accuracy                = 525, --735
+		  accuracy                = 0, --735 --350
 	      tolerance               = 8000,
 		  lineOfSight             = true,
  		  avoidfriendly 	= true,

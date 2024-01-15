@@ -8,9 +8,13 @@ local Flare1 = piece "Flare1"
 local Flare2 = piece "Flare2"
 aimSpeed = 3.0
 
-
-
-
+local function Restore()
+Sleep(2000)
+Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(Flare1, y_axis, 0, 1)
+	Turn(Flare2, y_axis, 0, 1)
+	WaitForTurn(Turret, y_axis)
+end
 
 
 function script.Create()
@@ -19,10 +23,10 @@ end
 function script.QueryNanoPiece()
 	local dice = math.random (1,2)
 	if (dice == 1) then
-		Spring.SetUnitNanoPieces(unitID, { Flare1 })
+		--Spring.SetUnitNanoPieces(unitID, { Flare1 })
 		return Flare1
 	else
-		Spring.SetUnitNanoPieces(unitID, { Flare2 })
+		--Spring.SetUnitNanoPieces(unitID, { Flare2 })
 		return Flare2
 	end
 end
@@ -33,11 +37,12 @@ function script.StartBuilding(heading, pitch)
 	Turn(Flare2, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
-
+	StartThread(Restore)
 end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
+StartThread(Restore)
 end
 
 

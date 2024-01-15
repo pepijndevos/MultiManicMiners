@@ -20,7 +20,7 @@ weaponDef = {
 	sprayAngle = 800,
 	--damage--
 	damage                  = {
-		default = 45,        
+		default = 40,        
 		},
 	areaOfEffect            = 10,
 	craterBoost             = 0,

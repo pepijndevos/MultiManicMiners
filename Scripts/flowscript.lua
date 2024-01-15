@@ -17,6 +17,23 @@ local LaserNumber = 4
 aimSpeed = 3.5
 local on = true
 
+local SIG_AIM = 1
+
+
+local function RestoreAfterDelay()
+Sleep(2000)
+ Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(TurretMuzzle1, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle2, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle3, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle4, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretMuzzle1, x_axis)
+	WaitForTurn(TurretMuzzle2, x_axis)
+	WaitForTurn(TurretMuzzle3, x_axis)
+	WaitForTurn(TurretMuzzle4, x_axis)
+end
+
 
 function script.Create()
 end
@@ -35,12 +52,15 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle3, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle4, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -51,5 +71,10 @@ end
 
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
 	return 1
+	else
+	return 2 
+	end
 end

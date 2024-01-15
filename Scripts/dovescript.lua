@@ -11,7 +11,21 @@ local WingEffect1 = piece "WingEffect1"
 local WingEffect2 = piece "WingEffect2"
 aimSpeed = 8.25
 
---effects
+local SIG_AIM = 1
+
+
+local function RestoreAfterDelay()
+Sleep(2000)
+ Turn(Turret1, y_axis, 0, aimSpeed)
+	Turn(Turret2, y_axis, 0, aimSpeed)
+    Turn(Turret1, x_axis, 0, aimSpeed)
+	Turn(Turret2, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret1, y_axis)
+	WaitForTurn(Turret2, y_axis)
+	WaitForTurn(Turret1, x_axis)
+	WaitForTurn(Turret2, x_axis)
+		StartThread(RestoreAfterDelay)
+end
 
 function script.Create()
 	
@@ -30,7 +44,8 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
-
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     --aiming animation: instantly turn the gun towards the enemy
     Turn(Turret1, y_axis, heading, aimSpeed)
 	Turn(Turret2, y_axis, heading, aimSpeed)
@@ -40,6 +55,7 @@ function script.AimWeapon1( heading, pitch )
 	WaitForTurn(Turret2, y_axis)
 	WaitForTurn(Turret1, x_axis)
 	WaitForTurn(Turret2, x_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -56,7 +72,8 @@ function script.QueryWeapon2()
 end
 
 function script.AimWeapon2( heading, pitch )
-
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     --aiming animation: instantly turn the gun towards the enemy
     Turn(Turret1, y_axis, heading, aimSpeed)
 	Turn(Turret2, y_axis, heading, aimSpeed)
@@ -66,6 +83,7 @@ function script.AimWeapon2( heading, pitch )
 	WaitForTurn(Turret2, y_axis)
 	WaitForTurn(Turret1, x_axis)
 	WaitForTurn(Turret2, x_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -75,5 +93,10 @@ end
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
 	return 1
+	else
+	return 2 
+	end
 end

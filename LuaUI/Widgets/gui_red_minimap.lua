@@ -6,30 +6,28 @@ function widget:GetInfo()
 	author    = "Regret",
 	date      = "December 7, 2009", --last change December 11,2009
 	license   = "GNU GPL, v2 or later",
-	layer     = -11,
+	layer     = 9999999,
 	enabled   = true, --enabled by default
 	handler   = true, --can use widgetHandler:x()
 	}
 end
 local rescalevalue = 1.26
-local buttonScale = 1.0
+local buttonScale = 0.5
 local NeededFrameworkVersion = 8
 local CanvasX,CanvasY = 1272/rescalevalue,734/rescalevalue --resolution in which the widget was made (for 1:1 size)
 --1272,734 == 1280,768 windowed
-local Echo = Spring.Echo
-local _,vsy 	= gl.GetViewSizes()
-local limitY = 0.1953125 * vsy
-local ratio = Game.mapX/Game.mapY
-local lRatio = WG.buildmenuX/limitY
+
+
+
 
 local Config = {
 	minimap = {
 		px = -0.5,py = -0.5, --default start position
-		sx = ratio > lRatio and WG.buildmenuX or ratio * limitY or 135, 
-		sy = ratio > lRatio and 1/ratio * WG.buildmenuX  or limitY, --background size
+		sx = 0,sy = 145, --background size
+		
 		bsx = 15,bsy = 15, --button size
 
-		fadetime = 0.10, --fade effect time, in seconds
+		fadetime = 0.25, --fade effect time, in seconds
 		fadedistance = 100, --distance from cursor at which console shows up when empty
 		
 		cresizebackground = {0.9,0.9,0.9,0.5}, --color {r,g,b,alpha}
@@ -38,9 +36,9 @@ local Config = {
 		cmovebackground = {0,1,0,0.5},
 		cmovecolor = {0.9,0.9,0.9,0.8},
 		
-		cborder = {0.3,0.3,0.3,0.3},
-		cbackground = {0,0,0,0.35},
-		cbordersize = 2,
+		cborder = {0,0,0,0},
+		cbackground = {0,0,0,0}, --0.55
+		cbordersize = 3.5,
 		
 		dragbutton = {1}, --left mouse button
 		tooltip = {
@@ -48,6 +46,72 @@ local Config = {
 		},
 	},
 }
+
+local leftClickDraggingCamera = false
+
+function widget:MousePress(x, y, button)
+	if not Spring.IsAboveMiniMap(x, y) then
+		return false
+	end
+	if Spring.GetActiveCommand() == 0 then
+		if (button == 1) or button == 2 then
+		
+		local traceType,traceValue = Spring.TraceScreenRay(x,y,false,true)
+			local coord
+			if traceType == "ground" then
+				coord = traceValue
+			elseif traceType == "unit" then
+					local x,y,z = Spring.GetUnitPosition(traceValue)
+					if x and y and z then
+						coord = {x,y,z}
+					end
+				elseif traceType == "feature" then
+					local x,y,z = Spring.GetFeaturePosition(traceValue)
+					if x and y and z then
+						coord = {x,y,z}
+					end
+				end
+			if coord then
+				Spring.SetCameraTarget(coord[1],coord[2],coord[3],0,1)
+			end
+				leftClickDraggingCamera = true
+				return true
+		end
+	end
+end
+
+
+
+function widget:MouseMove(x, y, dx, dy, button)
+	if leftClickDraggingCamera then
+			local traceType,traceValue = Spring.TraceScreenRay(x,y,false,true)
+			local coord
+			if traceType == "ground" then
+				coord = traceValue
+			elseif traceType == "unit" then
+					local x,y,z = Spring.GetUnitPosition(traceValue)
+					if x and y and z then
+						coord = {x,y,z}
+					end
+				elseif traceType == "feature" then
+					local x,y,z = Spring.GetFeaturePosition(traceValue)
+					if x and y and z then
+						coord = {x,y,z}
+					end
+				end
+			
+			if coord then
+				Spring.SetCameraTarget(coord[1],coord[2],coord[3],0,1)
+			end
+	end
+end
+
+function widget:MouseRelease(x, y, button)
+	if(leftClickDraggingCamera) then
+	leftClickDraggingCamera = false
+	end
+end
+
 
 local sformat = string.format
 local sSendCommands = Spring.SendCommands
@@ -86,9 +150,6 @@ local function RedUIchecks()
 end
 
 local function AutoResizeObjects() --autoresize v2
-	
-	if true then return end -- evil function, die!
-	
 	if (LastAutoResizeX==nil) then
 		LastAutoResizeX = CanvasX
 		LastAutoResizeY = CanvasY
@@ -154,7 +215,7 @@ local function createminimap(r)
 		
 		color=r.cresizebackground,
 		texturecolor=r.cmovecolor,
-		texture="luaui/images/redminimap/resize.png",		
+		texture="LuaUI/Images/RedMinimap/resize.png",		
 		border=r.cborder,
 		movable=r.dragbutton,
 		overridecursor = true,
@@ -174,7 +235,7 @@ local function createminimap(r)
 		
 		color=r.cmovebackground,
 		texturecolor=r.cmovecolor,
-		texture="luaui/images/redminimap/move.png",
+		texture="LuaUI/Images/RedMinimap/move.png",
 		
 		border=r.cborder,
 		movable=r.dragbutton,
@@ -286,21 +347,29 @@ local function createminimap(r)
 end
 
 function widget:Initialize()
-	widgetHandler:EnableWidget("Red_UI_Framework")
-	widgetHandler:EnableWidget("Red_Drawing")
-	--widgetHandler:EnableWidget("RelativeMinimap")
 	--oldMinimapGeometry = Spring.GetConfigString("MiniMapGeometry","2 2 200 200") -- store original geometry
 	oldMinimapGeometry = sGetMiniMapGeometry()
-		
+	
 	PassedStartupCheck = RedUIchecks()
 	if (not PassedStartupCheck) then return end
+	
+	if(Game.mapX ==Game.mapY) then
+			Config.minimap.sx = math.min(196*Game.mapX/Game.mapY,280) --background size
+			
+
+	elseif (Game.mapY > Game.mapX ) then
+					Config.minimap.sx = math.min((135*Game.mapX/Game.mapY)*1.5,320) --background size
+	else
+				Config.minimap.sx = math.min(172*Game.mapX/Game.mapY,270) --background size
+				Config.minimap.sy = 135
+	end
+
 	
 	rMinimap = createminimap(Config.minimap)
 	
 	gl.SlaveMiniMap(true)
 	
-	--AutoResizeObjects() --fix for displacement on crash issue
-	
+	AutoResizeObjects() --fix for displacement on crash issue
 end
 
 local lastPos = {}
@@ -308,6 +377,7 @@ local lastPos = {}
 
 function widget:ViewResize(viewSizeX, viewSizeY)
 	sceduleMinimapGeometry = true
+	AutoResizeObjects()
 end
 
 
@@ -337,7 +407,7 @@ function widget:Update()
 		rMinimap.active = nil
 	end
 
-	--AutoResizeObjects()
+	AutoResizeObjects()
 	if ((lastPos.px ~= rMinimap.px) or (lastPos.py ~= rMinimap.py) or (lastPos.sx ~= rMinimap.sx) or (lastPos.sy ~= rMinimap.sy) or sceduleMinimapGeometry) then
 		sSendCommands(sformat("minimap geometry %i %i %i %i",
 		rMinimap.px,
@@ -361,9 +431,9 @@ function widget:DrawScreen()
 	gl.ResetMatrices()
 	----
 	
-   gl.SlaveMiniMap(true)
-   gl.DrawMiniMap()
-   gl.SlaveMiniMap(false)
+    --gl.SlaveMiniMap(true)
+    gl.DrawMiniMap()
+    --gl.SlaveMiniMap(false)
 	
 	-- this makes jK rage
 	gl.ResetState()
@@ -373,14 +443,7 @@ end
 
 function widget:Shutdown()
 	gl.SlaveMiniMap(false)
-	
-	if widgetHandler.knownWidgets.RelativeMinimap.active then
-		Echo("Unloading Red Minimap and restoring old one...") --other widgets do better restoring job than this
-		widgetHandler:DisableWidget("RelativeMinimap")
-		widgetHandler:EnableWidget("RelativeMinimap")
-	end
-	--Spring.SendCommands("minimap geometry "..oldMinimapGeometry)
-	--Echo("Minimapgeo is:",oldMinimapGeometry)
+	Spring.SendCommands("minimap geometry "..oldMinimapGeometry)
 end
 
 

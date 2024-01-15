@@ -11,9 +11,32 @@ local Flare2 = piece "Flare2"
 local Flare3 = piece "Flare3"
 local Laser = 1
 local LaserNumber = 2
+local returnbuild = 0
 aimSpeed = 3.0
 local on = true
 Spring.SetUnitNanoPieces(unitID, { Flare1 })
+
+local SIG_AIM = 1
+local SIG_AIM_2 = 2
+local function Restore1()
+Sleep(2000)
+    Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(TurretMuzzle1, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle2, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretMuzzle1, x_axis)
+	WaitForTurn(TurretMuzzle2, x_axis)
+end
+
+
+
+local function Restore2()
+Sleep(3000)
+     Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(Flare1, y_axis, 0, 1)
+	WaitForTurn(Turret, y_axis)
+	WaitForTurn(Flare1, y_axis)
+end
 
 
 function script.Create()
@@ -29,11 +52,17 @@ function script.StartBuilding(heading, pitch)
     Turn(Flare1, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
+	returnbuild = 1
 
 end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
+if (returnbuild == 1) then
+StartThread(Restore2)
+returnbuild = 0
+end
+
 end
 
 ----aimining & fire weapon
@@ -48,11 +77,15 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(Restore1)
     return true
+
 end
 
 function script.FireWeapon1()	
@@ -75,10 +108,13 @@ if (Laser == 2) then return Flare3 end
 end
 
 function script.AimWeapon2( heading, pitch )
+Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
   Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(Restore1)
     return true
 end
 
@@ -91,5 +127,10 @@ end
 
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
 	return 1
+	else
+	return 2 
+	end
 end

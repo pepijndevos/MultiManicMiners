@@ -54,7 +54,9 @@ BuildPic = "Harpy.bmp",
 --Aerial things
 canFly = 1,
 hoverAttack = 1,
-cruiseAlt = 250, --375
+cruiseAlt = 200, --375 and 250
+
+
 --Hitbox
 collisionVolumeOffsets    =  "0 0.5 0",
 collisionVolumeScales     =  "18 12 36",

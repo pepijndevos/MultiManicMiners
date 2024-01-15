@@ -49,6 +49,7 @@ Builder = true,
 ShowNanoSpray = true,
 CanBeAssisted = true,
 workerTime = 10,
+repairSpeed = 6.7,
 buildDistance = 300,
 terraformSpeed = 9001,
 

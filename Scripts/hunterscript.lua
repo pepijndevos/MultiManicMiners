@@ -17,8 +17,17 @@ local huntermuzzleflash = SFX.CEG
 function script.Create()
 	
 end
+local SIG_AIM = 2
+ local SIG_DELAYEDSTOP = 1
 
-SIG_DELAYEDSTOP = 1
+local function RestoreAfterDelay()
+Sleep(2000)
+Turn(Turret, y_axis, 0, aimSpeed)
+Turn(TurretMGun, x_axis, 0, aimSpeed)
+WaitForTurn(Turret, y_axis)
+WaitForTurn(TurretMGun, x_axis)
+end
+
 
 function script.StartMoving()
     Signal(SIG_DELAYEDSTOP)
@@ -54,11 +63,13 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
-
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     --aiming animation: instantly turn the gun towards the enemy
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMGun, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -69,5 +80,10 @@ end
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
 	return 1
+	else
+	return 2 
+	end
 end

@@ -14,6 +14,24 @@ SIG_DELAYEDSTOP = 1
 local Laser = 1
 local LaserNumber = 2
 
+local SIG_AIM = 1
+
+local function RestoreAfterDelay()
+Sleep(2000)
+	Turn(TurretHolder1, y_axis, 0, aimSpeed)
+	Turn(TurretHolder2, y_axis, 0, aimSpeed)
+    Turn(TurretMuzzle1, x_axis, 0, aimSpeed)
+	Turn(TurretMuzzle2, x_axis, 0, aimSpeed)
+    WaitForTurn(TurretHolder1, y_axis)
+	WaitForTurn(TurretHolder2, y_axis)
+	WaitForTurn(TurretMuzzle1, x_axis)
+	WaitForTurn(TurretMuzzle2, x_axis)
+end
+
+
+
+
+
 
 function script.Create()
 	
@@ -56,13 +74,15 @@ return Flare1
 end
 
 function script.AimWeapon1( heading, pitch )
-
+		Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     --aiming animation: instantly turn the gun towards the enemy
     Turn(TurretHolder1, y_axis, heading, aimSpeed)
 	Turn(TurretHolder2, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(TurretHolder1, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -82,13 +102,15 @@ return Flare2
 end
 
 function script.AimWeapon2( heading, pitch )
-
+		Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     --aiming animation: instantly turn the gun towards the enemy
     Turn(TurretHolder1, y_axis, heading, aimSpeed)
 	Turn(TurretHolder2, y_axis, heading, aimSpeed)
     Turn(TurretMuzzle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMuzzle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(TurretHolder2, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -99,5 +121,10 @@ end
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
 	return 1
+	else
+	return 2 
+	end
 end

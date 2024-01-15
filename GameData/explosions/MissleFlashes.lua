@@ -180,12 +180,12 @@ return {
       circlealpha        = 1,
       circlegrowth       = 1,
       flashalpha         = 0.9,
-      flashsize          = 10,
-      ttl                = 6,
+      flashsize          = 11,
+      ttl                = 7,
       color = {
         [1]  = 0.35,
         [2]  = 0.6,
-        [3]  = 0.1,
+        [3]  = 1,
       },
     },
 	 mainhit = {
@@ -203,6 +203,11 @@ return {
         sizegrowth         = 1, 
         speed              = [[0, 1, 0]],
         texture            = [[lighningcentral]],
+		color = {
+        [1]  = 0.35,
+        [2]  = 0.6,
+        [3]  = 1,
+      },
       },
 	},
 	dirt = {

@@ -13,7 +13,7 @@ weaponDef = {
 	paralyzer = true,
 	--damage--
 	damage                  = {
-		default = 84,        
+		default = 96,        
 		},
 	areaOfEffect            = 72,
 	craterBoost             = 0,

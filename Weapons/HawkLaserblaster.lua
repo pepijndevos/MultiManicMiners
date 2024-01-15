@@ -17,7 +17,7 @@ weaponDef = {
 	hardStop				= true,
 	--damage--
 	damage                  = {
-		default = 36,        
+		default = 30,        
 		},
 	areaOfEffect            = 0,
 	craterBoost             = 0,

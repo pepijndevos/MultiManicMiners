@@ -14,11 +14,24 @@ local Laser = 1
 local LaserNumber = 2
 aimSpeed = 3.5
 local wheel_speed = math.rad(180)
+local SIG_AIM = 1
+
 
 local Laser = 1
 local LaserNumber = 2
 function script.Create()
 end
+
+local function RestoreAfterDelay()
+Sleep(2000)
+	Turn(Turret, y_axis, 0, aimSpeed)
+      Turn(TurretMissle1, x_axis, 0, aimSpeed)
+	Turn(TurretMissle2, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretMissle1, X_axis)
+	WaitForTurn(TurretMissle2, X_axis)
+end
+
 
 function script.StartMoving()
     Signal(SIG_DELAYEDSTOP)
@@ -56,10 +69,13 @@ if (Laser == 2) then return Flare2 end
 end
 
 function script.AimWeapon1( heading, pitch )
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretMissle1, x_axis, -pitch, aimSpeed)
 	Turn(TurretMissle2, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -70,5 +86,10 @@ end
 
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return 1         
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
+	return 1
+	else
+	return 2 
+	end         
 end

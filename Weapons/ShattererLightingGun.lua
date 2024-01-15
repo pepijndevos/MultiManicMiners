@@ -11,7 +11,7 @@ weaponDef = {
 	turret                  = true,
 	--damage--
 	damage                  = {
-		default = 46,        
+		default = 60,
 		},
 	areaOfEffect            = 72,
 	edgeEffectiveness       = 1,

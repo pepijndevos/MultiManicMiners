@@ -8,14 +8,14 @@ weaponDef = {
 	lineOfSight             = true,
 	minIntensity            = 1,      
 	range                   = 700,
-	reloadtime              = 1.6,
+	reloadtime              = 2.6,
 	sweepfire               = false,
 	targetMoveError         = 0.1,
 	turret                  = true,
 	tolerance               = 5000,
 	--damage--
 	damage                  = {
-		default = 320,        
+		default = 480,        
 		},
 	areaOfEffect            = 0,
 	craterBoost             = 0,

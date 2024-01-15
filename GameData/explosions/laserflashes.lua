@@ -8,6 +8,7 @@
 --commander2
 --hawk
 --harpy
+--gazer
 return {
 --llt
   ["llthit"] = {
@@ -608,5 +609,48 @@ return {
                 ttl                = 12,
             },
         },
+},
+--gazer
+["gazerhit"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 0,
+      flashalpha         = 0.8,
+      flashsize          = 13,
+      ttl                = 4,
+      color = {
+        [1]  = 0.7,
+        [2]  = 0,
+        [3]  = 1,
+      },
+    },
+   spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.7 0 1 0.01   0.5 0 0.75 0.01   0.35 0 0.6 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.45, 0]],
+        numparticles       = 9,
+        particlelife       = 7,
+        particlelifespread = 3,
+        particlesize       = 6.5,
+        particlesizespread = 3,
+        particlespeed      = 4,
+        particlespeedspread = 16, --4
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
 },
 }

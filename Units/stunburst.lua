@@ -24,9 +24,9 @@ BuildPic = "Stunburst.bmp",
 	selfDestructAs = [[StunBurstExplosion]],
 	corpse = [[stunburst_dead]],
 --Energy and metal related
-    BuildCostEnergy = 45,
-    BuildCostMetal = 45,
-    BuildTime = 45,
+    BuildCostEnergy = 40,
+    BuildCostMetal = 40,
+    BuildTime = 40,
 --Pathfinding and related
     maxAcc = 0.4,
     BrakeRate = 0.2,
@@ -67,10 +67,7 @@ weapons = {
 [1]={name  = "DualStunMissles",
        turret = true
 	},
-	
-[2]={name  = "DualMissles",
-       turret = true
-	},
+
 	
 },
 

@@ -12,6 +12,7 @@ local Wheel4 = piece "Wheel4"
 local wheel_speed = math.rad(180)
 aimSpeed = 3.0
 
+local SIG_AIM = 1
 
 function script.Create()
 	
@@ -31,6 +32,13 @@ function script.StopMoving()
     StartThread(delayedStopAnimation)
 end
 
+local function RestoreAfterDelay()
+Sleep(2000)
+	Turn(Turret, y_axis, 0, aimSpeed)
+    Turn(TurretRocket, x_axis, 0, aimSpeed)
+    WaitForTurn(Turret, y_axis)
+	WaitForTurn(TurretRocket, x_axis)
+end
 
 function delayedStopAnimation()
     Signal(SIG_DELAYEDSTOP)
@@ -53,11 +61,12 @@ function script.QueryWeapon1()
 end
 
 function script.AimWeapon1( heading, pitch )
-
-    --aiming animation: instantly turn the gun towards the enemy
+	Signal(SIG_AIM)
+    SetSignalMask(SIG_AIM)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(TurretRocket, x_axis, -pitch, aimSpeed)
     WaitForTurn(Turret, y_axis)
+	StartThread(RestoreAfterDelay)
     return true
 end
 
@@ -68,5 +77,10 @@ end
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)
 	Explode (Body, SFX.SHATTER)
-	return 1         
+	local severity = recentDamage / maxHealth
+	if severity <= 0.33 then
+	return 1
+	else
+	return 2 
+	end         
 end

@@ -20,9 +20,9 @@ BuildPic = "BB.bmp",
     SightDistance = 750,
     SoundCategory = "Building",
 --Energy and metal related
-    BuildCostEnergy = 5000,
-    BuildCostMetal = 5000,
-    buildTime = 5000,
+    BuildCostEnergy = 6000,
+    BuildCostMetal = 6000,
+    buildTime = 6000,
 	energyUpkeep = 50,
 sfxtypes             = {
 explosionGenerators = {
@@ -53,7 +53,7 @@ YardMap = "ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo ooooooooo
 
 weapons = {
 [1]={name  = "BBBigCannon",
-       turret = true
+onlyTargetCategory = [[Tank]],
 	},
 },
     

@@ -4,6 +4,7 @@
 --skeeter
 --bb
 --swatter
+--geothermal
 --stormcloud
 return {
 --hunter
@@ -471,4 +472,76 @@ sphere = {
     },
   },	
    },
+   --geothermal
+   ["geothermalflash"] = {
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 1.5,
+      flashalpha         = 0.9,
+      flashsize          = 75,
+      ttl                = 36,
+      color = {
+        [1]  = 1,
+        [2]  = 0.95,
+        [3]  = 0.4,
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+      properties = {
+        heat               = 30, 
+        heatfalloff        = 1,
+        maxheat            = 30, 
+        pos                = [[0, 1, 0]],
+        size               = 46, 
+        sizegrowth         = 2, 
+        speed              = [[0, 1.5, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	dirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.04 0.03 0.02 0.05  0.4 0.3 0.2 0.5  0.04 0.03 0.02 0.05]],
+        directional        = false,
+        emitrot            = 85,
+        emitrotspread      = 15,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 46,
+        particlelife       = 28,
+        particlelifespread = 5.5,
+        particlesize       = 18,
+        particlesizespread = 6,
+        particlespeed      = 6,
+        particlespeedspread = 3,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 6,
+        sizemod            = 0.75,
+        texture            = [[dirt]],
+    },
+	},
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[1,0.95,0.4]],
+                expansionspeed     = 5.5,
+                ttl                = 32,
+            },
+        },	
+	},
 }

@@ -24,6 +24,28 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 local options = {
+	{
+		key  = "startmetal ",
+		name = "Starting Metal",
+		desc = "Sets storage and amount of Metal that players will start with",
+		type = "number",
+		section = "resources",
+		def    = 1000,
+		min    = 1,
+		max    = 40000,
+		step   = 1,
+	},
+	{
+		key  = "startenergy",
+		name = "Starting Metal",
+		desc = "Sets storage and amount of Energy that players will start with",
+		type = "number",
+		section = "resources",
+		def    = 1000,
+		min    = 1,
+		max    = 40000,
+		step   = 1,
+	},
 }
 
 return options

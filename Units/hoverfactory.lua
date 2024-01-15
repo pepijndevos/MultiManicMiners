@@ -53,6 +53,7 @@ buildoptions =
 	[[swatter]],
 	[[shatterer]],
 	[[lurker]],
+	[[gazer]],
 	},
 	--Hitbox
 collisionVolumeOffsets    =  "0 0 -7.5",

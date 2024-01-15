@@ -7,7 +7,7 @@ Accuracy=2000,
 
 --Physic/flight path
 
-range=260,
+range=270,
 reloadtime=3.25,
 weaponVelocity=680,
 startVelocity=280,
@@ -23,16 +23,16 @@ Turnrate=32000,
 collideFriendly=true,
 burst = 2,
 burstRate = 0.25,
-paralyzeTime = 2,
+paralyzeTime = 2.5,
 paralyzer = true,
 soundStart = [[Weapons/LightMissle_missile_fire]],
-soundHit = [[Explosions/LightMissle_expl]],
+soundHit = [[Weapons/StunMissle_Hit]],
 soundStartVolume = 4,	  
 		
 ----APPEARANCE
 smokeTrail=false,
 model="Rocket.s3o",
-cegTag = [[StunburstRocket_trail]],
+cegTag = [[SmallStunRocket_trail]],
 explosionGenerator = [[custom:stunburststunmissleflash]],
 
 ----TARGETING
@@ -46,7 +46,7 @@ avoidFriendly=true,
 
 ----DAMAGE
 damage={
-default=60,
+default=80,
 heavyarmor=1,
 },
 areaOfEffect=3,

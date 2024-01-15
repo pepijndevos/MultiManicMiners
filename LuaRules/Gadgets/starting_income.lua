@@ -10,9 +10,6 @@ function gadget:GetInfo()
    }
 end
 
--- may 2018 : increased income from 6 / 60 to 8 / 80
--- nov 2015 : fixed energy income frames to match engine change and increased E income
-
 -- localization
 local Echo = Spring.Echo
 local spGetTeamList = Spring.GetTeamList

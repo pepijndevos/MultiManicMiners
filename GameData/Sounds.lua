@@ -255,6 +255,24 @@ local Sounds = {
 			maxconcurrent = 1000, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
+		StunMissleHit = {			
+			file = "Sounds/Explosions/StunMissle_Hit.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 1000, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		HeavyLaser = {			
+			file = "Sounds/Weapons/Heavylaser2.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
 	},
 	}
 	
