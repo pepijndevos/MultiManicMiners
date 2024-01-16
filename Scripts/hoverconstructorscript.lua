@@ -37,12 +37,11 @@ function script.StartBuilding(heading, pitch)
 	Turn(Flare2, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
-	StartThread(Restore)
 end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
-StartThread(Restore)
+--StartThread(Restore)
 end
 
 

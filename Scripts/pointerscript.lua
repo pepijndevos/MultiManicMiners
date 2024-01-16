@@ -28,8 +28,8 @@ Sleep(2000)
       Turn(TurretMissle1, x_axis, 0, aimSpeed)
 	Turn(TurretMissle2, x_axis, 0, aimSpeed)
     WaitForTurn(Turret, y_axis)
-	WaitForTurn(TurretMissle1, X_axis)
-	WaitForTurn(TurretMissle2, X_axis)
+	WaitForTurn(TurretMissle1, x_axis)
+	WaitForTurn(TurretMissle2, x_axis)
 end
 
 

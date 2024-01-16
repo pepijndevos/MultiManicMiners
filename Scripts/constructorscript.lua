@@ -36,7 +36,7 @@ end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
-StartThread(Restore)
+--StartThread(Restore)
 end
 
 

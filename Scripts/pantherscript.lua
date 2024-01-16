@@ -19,7 +19,7 @@ Sleep(2000)
 	Turn(Turret, y_axis, 0, aimSpeed)
     Turn(TurretMuzzle, x_axis, 0, aimSpeed)
     WaitForTurn(Turret, y_axis)
-	WaitForTurn(TurretMuzzle, X_axis)
+	WaitForTurn(TurretMuzzle, x_axis)
 end
 
 

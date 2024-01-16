@@ -39,7 +39,7 @@ function script.StartBuilding(heading, pitch)
 end
 
 function script.StopBuilding()
-StartThread(Restore)
+--StartThread(Restore)
 SetUnitValue(COB.INBUILDSTANCE, 0)
 end
 

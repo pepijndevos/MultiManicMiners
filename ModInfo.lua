@@ -4,7 +4,7 @@ local modinfo = {
 	game = "VroomRTS",
 	shortgame = "VMRTS",
 	description = "Game with directory structure + major files",
-	version = "v0.1.6",
+	version = "v0.1.6.2",
 	modtype = "1",
 	depend = {
 		"Spring Cursors",

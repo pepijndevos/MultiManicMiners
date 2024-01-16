@@ -52,14 +52,14 @@ function script.StartBuilding(heading, pitch)
     Turn(Flare1, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
-	returnbuild = 1
 
 end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
+returnbuild = 1
 if (returnbuild == 1) then
-StartThread(Restore2)
+--StartThread(Restore2)
 returnbuild = 0
 end
 
