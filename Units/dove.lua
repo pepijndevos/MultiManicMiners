@@ -75,11 +75,6 @@ weapons = {
         mainDir = "0 0 1",
 		maxAngleDif = 25,
 	},
-	[2]={name  = "StrikeMissles",
-	   onlyTargetCategory = [[TANK]],
-        mainDir = "0 0 1",
-		maxAngleDif = 25,
-	},
 },
 
 

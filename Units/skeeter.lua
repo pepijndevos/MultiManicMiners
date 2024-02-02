@@ -27,9 +27,9 @@ explosionGenerators = {
 	},
 	corpse = [[skeeter_dead]],
 --Energy and metal related
-    BuildCostEnergy = 75,
-    BuildCostMetal = 75,
-    BuildTime = 75,
+    BuildCostEnergy = 65,
+    BuildCostMetal = 65,
+    BuildTime = 65,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,
@@ -39,7 +39,7 @@ explosionGenerators = {
     speed = 104,
     MaxWaterDepth = 5,
     MovementClass = "Small Hover",
-    TurnRate = 2000,
+    TurnRate = 2750,
 
     
 --Abilities

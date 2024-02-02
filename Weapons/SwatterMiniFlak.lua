@@ -20,6 +20,7 @@ local weaponDef = {
 		  canAttackGround		  = false,
 		  craterMult              = 0,
 		  soundStart            = [[Weapons/Swatter_emg]],
+		  avoidFeature			= false,
 		  soundStartVolume        = 4,	      
 		  --apperance
 		  rgbColor                = [[0.85 0.75 0.4]],		  	      

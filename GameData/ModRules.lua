@@ -27,27 +27,27 @@ local modRules = {
 
 
   repair = {
-    energyCostFactor = 0.67,  -- defaults to 0
+    energyCostFactor = 0.67,  -- defaults  0
   },
 
 
   resurrect = {
-    energyCostFactor = 2,  -- defaults to 0.5
+    energyCostFactor = 2,  -- defaults  0.5
   },
 
 
   capture = {
-    energyCostFactor = 1,  -- defaults to 0
+    energyCostFactor = 1,  -- defaults  0
   },
 
 	flankingBonus = {
 		defaultMode					=	0,
 	},
 experience = {
+		experienceMult				=	0,
 		powerScale					=	0,
 		healthScale					=	0,
 		reloadScale					=	0,
-		experienceMult			=	0,
 	},
 	sensors = {
 		los = {

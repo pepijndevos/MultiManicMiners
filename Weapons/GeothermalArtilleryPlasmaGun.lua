@@ -19,6 +19,7 @@ local weaponDef = {
 		  areaOfEffect			  = 133,
 		  edgeEffectiveness       = 0.5,		  
 	      turret                  = true,
+		  avoidFeature			= false,
 		  burst					  = 2,
 		  burstrate				  = 0.25,
 		  myGravity 		  	  = 0.20,

@@ -22,6 +22,7 @@ local weaponDef = {
 		  craterMult              = 0,
 		  burst					  = 20,
 		  burstrate 			  = 0.1,
+		  avoidFeature			= false,
 		  soundStart            = [[Weapons/bomb_drop]],
 		  soundStartVolume        = 4,	
 		  soundHit				= [[Weapons/bomb_hit]],

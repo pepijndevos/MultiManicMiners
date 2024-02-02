@@ -18,6 +18,7 @@ local weaponDef = {
  		  avoidfriendly 	= true,
 		  avoidGround 		= true,      
 	      turret                  = true,
+		  avoidFeature			= false,
 		  craterMult              = 0,
 		  soundStart            = [[Weapons/MGun_emg]],
 		  soundStartVolume        = 4,	      

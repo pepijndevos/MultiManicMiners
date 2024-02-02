@@ -28,6 +28,7 @@ weaponDef = {
 	soundStartVolume = 4,
 	largeBeamLaser          = true,
 	laserFlareSize          = 2.5,
+	avoidFeature			= false,
 	renderType              = 0,
 	rgbColor                = [[0.6 0.6 0.3]],
 	explosionGenerator = [[custom:cleaverhit]],

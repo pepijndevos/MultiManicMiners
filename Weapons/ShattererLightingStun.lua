@@ -22,6 +22,7 @@ weaponDef = {
 	--apperance--	
 	thickness               = 8,
 	soundStart = [[Weapons/lightning1]],
+	avoidFeature			= false,
 	soundStartVolume = 4,
 	rgbColor                = [[0.35 0.6 1]],
 	explosionGenerator = [[custom:shattererhit]]

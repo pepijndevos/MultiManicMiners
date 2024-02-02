@@ -266,10 +266,10 @@ function widget:Initialize()
 	widgetHandler:ConfigLayoutHandler(CustomLayoutHandler)
 	
 	--make sure to reload red minimap after this, if it is enabled
-	if widgetHandler.knownWidgets["Red Minimap"].active then
-		widgetHandler:DisableWidget("Red Minimap")
-		widgetHandler:EnableWidget("Red Minimap")
-	end
+	--if widgetHandler.knownWidgets["Red Minimap"].active then
+		--widgetHandler:DisableWidget("Red Minimap")
+		--widgetHandler:EnableWidget("Red Minimap")
+	--end
 	
 end
 

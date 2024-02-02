@@ -25,6 +25,7 @@ weaponDef = {
 	coreThickness           = 0.30,
 	explosionGenerator      = [[custom:stars1]],
 	largeBeamLaser          = true,
+	avoidFeature			= false,
 	laserFlareSize          = 2,
 	renderType              = 0,
 	rgbColor                = [[0.3 0.9 0.6]],

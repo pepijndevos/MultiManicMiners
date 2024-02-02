@@ -42,7 +42,7 @@ BuildPic = "Hunter.bmp",
     MaxVelocity = 3.2,
     MaxWaterDepth = 5,
     MovementClass = "Small Vechicle",
-    TurnRate = 2000,
+    TurnRate = 2250,
 
     
 --Abilities

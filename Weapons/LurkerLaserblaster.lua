@@ -4,8 +4,8 @@ weaponDef = {
 	name                    = "Laser Blaster",
 	beamlaser               = 0,
 	--physics / aiming--
-	duration                = 0.17,
-	 weaponVelocity         = 500,
+	duration                = 0.17, --0.13
+	 weaponVelocity         = 300,
 	lineOfSight             = true,
 	minIntensity            = 1,      
 	range                   = 305,
@@ -23,10 +23,11 @@ weaponDef = {
 	craterBoost             = 0,
 	craterMult              = 0,
 	--apperance--	
-	thickness               = 3,
+	thickness               = 3.5, --3
 	coreThickness           = 0.5,
 	explosionGenerator      = [[custom:stars1]],
 	largeBeamLaser          = true,
+	avoidFeature			= false,
 	laserFlareSize          = 2,
 	renderType              = 0,
 	rgbColor                = [[1 0.2 0.2]],

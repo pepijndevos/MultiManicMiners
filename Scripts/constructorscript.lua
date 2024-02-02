@@ -6,11 +6,13 @@ local TurretBuilder = piece "TurretBuilder"
 local Flare = piece "Flare"
 aimSpeed = 3.0
 
-local SIG_AIM = 1
+local SIG_BUILD = 1
 
 Spring.SetUnitNanoPieces(unitID, { Flare })
 
 local function Restore()
+Signal (SIG_BUILD)
+	SetSignalMask (SIG_BUILD)
 Sleep(2000)
      Turn(Turret, y_axis, 0, aimSpeed)
     Turn(Flare, y_axis, 0, 1)
@@ -27,6 +29,8 @@ function script.QueryNanoPiece()
 end
 
 function script.StartBuilding(heading, pitch)
+Signal (SIG_BUILD)
+	SetSignalMask (SIG_BUILD)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(Flare, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
@@ -36,7 +40,7 @@ end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
---StartThread(Restore)
+StartThread(Restore)
 end
 
 

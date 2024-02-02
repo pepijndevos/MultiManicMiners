@@ -19,6 +19,7 @@ local weaponDef = {
 		  areaOfEffect			  = 175,	
 		  edgeEffectiveness       = 0.5,		  
 	      turret                  = true,
+		  avoidFeature			= false,
 		  energyPerShot			  = 300,
 		  myGravity 		  	  = 0.20,
 		  soundStart            = [[Weapons/bb_fire]],

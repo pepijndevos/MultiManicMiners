@@ -22,6 +22,7 @@ local weaponDef = {
 		  burstRate               = 0,
 		  projectiles 			  = 13,
 		  soundStart = [[Weapons/shotgun]],
+		  avoidFeature			= false,
 		  soundStartVolume = 3,
 		  --apperance
 		  rgbColor                = [[1 0.95 0.4]],		  	      

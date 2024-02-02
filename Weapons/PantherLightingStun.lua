@@ -18,6 +18,7 @@ weaponDef = {
 	areaOfEffect            = 0,
 	craterBoost             = 0,
 	craterMult              = 0,
+	avoidFeature			= false,
 	--apperance--	
 	thickness               = 8,
 	soundStart = [[Weapons/lightning1]],

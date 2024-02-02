@@ -27,9 +27,9 @@ explosionGenerators = {
 	},
 	corpse = [[mangonel_dead]],
 --Energy and metal related
-    BuildCostEnergy = 375,
-    BuildCostMetal = 375,
-	BuildTime = 375,
+    BuildCostEnergy = 425,
+    BuildCostMetal = 425,
+	BuildTime = 425,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,

@@ -35,7 +35,7 @@ model="Rocket.s3o",
 ----TARGETING
 turret=true,
 CylinderTargetting=true,
-avoidFeature=false,
+avoidFeature = false,
 avoidFriendly=true,
 
 

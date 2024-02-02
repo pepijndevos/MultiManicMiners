@@ -7,8 +7,10 @@ local TurretBuilder2 = piece "TurretBuilder2"
 local Flare1 = piece "Flare1"
 local Flare2 = piece "Flare2"
 aimSpeed = 3.0
-
+local SIG_BUILD = 1
 local function Restore()
+Signal (SIG_BUILD)
+	SetSignalMask (SIG_BUILD)
 Sleep(2000)
 Turn(Turret, y_axis, 0, aimSpeed)
     Turn(Flare1, y_axis, 0, 1)
@@ -32,6 +34,8 @@ function script.QueryNanoPiece()
 end
 
 function script.StartBuilding(heading, pitch)
+Signal (SIG_BUILD)
+	SetSignalMask (SIG_BUILD)
     Turn(Turret, y_axis, heading, aimSpeed)
     Turn(Flare1, y_axis, math.rad(heading), 1)
 	Turn(Flare2, y_axis, math.rad(heading), 1)
@@ -41,7 +45,7 @@ end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
---StartThread(Restore)
+StartThread(Restore)
 end
 
 

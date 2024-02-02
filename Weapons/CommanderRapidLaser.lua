@@ -27,6 +27,7 @@ weaponDef = {
 	soundStart = [[Weapons/rapid_laser]],
 	soundStartVolume = 4,
 	largeBeamLaser          = true,
+	avoidFeature			= false,
 	laserFlareSize          = 2,
 	renderType              = 0,
 	rgbColor                = [[0.8 0.4 0.4]],

@@ -24,7 +24,8 @@ local weaponDef = {
 		  soundStart = [[Weapons/Arty]],
 		  soundHit = [[Weapons/Artyhit]],
 		  soundStartVolume = 4,
-		  soundHitVolume = 4,			  
+		  soundHitVolume = 4,		
+		avoidFeature			= false,		  
 		  --apperance
 		  rgbColor                = [[1 0.8 0.4]],		  	      
           size                    = 5.5,

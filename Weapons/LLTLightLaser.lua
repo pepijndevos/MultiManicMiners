@@ -27,6 +27,7 @@ weaponDef = {
 	soundStart = [[Weapons/LightLaser]],
 	soundStartVolume = 4,	  
 	largeBeamLaser          = true,
+	avoidFeature			= false,
 	laserFlareSize          = 2,
 	renderType              = 0,
 	rgbColor                = [[0.8 0.8 0.4]],

@@ -10,7 +10,8 @@ local Flare2 = piece "Flare2"
 local WingEffect1 = piece "WingEffect1"
 local WingEffect2 = piece "WingEffect2"
 aimSpeed = 8.25
-
+local Laser = 1
+local LaserNumber = 2
 local SIG_AIM = 1
 
 
@@ -40,7 +41,8 @@ function script.AimFromWeapon1()
 end
 
 function script.QueryWeapon1() 
-	return Flare1
+if (Laser == 1) then return Flare1 end
+	if (Laser == 2) then return Flare2 end
 end
 
 function script.AimWeapon1( heading, pitch )
@@ -59,36 +61,11 @@ function script.AimWeapon1( heading, pitch )
     return true
 end
 
-function script.FireWeapon1()
+function script.Shot1()
+	Laser = Laser + 1
+	if (Laser > LaserNumber) then Laser = 1 end
 end
 
-function script.AimFromWeapon2() 
- return Turret2
-	
-end
-
-function script.QueryWeapon2() 
-	return Flare2
-end
-
-function script.AimWeapon2( heading, pitch )
-	Signal(SIG_AIM)
-    SetSignalMask(SIG_AIM)
-    --aiming animation: instantly turn the gun towards the enemy
-    Turn(Turret1, y_axis, heading, aimSpeed)
-	Turn(Turret2, y_axis, heading, aimSpeed)
-    Turn(Turret1, x_axis, -pitch, aimSpeed)
-	Turn(Turret2, x_axis, -pitch, aimSpeed)
-    WaitForTurn(Turret1, y_axis)
-	WaitForTurn(Turret2, y_axis)
-	WaitForTurn(Turret1, x_axis)
-	WaitForTurn(Turret2, x_axis)
-	StartThread(RestoreAfterDelay)
-    return true
-end
-
-function script.FireWeapon2()
-end
 
 ---death animation
 function script.Killed(recentDamage, maxHealth, corpsetype)

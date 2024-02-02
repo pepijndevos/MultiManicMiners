@@ -20,6 +20,7 @@ weaponDef = {
 	thickness               = 8,
 	soundStart = [[Weapons/lightning1]],
 	soundStartVolume = 4,
+	avoidFeature			= false,
 	rgbColor                = [[0.35 0.6 1]],
 	explosionGenerator = [[custom:pantherhit]]
 --texture1                = [[largelaser]],
