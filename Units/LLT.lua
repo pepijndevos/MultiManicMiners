@@ -2,7 +2,7 @@ local unitName  =  "llt"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "LLT.bmp",
+BuildPic = "LLT.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "LLT.s3o",
     name = "Light Laser Tower",
@@ -10,7 +10,7 @@ BuildPic = "LLT.bmp",
     TEDClass = "Building",
     UnitName = "Light Laser Tower",
     script = "lltscript.lua",
-
+	icontype = "buildingllt",
 --Unit limitations and properties
     Description = "Basic Defensive Tower.",
     MaxDamage = 750,

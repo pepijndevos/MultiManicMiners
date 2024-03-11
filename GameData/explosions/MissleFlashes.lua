@@ -2,6 +2,8 @@
 --flow/stunburst
 --stunburststun
 --aamissleflash
+--underwater
+--Barrager
 return {
    --generic
 	["genericmissleflash"] = {
@@ -298,4 +300,128 @@ return {
             },
         },
 },
+<<<<<<< Updated upstream
+=======
+--underwater
+["Torpedomissleflash"] = {
+	usedefaultexplosions = false,
+	underwater              = true,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 1,
+      flashalpha         = 0.9,
+      flashsize          = 23.5,
+      ttl                = 12,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+	  underwater              = true,
+      properties = {
+        heat               = 9, --8
+        heatfalloff        = 1,
+        maxheat            = 9, --8
+        pos                = [[0, 1, 0]],
+        size               = 18, 
+        sizegrowth         = 1.33, 
+        speed              = [[0, 1, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	},
+	--barrager
+	["barragermissleflash"] = {
+	usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 1.5,
+      flashalpha         = 0.9,
+      flashsize          = 28.5,
+      ttl                = 11,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+	  underwater              = true,
+      properties = {
+        heat               = 17, --8
+        heatfalloff        = 1,
+        maxheat            = 17, --8
+        pos                = [[0, 1, 0]],
+        size               = 25, 
+        sizegrowth         = 1.5, 
+        speed              = [[0, 1, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	dirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.04 0.03 0.02 0.05  0.4 0.3 0.2 0.5  0.04 0.03 0.02 0.05]],
+        directional        = false,
+        emitrot            = 85,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 18,
+        particlelife       = 18,
+        particlelifespread = 4.5,
+        particlesize       = 5,
+        particlesizespread = 5,
+        particlespeed      = 3.5,
+        particlespeedspread = 1,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 4,
+        sizemod            = 0.75,
+        texture            = [[dirt]],
+    },
+  },
+  speckdirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.02 0.015 0.01 0.06  0.2 0.15 0.1 0.6  0.02 0.015 0.01 0.06]],
+        directional        = false,
+        emitrot            = 25,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 4,
+        particlelife       = 20,
+        particlelifespread = 5,
+        particlesize       = 4,
+        particlesizespread = 3,
+        particlespeed      = 5,
+        particlespeedspread = 2.5,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 4,
+        sizemod            = 0.75,
+        texture            = [[randdots]],
+    },
+  },
+},
+>>>>>>> Stashed changes
 }

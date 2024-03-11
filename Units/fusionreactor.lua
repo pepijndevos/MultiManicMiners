@@ -2,7 +2,7 @@ local unitName  =  "fusionreactor"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Fusion Reactor.bmp",
+BuildPic = "Fusion Reactor.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Fusion Reactor.s3o",
     name = "Fusion Reactor",
@@ -11,6 +11,7 @@ BuildPic = "Fusion Reactor.bmp",
     UnitName = "Fusion Reactor",
     script = "fusionreactorscript.lua",
 	corpse = [[fusionreactor_dead]],
+	icontype = "buildingenergy",
 --Unit limitations and properties
     Description = "Advanced energy generator (35E).",
     MaxDamage = 2500,

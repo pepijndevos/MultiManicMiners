@@ -2,7 +2,7 @@ local unitName  =  "caretaker"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Caretaker.bmp",
+BuildPic = "Caretaker.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Caretaker.s3o",
     name = "Caretaker",
@@ -10,7 +10,7 @@ BuildPic = "Caretaker.bmp",
     TEDClass = "Building",
     UnitName = "Caretaker",
     script = "caretakerscript.lua",
-
+	icontype = "buildingconstructor",
 --Unit limitations and properties
     Description = "Supports and repairs units. (10 buildpower)",
     MaxDamage = 550,
@@ -22,6 +22,11 @@ BuildPic = "Caretaker.bmp",
     Upright = 0,
     floater = true,
 	corpse = [[caretaker_dead]],
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 175,
     BuildCostMetal = 175,

@@ -273,6 +273,54 @@ local Sounds = {
 			maxconcurrent = 50, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
+<<<<<<< Updated upstream
+=======
+		GrenadeExplosion = {			
+			file = "Sounds/Explosions/grenade_explosion.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		UnderwaterExplosion = {			
+			file = "Sounds/Explosions/underwater_explosion.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		Torpedeo = {			
+			file = "Sounds/Weapons/torpedo.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		DepthCharge = {			
+			file = "Sounds/Weapons/depthcharge.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+		HighPitchRocket = {			
+			file = "Sounds/Weapons/hightpitch_rocket.wav",
+			preload, -- put in memory!
+			gain = 1, --- for uber-loudness
+			pitch = 1, --- bass-test
+			priority = 15, --- very high
+			maxconcurrent = 50, ---only once
+			--maxdist = FLT_MAX, --- only when near
+		},
+>>>>>>> Stashed changes
 	},
 	}
 	

@@ -2,7 +2,7 @@ local unitName  =  "swatter"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Swatter.bmp",
+BuildPic = "Swatter.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Swatter.s3o",
     name = "Swatter",
@@ -10,7 +10,7 @@ BuildPic = "Swatter.bmp",
     TEDClass = "Vech",
     UnitName = "Swatter",
     script = "swatterscript.lua",
-
+	icontype = "hoverantiair",
 --Unit limitations and properties
     Description = "Fast and high damage but inaccurate anti air.",
     MaxDamage = 365,
@@ -18,6 +18,7 @@ BuildPic = "Swatter.bmp",
     idleAutoHeal = 2,
     RadarDistance = 0,
     SightDistance = 450,
+	sonarDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[swatter_dead]],
@@ -53,7 +54,7 @@ BuildPic = "Swatter.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 5 0",

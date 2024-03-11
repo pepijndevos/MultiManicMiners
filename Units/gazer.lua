@@ -2,7 +2,7 @@ local unitName  =  "gazer"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Gazer.bmp",
+BuildPic = "Gazer.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Gazer.s3o",
     name = "Gazer",
@@ -10,7 +10,7 @@ BuildPic = "Gazer.bmp",
     TEDClass = "Vech",
     UnitName = "Gazer",
     script = "gazerscript.lua",
-
+	icontype = "hoverartillery",
 --Unit limitations and properties
     Description = "Anti Heavy Unit.",
     MaxDamage = 750,
@@ -18,6 +18,7 @@ BuildPic = "Gazer.bmp",
     idleAutoHeal = 0,
     RadarDistance = 0,
     SightDistance = 450,
+	sonarDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[gazer_dead]],
@@ -31,7 +32,7 @@ BuildPic = "Gazer.bmp",
     FootprintX = 3,
     FootprintZ = 3,
     MaxSlope = 45,
-    speed = 37.5, --37.5
+    speed = 41,
     MaxWaterDepth = 5,
     MovementClass = "Large Hover",
     TurnRate = 1000,
@@ -48,7 +49,7 @@ BuildPic = "Gazer.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 0 0",

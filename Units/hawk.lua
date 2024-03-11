@@ -2,7 +2,7 @@ local unitName  =  "hawk"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Hawk.bmp",
+BuildPic = "Hawk.png",
     Category = "AIR SMALL NOTSUB",
     ObjectName = "Hawk.s3o",
     name = "Hawk",
@@ -10,7 +10,7 @@ BuildPic = "Hawk.bmp",
     TEDClass = "Vech",
     UnitName = "Hawk",
     script = "hawkscript.lua",
-
+	icontype = "airantiair",
 --Unit limitations and properties
     Description = "Fast Air fighter.",
     MaxDamage = 300,

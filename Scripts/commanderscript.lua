@@ -15,7 +15,8 @@ local returnbuild = 0
 aimSpeed = 3.0
 local on = true
 Spring.SetUnitNanoPieces(unitID, { Flare1 })
-
+local buildermuzzleflash = SFX.CEG
+local isbuilding = true
 local SIG_AIM = 1
 local SIG_BUILD = 2
 local function Restore1()
@@ -28,7 +29,12 @@ Sleep(2000)
 	WaitForTurn(TurretMuzzle2, x_axis)
 end
 
-
+local function Building()
+while (isbuilding == true) do
+EmitSfx(Flare1, buildermuzzleflash)
+Sleep(100)
+end
+end
 
 local function Restore2()
 Signal (SIG_BUILD)
@@ -56,12 +62,14 @@ Signal (SIG_BUILD)
     Turn(Flare1, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
-
+	isbuilding = true
+	StartThread(Building)
 end
 
 function script.StopBuilding()
 SetUnitValue(COB.INBUILDSTANCE, 0)
 returnbuild = 1
+isbuilding = false
 if (returnbuild == 1) then
 StartThread(Restore2)
 returnbuild = 0

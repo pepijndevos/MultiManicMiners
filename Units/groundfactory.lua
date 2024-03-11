@@ -2,7 +2,7 @@ local unitName  =  "groundfactory"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Factory.bmp",
+BuildPic = "Factory.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Factory.s3o",
     name = "Ground Factory",
@@ -11,8 +11,9 @@ BuildPic = "Factory.bmp",
     UnitName = "Ground Factory",
     script = "factoryscript.lua",
 	corpse = [[groundfactory_dead]],
+	icontype = "buildinglandfactory",
 --Unit limitations and properties
-    Description = "Makes ground units. (10 buildpower)",
+    Description = "Makes ground units.",
     MaxDamage = 3500,
     idleTime = 0,
     idleAutoHeal = 0,
@@ -21,6 +22,11 @@ BuildPic = "Factory.bmp",
     SoundCategory = "Building",
     Upright = 1,
 	maxWaterDepth = 4,
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 750,
     BuildCostMetal = 750,

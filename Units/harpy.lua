@@ -2,7 +2,7 @@ local unitName  =  "harpy"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Harpy.bmp",
+BuildPic = "Harpy.png",
     Category = "AIR SMALL NOTSUB",
     ObjectName = "Harpy.s3o",
     name = "Harpy",
@@ -10,7 +10,7 @@ BuildPic = "Harpy.bmp",
     TEDClass = "Vech",
     UnitName = "Harpy",
     script = "harpyscript.lua",
-
+	icontype = "airraider",
 --Unit limitations and properties
     Description = "Raider/support gunship.",
     MaxDamage = 575,

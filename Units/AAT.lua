@@ -2,7 +2,7 @@ local unitName  =  "aat"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "AAT.bmp",
+BuildPic = "AAT.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "AAT.s3o",
     name = "Anti Air Tower",
@@ -10,7 +10,7 @@ BuildPic = "AAT.bmp",
     TEDClass = "Building",
     UnitName = "Anti Air Tower",
     script = "aatscript.lua",
-
+	icontype = "buildingaat",
 --Unit limitations and properties
     Description = "Heavy Anti Air tower.",
     MaxDamage = 1000,

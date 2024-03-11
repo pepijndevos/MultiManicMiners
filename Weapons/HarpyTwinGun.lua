@@ -1,6 +1,6 @@
 local weaponName = "TwinBurstBlatser"
 local weaponDef = {
-	      name                    = "Twin Blaster",
+	      name                    = "Twin Laser Blaster",
 	      weaponType              = [[Cannon]],
 	      --damage
 		  damage = {
@@ -8,7 +8,7 @@ local weaponDef = {
 				},	      
 		  --physics
 		  areaOfEffect			  = 10,
-		  weaponVelocity          = 500,
+		  weaponVelocity          = 600,
 		  reloadtime              = 3.33,
 		  range                   = 475,
 			burst = 3,
@@ -23,8 +23,8 @@ local weaponDef = {
 		  craterMult              = 0,      
 		  --apperance
 		  rgbColor                = [[0.8 0.8 0.4]],		  	      
-          size                    = 3,
-	      stages                  = 25,
+          size                    = 1.5,
+	      stages                  = 100,
 		  separation              = 1,
 		  --other
 		soundStart = [[Weapons/LightLaser2]],

@@ -2,7 +2,7 @@ local unitName  =  "geothermalplasmacannon"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Geothermal Plasma Cannon.bmp",
+BuildPic = "Geothermal Plasma Cannon.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Geothermal Plasma Cannon.s3o",
     name = "Geothermal Plasma Cannon",
@@ -16,6 +16,7 @@ explosionGenerators = {
 	[[custom:bbsmuzzleflash]],
 	},
 	},
+	icontype = "buildinggeoarty",
 --Unit limitations and properties
     Description = "Large Artillery Turret. Must be placed on a geo spot.",
     MaxDamage = 3500,

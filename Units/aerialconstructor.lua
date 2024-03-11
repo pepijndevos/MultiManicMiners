@@ -2,7 +2,7 @@ local unitName  =  "aerialconstructor"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Aerial Constructor.bmp",
+BuildPic = "Aerial Constructor.png",
     Category = "AIR SMALL NOTSUB",
     ObjectName = "Aerial Constructor.s3o",
     name = "Aerial Constructor",
@@ -10,7 +10,7 @@ BuildPic = "Aerial Constructor.bmp",
     TEDClass = "Vech",
     UnitName = "Aerial Constructor",
     script = "aerialconstructorscript.lua",
-
+	icontype = "airconstructor",
 --Unit limitations and properties
     Description = "Flying Builder.",
     MaxDamage = 375,
@@ -23,6 +23,11 @@ BuildPic = "Aerial Constructor.bmp",
 	explodeAs = [[MediumAirExplosion]],
 	selfDestructAs = [[MediumAirExplosion]],
    corpse = [[aerialconstructor_dead]],
+   sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 85,
     BuildCostMetal = 85,
@@ -63,6 +68,7 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[extractor]],
+	--[[windturbine]]--,
 	[[solarpanel]],
 	[[tidalgenerator]],
 	[[geothermalgenerator]],
@@ -71,10 +77,12 @@ buildoptions =
 	[[groundfactory]],
 	[[hoverfactory]],
 	[[airfactory]],
+	[[navalfactory]],
 	[[llt]],
 	[[lmt]],
 	[[aat]],
 	[[hlt]],
+	[[tp]],
 	[[geothermalplasmacannon]],
 	[[radartower]],
 	[[caretaker]],

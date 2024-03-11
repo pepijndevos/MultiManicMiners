@@ -31,7 +31,7 @@ Sleep(5000)
 	Turn(Pannel3, z_axis, math.rad(-75), math.rad(60))
 	Turn(Pannel4, z_axis, math.rad(75), math.rad(60))
 Spring.SetUnitArmored(unitID, false)
-Spring.SetUnitResourcing(unitID,"cme",1)
+Spring.SetUnitResourcing(unitID,"cme",2)
 end
 
 

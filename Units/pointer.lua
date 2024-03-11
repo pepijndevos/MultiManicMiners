@@ -2,7 +2,7 @@ local unitName  =  "pointer"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Pointer.bmp",
+BuildPic = "Pointer.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Pointer.s3o",
     name = "Pointer",

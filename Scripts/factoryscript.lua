@@ -6,9 +6,16 @@ local ConstructorMuzzle = piece "ConstructorMuzzle"
 local Flare = piece "Flare"
 local BuildSpot = piece "BuildSpot"
 aimSpeed = 3.0
-
+local buildermuzzleflash = SFX.CEG
+local isbuilding = true
 Spring.SetUnitNanoPieces(unitID, { Flare })
 
+local function Building()
+while (isbuilding == true) do
+EmitSfx(Flare, buildermuzzleflash)
+Sleep(100)
+end
+end
 
 function script.Create()
 
@@ -33,11 +40,12 @@ return 0
 end
 
 function script.StartBuilding(heading, pitch)
-    
+    isbuilding = true
+	StartThread(Building)
 end
 
 function script.StopBuilding()
-
+isbuilding = false
 end
 
 

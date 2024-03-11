@@ -2,7 +2,7 @@ local unitName  =  "skeeter"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Skeeter.bmp",
+BuildPic = "Skeeter.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Skeeter.s3o",
     name = "Skeeter",
@@ -10,7 +10,7 @@ BuildPic = "Skeeter.bmp",
     TEDClass = "Vech",
     UnitName = "Skeeter",
     script = "skeeterscript.lua",
-
+    icontype = "hoverraider",
 --Unit limitations and properties
     Description = "Fast Shotgun raider unit.",
     MaxDamage = 270,
@@ -18,6 +18,7 @@ BuildPic = "Skeeter.bmp",
     idleAutoHeal = 5,
     RadarDistance = 0,
     SightDistance = 560,
+	sonarDistance = 560,
     SoundCategory = "TANK",
     Upright = 0,
 	sfxtypes             = {
@@ -53,7 +54,7 @@ explosionGenerators = {
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 5 0",

@@ -2,7 +2,7 @@ local unitName  =  "mangonel"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Mangonel.bmp",
+BuildPic = "Mangonel.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Mangonel.s3o",
     name = "Mangonel",

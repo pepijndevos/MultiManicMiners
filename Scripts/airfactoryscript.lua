@@ -6,12 +6,20 @@ local TurretBuilder = piece "TurretMuzzle"
 local Flare = piece "Flare"
 local BuildSpot = piece "BuildSpot"
 local Pad = piece "Pad"
-
+local buildermuzzleflash = SFX.CEG
+local isbuilding = true
 Spring.SetUnitNanoPieces(unitID, { Flare })
 
 
 function script.Create()
 
+end
+
+local function Building()
+while (isbuilding == true) do
+EmitSfx(Flare, buildermuzzleflash)
+Sleep(100)
+end
 end
 
 function script.QueryBuildInfo() 
@@ -38,9 +46,12 @@ end
 
 function script.StartBuilding(heading, pitch)
     Spin(Pad, y_axis, math.rad(90))
+	isbuilding = true
+	StartThread(Building)
 end
 
 function script.StopBuilding()
+isbuilding = false
  StopSpin(Pad, y_axis, math.rad(90))
 end
 

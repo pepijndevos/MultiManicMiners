@@ -2,7 +2,7 @@ local unitName  =  "geothermalgenerator"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Geothermal Generator.bmp",
+BuildPic = "Geothermal Generator.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Geothermal Generator.s3o",
     name = "Geothermal Generator",
@@ -11,6 +11,7 @@ BuildPic = "Geothermal Generator.bmp",
     UnitName = "Geothermal Generator",
     script = "geothermalgeneratorscript.lua",
 	corpse = [[geothermalgenerator_dead]],
+	icontype = "buildinggeo",
 --Unit limitations and properties
     Description = "Makes 25 enegry and 5 metal. Must be placed on a geo spot.",
     MaxDamage = 2500,

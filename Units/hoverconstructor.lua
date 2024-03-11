@@ -2,7 +2,7 @@ local unitName  =  "hoverconstructor"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Hover Constructor.bmp",
+BuildPic = "Hover Constructor.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Hover Constructor.s3o",
     name = "Hover Constructor",
@@ -10,7 +10,7 @@ BuildPic = "Hover Constructor.bmp",
     TEDClass = "Vech",
     UnitName = "Hover Constructor",
     script = "hoverconstructorscript.lua",
-
+	icontype = "hoverconstructor",
 --Unit limitations and properties
     Description = "Hover Builder.",
     MaxDamage = 400,
@@ -18,9 +18,15 @@ BuildPic = "Hover Constructor.bmp",
     idleAutoHeal = 0,
     RadarDistance = 0,
     SightDistance = 500,
+	sonarDistance = 500,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[hoverconstructor_dead]],
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 80,
     BuildCostMetal = 80,
@@ -47,7 +53,7 @@ BuildPic = "Hover Constructor.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 --building
 Builder = true,
 ShowNanoSpray = true,
@@ -60,6 +66,7 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[extractor]],
+	--[[windturbine]]--,
 	[[solarpanel]],
 	[[tidalgenerator]],
 	[[geothermalgenerator]],
@@ -68,10 +75,12 @@ buildoptions =
 	[[groundfactory]],
 	[[airfactory]],
 	[[hoverfactory]],
+	[[navalfactory]],
 	[[llt]],
 	[[lmt]],
 	[[aat]],
 	[[hlt]],
+	[[tp]],
 	[[geothermalplasmacannon]],
 	[[radartower]],
 	[[caretaker]],

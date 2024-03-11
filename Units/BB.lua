@@ -2,7 +2,7 @@ local unitName  =  "bb"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "BB.bmp",
+BuildPic = "BB.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "BB.s3o",
     name = "Big Bertha",
@@ -11,6 +11,7 @@ BuildPic = "BB.bmp",
     UnitName = "Big Bertha",
     script = "bbscript.lua",
 	corpse = [[bb_dead]],
+	icontype = "buildingbb",
 --Unit limitations and properties
     Description = "Large Tactical Cannon (drains 50 e per second.)",
     MaxDamage = 5600,

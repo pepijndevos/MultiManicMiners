@@ -2,7 +2,7 @@ local unitName  =  "hlt"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "HLT.bmp",
+BuildPic = "HLT.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "HLT.s3o",
     name = "Heavy Laser Tower",
@@ -10,7 +10,7 @@ BuildPic = "HLT.bmp",
     TEDClass = "Building",
     UnitName = "Heavy Laser Tower",
     script = "hltscript.lua",
-
+	icontype = "buildinghlt",
 --Unit limitations and properties
     Description = "Heavy Defensive Tower.",
     MaxDamage = 1800,

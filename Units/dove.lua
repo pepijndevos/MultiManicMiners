@@ -2,7 +2,7 @@ local unitName  =  "dove"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Dove.bmp",
+BuildPic = "Dove.png",
     Category = "AIR SMALL NOTSUB",
     ObjectName = "Dove.s3o",
     name = "Dove",
@@ -10,13 +10,13 @@ BuildPic = "Dove.bmp",
     TEDClass = "Vech",
     UnitName = "Dove",
     script = "dovescript.lua",
-
+	icontype = "airfiresupport",
 --Unit limitations and properties
     Description = "Fast high damage but fragile strike aircraft.",
     MaxDamage = 240,
     idleTime = 300,
     idleAutoHeal = 0,
-    RadarDistance = 0,
+    SonarDistance = 560,
     SightDistance = 560,
     SoundCategory = "TANK",
     Upright = 0,
@@ -50,14 +50,14 @@ BuildPic = "Dove.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-	
+	activateWhenBuilt = 1,
 --Aerial things
 canFly = 1,
 hoverAttack = 0,
 cruiseAlt = 325, --375
 canLoopbackAttack = true,
 maxRudder = 0.009,
-maxElevator = 0.023,
+maxElevator = 0.0265,
 turnradius = 20,
 
 --Hitbox
@@ -73,7 +73,7 @@ weapons = {
 [1]={name  = "StrikeMissles",
 	   onlyTargetCategory = [[TANK]],
         mainDir = "0 0 1",
-		maxAngleDif = 25,
+		maxAngleDif = 30,
 	},
 },
 

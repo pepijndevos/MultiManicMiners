@@ -2,7 +2,7 @@ local unitName  =  "extractor"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Extractor.bmp",
+BuildPic = "Extractor.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Extractor.s3o",
     name = "Extractor",
@@ -10,7 +10,7 @@ BuildPic = "Extractor.bmp",
     TEDClass = "Building",
     UnitName = "Extractor",
     script = "extractorscript.lua",
-
+	icontype = "buildingextractor",
 --Unit limitations and properties
     Description = "Extracts Metal",
     MaxDamage = 400,

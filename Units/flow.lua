@@ -2,7 +2,7 @@ local unitName  =  "flow"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "flow.bmp",
+BuildPic = "flow.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Flow.s3o",
     name = "Flow",
@@ -10,7 +10,7 @@ BuildPic = "flow.bmp",
     TEDClass = "Vech",
     UnitName = "Flow",
     script = "flowscript.lua",
-
+	icontype = "hoverskirmisher",
 --Unit limitations and properties
     Description = "Inaccurate hit and run skirmisher unit.",
     MaxDamage = 460,
@@ -18,6 +18,7 @@ BuildPic = "flow.bmp",
     idleAutoHeal = 5,
     RadarDistance = 0,
     SightDistance = 450,
+	sonarDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[flow_dead]],
@@ -48,7 +49,7 @@ BuildPic = "flow.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 5 0",

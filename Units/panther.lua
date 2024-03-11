@@ -2,7 +2,7 @@ local unitName  =  "panther"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Panther.bmp",
+BuildPic = "Panther.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Panther.s3o",
     name = "Panther",

@@ -2,7 +2,7 @@ local unitName  =  "commander"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "filename.bmp",
+BuildPic = "filename.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Commander.s3o",
     name = "Commander",
@@ -18,9 +18,15 @@ BuildPic = "filename.bmp",
     idleAutoHeal = 10,
     RadarDistance = 2250,
     SightDistance = 600,
+	sonarDistance = 2250,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[commander_dead]],
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 1000,
     BuildCostMetal = 1000,
@@ -66,6 +72,7 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[extractor]],
+	--[[windturbine]]--,
 	[[solarpanel]],
 	[[tidalgenerator]],
 	[[geothermalgenerator]],
@@ -74,10 +81,12 @@ buildoptions =
 	[[groundfactory]],
 	[[hoverfactory]],
 	[[airfactory]],
+	[[navalfactory]],
 	[[llt]],
 	[[lmt]],
 	[[aat]],
 	[[hlt]],
+	[[tp]],
 	[[geothermalplasmacannon]],
 	[[radartower]],
 	[[caretaker]],

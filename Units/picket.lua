@@ -2,7 +2,7 @@ local unitName  =  "picket"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Picket.bmp",
+BuildPic = "Picket.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Picket.s3o",
     name = "Picket",
@@ -50,8 +50,8 @@ BuildPic = "Picket.bmp",
     
 
 --Hitbox
-collisionVolumeOffsets    =  "0 -3.5 0",
-collisionVolumeScales     =  "15.5 21 36",
+collisionVolumeOffsets    =  "0 -1.5 0",
+collisionVolumeScales     =  "15.5 23 36",
 collisionVolumeType       =  "box",
 
    

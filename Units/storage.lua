@@ -2,7 +2,7 @@ local unitName  =  "storage"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Storage.bmp",
+BuildPic = "Storage.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Storage.s3o",
     name = "Storage",
@@ -10,7 +10,7 @@ BuildPic = "Storage.bmp",
     TEDClass = "Building",
     UnitName = "Storage",
     script = "Storagescript.lua",
-
+	icontype = "buildingstorage",
 --Unit limitations and properties
     Description = "Stores 500 of each reasource.",
     MaxDamage = 500,

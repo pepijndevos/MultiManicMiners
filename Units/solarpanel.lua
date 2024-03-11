@@ -2,7 +2,7 @@ local unitName  =  "solarpanel"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Solar Pannel.bmp",
+BuildPic = "Solar Pannel.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Solar Pannel2.s3o",
     name = "Solar Panel",
@@ -10,7 +10,7 @@ BuildPic = "Solar Pannel.bmp",
     TEDClass = "Building",
     UnitName = "Solar Panel",
     script = "solarpanelscript.lua",
-
+	icontype = "buildingenergy",
 --Unit limitations and properties
     Description = "Basic Energy generator (2E).",
     MaxDamage = 500,

@@ -2,7 +2,7 @@ local unitName  =  "stormcloud"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Stormcloud.bmp",
+BuildPic = "Stormcloud.png",
     Category = "AIR SMALL NOTSUB",
     ObjectName = "Stormcloud.s3o",
     name = "Stormcloud",
@@ -10,7 +10,7 @@ BuildPic = "Stormcloud.bmp",
     TEDClass = "Vech",
     UnitName = "Stormcloud",
     script = "stormcloudscript.lua",
-
+	icontype = "airriot",
 --Unit limitations and properties
     Description = "Heavy Carpet Bomber.",
     MaxDamage = 2400,

@@ -2,7 +2,7 @@ local unitName  =  "airfactory"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Air Factory.bmp",
+BuildPic = "Air Factory.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Air Factory.s3o",
     name = "Air Factory",
@@ -11,8 +11,9 @@ BuildPic = "Air Factory.bmp",
     UnitName = "Air Factory",
     script = "airfactoryscript.lua",
 	corpse = [[airfactory_dead]],
+	icontype = "buildingaerialfactory",
 --Unit limitations and properties
-    Description = "Makes Air units. (10 buildpower)",
+    Description = "Makes Air units.",
     MaxDamage = 3250,
     idleTime = 0,
     idleAutoHeal = 0,
@@ -21,6 +22,11 @@ BuildPic = "Air Factory.bmp",
     SoundCategory = "Building",
     Upright = 1,
 	floater = true,
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 750,
     BuildCostMetal = 750,
@@ -49,8 +55,10 @@ buildoptions =
 	{
 	[[aerialconstructor]],
 	[[hawk]],
+	[[crane]],
 	[[dove]],
 	[[harpy]],
+	[[owl]],
 	[[stormcloud]],
 	},
 	--Hitbox

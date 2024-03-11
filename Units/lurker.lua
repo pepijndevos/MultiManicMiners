@@ -2,7 +2,7 @@ local unitName  =  "lurker"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Lurker.bmp",
+BuildPic = "Lurker.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Lurker.s3o",
     name = "Lurker",
@@ -10,7 +10,7 @@ BuildPic = "Lurker.bmp",
     TEDClass = "Vech",
     UnitName = "Lurker",
     script = "lurkerscript.lua",
-
+	icontype = "hoverassault",
 --Unit limitations and properties
     Description = "Offensive Assault Unit",
     MaxDamage = 2670,
@@ -18,6 +18,7 @@ BuildPic = "Lurker.bmp",
     idleAutoHeal = 5,
     RadarDistance = 0,
     SightDistance = 450,
+    sonarDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[lurker_dead]],
@@ -48,7 +49,7 @@ BuildPic = "Lurker.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
 collisionVolumeOffsets    =  "0 0 0",

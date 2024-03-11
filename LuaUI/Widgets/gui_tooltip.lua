@@ -330,8 +330,9 @@ function GenerateNewTooltip()
 			   	local minWindE = FormatNbr((fud.windGenerator/25)*Game.windMin,0)
 				local maxWindE = FormatNbr((fud.windGenerator/25)*Game.windMax,0)
 				NewTooltip = NewTooltip.."Generates \255\255\255\0"..minWindE.."-"..maxWindE.." E/s\255\255\255\255 \n"
-			elseif fud.tidalGenerator == 1 then
-				NewTooltip = NewTooltip.."Generates \255\255\255\0"..Game.tidal.." E/s\255\255\255\255\n"
+			elseif fud.tidalGenerator == 0.1 then
+			local tidal = FormatNbr(fud.tidalGenerator/0.1)
+				NewTooltip = NewTooltip.."Generates \255\255\255\0"..tidal.." E/s\255\255\255\255\n" --..Game.tidal..
 			end
 			
 			if fud.customParams.tip then

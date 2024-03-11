@@ -2,7 +2,7 @@ local unitName  =  "tidalgenerator"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Tidal Generator.bmp",
+BuildPic = "Tidal Generator.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Tidal Generator.s3o",
     name = "Tidal Generator",
@@ -10,9 +10,9 @@ BuildPic = "Tidal Generator.bmp",
     TEDClass = "Building",
     UnitName = "Tidal Generator",
     script = "tidalgeneratorscript.lua",
-
+	icontype = "buildingenergy",
 --Unit limitations and properties
-    Description = "Water only Energy generator (1.1E).",
+    Description = "Water only Energy generator.",
     MaxDamage = 300,
     idleTime = 0,
     idleAutoHeal = 0,
@@ -24,11 +24,13 @@ BuildPic = "Tidal Generator.bmp",
 	floater = true,
 	corpse = [[tidalgenerator_dead]],
 --Energy and metal related
-    BuildCostEnergy = 40,
-    BuildCostMetal = 40,
-    Buildtime = 40,
-    energyMake = 1.1, 
-
+    BuildCostEnergy = 60,
+    BuildCostMetal = 60,
+    Buildtime = 60,
+    tidalGenerator = 0.1,
+	customparams = {
+	energymultiplier = 0.1,
+	},
 --Size and Abilites
    MaxSlope = 33,
    FootprintX = 3,

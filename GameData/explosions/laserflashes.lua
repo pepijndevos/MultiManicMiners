@@ -9,6 +9,8 @@
 --hawk
 --harpy
 --gazer
+--stingray
+--archer
 return {
 --llt
   ["llthit"] = {
@@ -653,4 +655,149 @@ return {
       },
     },
 },
+--stingray
+["stingrayhit"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 0,
+      flashalpha         = 0.8,
+      flashsize          = 6,
+      ttl                = 6,
+      color = {
+        [1]  = 0.35,
+        [2]  = 0.6,
+        [3]  = 1,
+      },
+    },
+   bluespark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+	  underwater         = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.35 0.6 1 0.01   0.275 0.7 0.9 0.01   0.2 0.3 0.8 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 3,
+        particlelife       = 12,
+        particlelifespread = 2.5,
+        particlesize       = 5,
+        particlesizespread = 3,
+        particlespeed      = 5,
+        particlespeedspread = 15, --4
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	yellowspark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+	  underwater         = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.8 0.8 0.4 0.01   0.65 0.65 0.3 0.01   0.5 0.5 0.2 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 3,
+        particlelife       = 12,
+        particlelifespread = 2.5,
+        particlesize       = 5,
+        particlesizespread = 3,
+        particlespeed      = 5,
+        particlespeedspread = 15, --4
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+			underwater         = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[0.35,0.6,1]],
+                expansionspeed     = 2.5,
+                ttl                = 9,
+            },
+        },
+},
+--archer
+["archerhit"] = {
+  usedefaultexplosions = false,
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 2,
+      flashalpha         = 0.8,
+      flashsize          = 12,
+      ttl                = 8,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.6,
+        [3]  = 0.4,
+      },
+    },
+   spark = {
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      unit               = 1,
+	  water              = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.8 0.6 0.4 0.01   0.7 0.45 0.3 0.01   0.5 0.35 0.15 0.01   0 0 0 0.01]],
+        directional        = true,
+        emitrot            = 0,
+        emitrotspread      = 40,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.6, 0]],
+        numparticles       = 7,
+        particlelife       = 20,
+        particlelifespread = 4,
+        particlesize       = 5,
+        particlesizespread = 5,
+        particlespeed      = 5,
+        particlespeedspread = 15,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0,
+        sizemod            = 1.0,
+        texture            = [[simplespark]],
+      },
+    },
+	sphere = {
+            air                = true,
+            class              = [[CSpherePartSpawner]],
+            count              = 1,
+            ground             = true,
+            water              = true,
+			underwater         = true,
+            properties = {
+                alpha              = 0.5,
+                alwaysvisible      = true,
+                color              = [[0.8,0.6,0.4]],
+                expansionspeed     = 4,
+                ttl                = 5,
+            },
+        },
+	},
 }

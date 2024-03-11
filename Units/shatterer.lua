@@ -2,7 +2,7 @@ local unitName  =  "shatterer"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Shatterer.bmp",
+BuildPic = "Shatterer.png",
     Category = "TANK SMALL NOTAIR NOTSUB HOVER",
     ObjectName = "Shatterer.s3o",
     name = "Shatterer",
@@ -10,7 +10,7 @@ BuildPic = "Shatterer.bmp",
     TEDClass = "Vech",
     UnitName = "Shatterer",
     script = "shattererscript.lua",  --shattererscript
-
+	icontype = "hoverriot",
 --Unit limitations and properties
     Description = "Riot Stunner",
     MaxDamage = 1575,
@@ -18,6 +18,7 @@ BuildPic = "Shatterer.bmp",
     idleAutoHeal = 0,
     RadarDistance = 0,
     SightDistance = 450,
+	sonarDistance = 450,
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[shatterer_dead]],
@@ -48,7 +49,7 @@ BuildPic = "Shatterer.bmp",
     Reclaimable = 1,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
 
 --Hitbox
   collisionVolumeOffsets    =  "0 6 0",

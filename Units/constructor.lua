@@ -2,7 +2,7 @@ local unitName  =  "constructor"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Constructor.bmp",
+BuildPic = "Constructor.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Constructor.s3o",
     name = "Constructor",
@@ -21,6 +21,11 @@ BuildPic = "Constructor.bmp",
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[constructor_dead]],
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 80,
     BuildCostMetal = 80,
@@ -60,6 +65,7 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[extractor]],
+	--[[windturbine]]--,
 	[[solarpanel]],
 	[[tidalgenerator]],
 	[[geothermalgenerator]],
@@ -68,10 +74,12 @@ buildoptions =
 	[[groundfactory]],
 	[[hoverfactory]],
 	[[airfactory]],
+	[[navalfactory]],
 	[[llt]],
 	[[lmt]],
 	[[aat]],
 	[[hlt]],
+	[[tp]],
 	[[geothermalplasmacannon]],
 	[[radartower]],
 	[[caretaker]],

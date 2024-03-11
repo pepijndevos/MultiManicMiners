@@ -2,7 +2,7 @@ local unitName  =  "radartower"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Radar Tower.bmp",
+BuildPic = "Radar Tower.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Radar Tower.s3o",
     name = "Radar Tower",
@@ -10,7 +10,7 @@ BuildPic = "Radar Tower.bmp",
     TEDClass = "Building",
     UnitName = "Radar Tower",
     script = "radartowerscript.lua",
-
+	icontype = "buildingradar",
 --Unit limitations and properties
     Description = "long range early warning system.",
     MaxDamage = 400,

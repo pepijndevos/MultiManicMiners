@@ -5,7 +5,8 @@ local Turret = piece "Turret"
 local TurretBuilder = piece "TurretBuilder"
 local Flare = piece "Flare"
 aimSpeed = 3.0
-
+local buildermuzzleflash = SFX.CEG
+local isbuilding = true
 local SIG_BUILD = 1
 
 Spring.SetUnitNanoPieces(unitID, { Flare })
@@ -18,6 +19,13 @@ Sleep(2000)
     Turn(Flare, y_axis, 0, 1)
 	WaitForTurn(Turret, y_axis)
 	WaitForTurn(Flare, y_axis)
+end
+
+local function Building()
+while (isbuilding == true) do
+EmitSfx(Flare, buildermuzzleflash)
+Sleep(100)
+end
 end
 
 function script.Create()
@@ -35,10 +43,13 @@ Signal (SIG_BUILD)
     Turn(Flare, y_axis, math.rad(heading), 1)
 	WaitForTurn(Turret, y_axis)
     SetUnitValue(COB.INBUILDSTANCE, 1)
+	isbuilding = true
+	StartThread(Building)
 
 end
 
 function script.StopBuilding()
+isbuilding = false
 SetUnitValue(COB.INBUILDSTANCE, 0)
 StartThread(Restore)
 end

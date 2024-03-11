@@ -2,7 +2,7 @@ local unitName  =  "hoverfactory"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Hover Factory.bmp",
+BuildPic = "Hover Factory.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "Hover Factory.s3o",
     name = "Hover Factory",
@@ -11,8 +11,9 @@ BuildPic = "Hover Factory.bmp",
     UnitName = "Hover Factory",
     script = "hoverfactoryscript.lua",
 	corpse = [[hoverfactory_dead]],
+	icontype = "buildinghoverfactory",
 --Unit limitations and properties
-    Description = "Makes Hover units. (10 buildpower)",
+    Description = "Makes Hover units.",
     MaxDamage = 3500,
     idleTime = 0,
     idleAutoHeal = 0,
@@ -21,6 +22,11 @@ BuildPic = "Hover Factory.bmp",
     SoundCategory = "Building",
     Upright = 1,
 	floater = true,
+	sfxtypes             = {
+	explosionGenerators = {
+	[[custom:buildermuzzleflash]],
+	},
+   },
 --Energy and metal related
     BuildCostEnergy = 750,
     BuildCostMetal = 750,
@@ -53,6 +59,7 @@ buildoptions =
 	[[swatter]],
 	[[shatterer]],
 	[[lurker]],
+	[[clam]],
 	[[gazer]],
 	},
 	--Hitbox

@@ -2,7 +2,7 @@ local unitName  =  "lmt"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "LMT.bmp",
+BuildPic = "LMT.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "LMT.s3o",
     name = "Missle Tower",
@@ -10,7 +10,7 @@ BuildPic = "LMT.bmp",
     TEDClass = "Building",
     UnitName = "Missle Tower",
     script = "lmtscript.lua",
-
+	icontype = "buildingfiresupport",
 --Unit limitations and properties
     Description = "Long range multipurpose but fragile Tower.",
     MaxDamage = 575,
