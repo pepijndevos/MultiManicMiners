@@ -13,7 +13,7 @@ startVelocity=320,
 weaponAcceleration=200,
 flightTime=2.5,
 BurnBlow=0,
-FixedLauncher=true,
+FixedLauncher=false,
 dance=0,
 wobble=0,
 tolerance=16000,
@@ -37,7 +37,6 @@ avoidFeature=false,
 avoidFriendly=true,
 
 
---commandfire=true,
 
 ----DAMAGE
 damage={

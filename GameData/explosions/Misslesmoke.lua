@@ -1,5 +1,9 @@
 --thanks xta for always has nice effects!
 --default
+--small
+--depthcharge
+--aa/wingtrail
+--smallstun
 local cegs = {
   ["Rocket_trail"] = {
     usedefaultexplosions = false,
@@ -30,6 +34,34 @@ local cegs = {
         texture            = [[newsmoke]],
       },
     },
+	bubbles = {
+      air                = false,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = false,
+      water              = true,
+	  underwater         = true,
+      properties = {
+        airdrag            = 0.97,
+        colormap           = [[0.9 0.9 1 0.01 0.0 0.0 0.0 0.18 0.0 0.0 0.0 0.01]],
+        directional        = false,
+        emitrot            = 0,
+        emitrotspread      = 20,
+        emitvector         = [[dir]],
+        gravity            = [[0, 0, 0]],
+        numparticles       = 2,
+        particlelife       = 30,
+        particlelifespread = 4.2,
+        particlesize       = 3,
+        particlesizespread = 1,
+        particlespeed      = 1,
+        particlespeedspread = 2,
+        pos                = [[0, 1, 0]],
+        sizegrowth         = 0.65,
+        sizemod            = 1.0,
+        texture            = [[bubble]],
+      },
+    },
     groundflash = {
       air                = true,
       circlealpha        = 0,
@@ -39,6 +71,7 @@ local cegs = {
       ground             = true,
       ttl                = 5,
       water              = true,
+	  underwater         = true,
       color = {
         [1]  = 0.8,
         [2]  = 0.8,
@@ -244,5 +277,44 @@ local cegs = {
       },
     },
 	},
+	--depthcharge
+ ["torpedo_trail"] = {
+    usedefaultexplosions = false,
+    groundflash = {
+      air                = true,
+      circlealpha        = 0,
+      circlegrowth       = 0,
+      flashalpha         = 0.40,
+      flashsize          = 15,
+      ground             = true,
+      ttl                = 5,
+      water              = true,
+	  underwater 		 = true,
+      color = {
+        [1]  = 0.8,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+    largeflash = {
+      air                = true,
+      class              = [[CBitmapMuzzleFlame]],
+      count              = 1,
+      ground             = true,
+      underwater         = 1,
+      water              = true,
+      properties = {
+        colormap           = [[1.0 0.3 0.2 0.01 0.4 0.2 0.1 0.01 0 0 0 0.01]],
+        dir                = [[dir]],
+        frontoffset        = 0,
+        fronttexture       = [[muzzlefront]],
+        length             = -6,
+        sidetexture        = [[muzzleside]],
+        size               = -2,
+        sizegrowth         = 0.6,
+        ttl                = 1,
+      },
+    },
+   },
 }
 return cegs

@@ -1,7 +1,7 @@
 return lowerkeys({
   stormcloud_dead = {
             description = "dead stormcloud :(",
-            damage = 120,
+            damage = 1200,
             object = "dead/StormCloudDED.s3o",
             footprintz = 3,
             footprintx = 3,

@@ -10,7 +10,7 @@ BuildPic = "Stunburst.png",
     TEDClass = "Vech",
     UnitName = "Stunburst",
     script = "stunburstscript.lua",
-
+	icontype = "stunburst",
 --Unit limitations and properties
     Description = "Light Scout/Raider Support.",
     MaxDamage = 155,

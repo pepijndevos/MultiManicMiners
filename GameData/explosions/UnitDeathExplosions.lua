@@ -30,6 +30,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
+			underwater         = true,
             properties = {
                 heat               = 9,
                 heatfalloff        = 1,
@@ -47,6 +48,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -77,6 +79,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
+			underwater         = true,
 
             properties = {
                 heat               = 11,
@@ -95,7 +98,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -126,7 +129,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			underwater         = true,
             properties = {
                 heat               = 16,
                 heatfalloff        = 1,
@@ -144,7 +147,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -175,7 +178,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			underwater         = true,
             properties = {
                 heat               = 20,
                 heatfalloff        = 1,
@@ -193,7 +196,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -224,7 +227,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			underwater         = true,
             properties = {
                 heat               = 24,
                 heatfalloff        = 1,
@@ -242,7 +245,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -273,7 +276,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			underwater         = true,
             properties = {
                 heat               = 48,
                 heatfalloff        = 1,
@@ -291,7 +294,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -322,7 +325,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			underwater         = true,
             properties = {
                 heat               = 32,
                 heatfalloff        = 1,
@@ -340,7 +343,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
-	  
+	  underwater         = true,
       properties = {
         alpha              = 0.5,
         color              = [[1,0.95,0.4]],
@@ -358,7 +361,7 @@ return {
             count              = 1,
             ground             = true,
             water              = true,
-
+			
             properties = {
                 heat               = 11,
                 heatfalloff        = 1,

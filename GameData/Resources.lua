@@ -43,6 +43,7 @@ local	resources = {
 			lightning2 = 'lightning2.png',
 			newsmoke = 'SmokeSmall.tga',
 			newsmoke2 = 'smokecloud.tga',
+			bubble = 'bubble.tga',
 		},
 	}
 }

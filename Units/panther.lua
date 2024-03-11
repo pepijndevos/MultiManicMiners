@@ -10,7 +10,7 @@ BuildPic = "Panther.png",
     TEDClass = "Vech",
     UnitName = "Panther",
     script = "pantherscript.lua",
-
+	icontype = "panther",
 --Unit limitations and properties
     Description = "Stealthed(NOT CLOAKED)Stun unit(drains 1.6 e).",
     MaxDamage = 1400,

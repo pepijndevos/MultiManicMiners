@@ -4,12 +4,12 @@ local weaponDef = {
 	      weaponType              = [[AircraftBomb]],
 	      --damage
 		  damage = {
-				default = 120, --80
+				default = 105,
 				},	      
 		  --physics
-		  areaOfEffect			  = 102,
+		  areaOfEffect			  = 140,
 		  edgeEffectiveness       = 0.75,
-		  weaponVelocity          = 1200, --850
+		  weaponVelocity          = 1200,
 		  reloadtime              = 25,
 		  range                   = 500,
 		  sprayAngle              = 8000,

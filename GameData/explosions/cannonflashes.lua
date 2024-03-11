@@ -6,6 +6,7 @@
 --swatter
 --geothermal
 --stormcloud
+--catapult
 return {
 --hunter
   ["hunterflash"] = {
@@ -171,6 +172,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         heat               = 16, --8
         heatfalloff        = 1,
@@ -256,6 +258,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         heat               = 4,
         heatfalloff        = 1,
@@ -288,6 +291,7 @@ return {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         heat               = 38, 
         heatfalloff        = 1,
@@ -331,6 +335,7 @@ sphere = {
             count              = 1,
             ground             = true,
             water              = true,
+			underwater         = true,
             properties = {
                 alpha              = 0.5,
                 alwaysvisible      = true,
@@ -408,6 +413,7 @@ sphere = {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         heat               = 28, --8
         heatfalloff        = 1,
@@ -461,8 +467,8 @@ sphere = {
         numparticles       = 4,
         particlelife       = 34,
         particlelifespread = 6,
-        particlesize       = 6,
-        particlesizespread = 3.75,
+        particlesize       = 3,
+        particlesizespread = 3.5,
         particlespeed      = 3.75,
         particlespeedspread = 1.3,
         pos                = [[0, 0, 0]],
@@ -492,6 +498,7 @@ sphere = {
       count              = 1,
       ground             = true,
       water              = true,
+	  underwater         = true,
       properties = {
         heat               = 30, 
         heatfalloff        = 1,
@@ -535,6 +542,7 @@ sphere = {
             count              = 1,
             ground             = true,
             water              = true,
+			underwater         = true,
             properties = {
                 alpha              = 0.5,
                 alwaysvisible      = true,
@@ -544,4 +552,89 @@ sphere = {
             },
         },	
 	},
+	--Catapult
+	["Catapultflash"] = {
+    groundflash = {
+      circlealpha        = 1,
+      circlegrowth       = 3,
+      flashalpha         = 0.9,
+      flashsize          = 46,
+      ttl                = 24,
+      color = {
+        [1]  = 1,
+        [2]  = 0.8,
+        [3]  = 0.4,
+      },
+    },
+	 mainhit = {
+      air                = true,
+      class              = [[heatcloud]],
+      count              = 1,
+      ground             = true,
+      water              = true,
+	  underwater         = true,
+      properties = {
+        heat               = 22, --8
+        heatfalloff        = 1,
+        maxheat            = 26, --8
+        pos                = [[0, 1, 0]],
+        size               = 33, 
+        sizegrowth         = 1.3, 
+        speed              = [[0, 1.5, 0]],
+        texture            = [[heatcloud]],
+      },
+	},
+	dirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.04 0.03 0.02 0.05  0.4 0.3 0.2 0.5  0.04 0.03 0.02 0.05]],
+        directional        = false,
+        emitrot            = 85,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 24,
+        particlelife       = 24,
+        particlelifespread = 6,
+        particlesize       = 9,
+        particlesizespread = 4.5,
+        particlespeed      = 4,
+        particlespeedspread = 2,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 6,
+        sizemod            = 0.75,
+        texture            = [[dirt]],
+    },
+	},
+	speckdirt = {
+      air                = true,
+      class              = [[CSimpleParticleSystem]],
+      count              = 1,
+      ground             = true,
+      properties = {
+        airdrag            = 0.95,
+        colormap           = [[0.02 0.015 0.01 0.075  0.2 0.15 0.1 0.75  0.02 0.015 0.01 0.075]],
+        directional        = false,
+        emitrot            = 25,
+        emitrotspread      = 5,
+        emitvector         = [[0, 1, 0]],
+        gravity            = [[0, -0.1, 0]],
+        numparticles       = 6,
+        particlelife       = 36,
+        particlelifespread = 7,
+        particlesize       = 3,
+        particlesizespread = 1.5,
+        particlespeed      = 4,
+        particlespeedspread = 1.5,
+        pos                = [[0, 0, 0]],
+        sizegrowth         = 5,
+        sizemod            = 1,
+        texture            = [[randdots]],
+    },
+  },	
+   },
 }

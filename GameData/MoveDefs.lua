@@ -33,12 +33,8 @@ local moveDefs 	=	 {
 		name =	"Small Hover",
 		footprintX =	2,
 		footprintZ =	2,
-		maxSlope =	28,
 		speedModClass = 2,
 	},
-<<<<<<< Updated upstream
-	
-=======
 	{	
 		name =	"Small Ship",
 		footprintX =	2,
@@ -68,7 +64,6 @@ local moveDefs 	=	 {
 		speedModClass = 3,
 		waterline = 30,
 	},
->>>>>>> Stashed changes
 }
 
 return moveDefs

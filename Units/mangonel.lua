@@ -10,7 +10,7 @@ BuildPic = "Mangonel.png",
     TEDClass = "Vech",
     UnitName = "Mangonel",
     script = "mangonelscript.lua",
-
+	icontype = "artillery",
 --Unit limitations and properties
     Description = "Heavy Artillery unit (inaccurate while moving)",
     MaxDamage = 675,

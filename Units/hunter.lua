@@ -10,7 +10,7 @@ BuildPic = "Hunter.png",
     TEDClass = "Vech",
     UnitName = "Hunter",
     script = "hunterscript.lua",
-
+	icontype = "raider",
 --Unit limitations and properties
     BuildTime = 1280,
     Description = "Fast raider unit.",

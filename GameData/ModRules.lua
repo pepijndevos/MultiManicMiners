@@ -66,6 +66,14 @@ experience = {
     paralyzeOnMaxHealth = true, -- defaults to true
     unitParalysisDeclineScale = 40, -- Time in seconds to go from 100% to 0% emp
   },
+  
+  transportability = {
+    transportGround = 1,
+    transportHover  = 1,  
+    transportShip   = 1,  
+    transportAir    = 0,  
+    targetableTransportedUnits = true;
+  },
 	
 }
 

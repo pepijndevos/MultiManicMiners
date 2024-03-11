@@ -10,7 +10,7 @@ BuildPic = "ravager.png",
     TEDClass = "Vech",
     UnitName = "Ravager",
     script = "ravagerscript.lua",
-
+	icontype = "assault",
 --Unit limitations and properties
     Description = "Fast Assault unit.",
     MaxDamage = 2130,

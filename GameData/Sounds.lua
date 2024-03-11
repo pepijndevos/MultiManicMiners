@@ -273,8 +273,6 @@ local Sounds = {
 			maxconcurrent = 50, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
-<<<<<<< Updated upstream
-=======
 		GrenadeExplosion = {			
 			file = "Sounds/Explosions/grenade_explosion.wav",
 			preload, -- put in memory!
@@ -320,7 +318,6 @@ local Sounds = {
 			maxconcurrent = 50, ---only once
 			--maxdist = FLT_MAX, --- only when near
 		},
->>>>>>> Stashed changes
 	},
 	}
 	

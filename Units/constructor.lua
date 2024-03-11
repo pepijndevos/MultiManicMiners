@@ -10,7 +10,7 @@ BuildPic = "Constructor.png",
     TEDClass = "Vech",
     UnitName = "Constructor",
     script = "constructorscript.lua",
-
+	icontype = "constructor",
 --Unit limitations and properties
     Description = "Basic Builder.",
     MaxDamage = 500,

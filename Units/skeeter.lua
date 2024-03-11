@@ -28,9 +28,9 @@ explosionGenerators = {
 	},
 	corpse = [[skeeter_dead]],
 --Energy and metal related
-    BuildCostEnergy = 65,
-    BuildCostMetal = 65,
-    BuildTime = 65,
+    BuildCostEnergy = 75,
+    BuildCostMetal = 75,
+    BuildTime = 75,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,

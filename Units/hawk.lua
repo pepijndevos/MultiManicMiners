@@ -12,7 +12,7 @@ BuildPic = "Hawk.png",
     script = "hawkscript.lua",
 	icontype = "airantiair",
 --Unit limitations and properties
-    Description = "Fast Air fighter.",
+    Description = "Fast Anti-Air fighter.",
     MaxDamage = 300,
     idleTime = 300,
     idleAutoHeal = 5,

@@ -25,7 +25,7 @@ local function Defend()
 	Turn(Pannel4, z_axis, math.rad(0), math.rad(60))
 Spring.SetUnitArmored(unitID, true)
 Spring.SetUnitResourcing(unitID,"cme",0)
-Sleep(5000)
+Sleep(15000)
 	Turn(Pannel1, x_axis, math.rad(75), math.rad(60))
 	Turn(Pannel2, x_axis, math.rad(-75), math.rad(60))
 	Turn(Pannel3, z_axis, math.rad(-75), math.rad(60))
@@ -60,10 +60,10 @@ StartThread(StopMakeE)
 
 end
 
---function script.HitByWeapon( )
---StartThread(defend)
+function script.HitByWeapon()
+StartThread(Defend)
 
---end
+end
 
 
 

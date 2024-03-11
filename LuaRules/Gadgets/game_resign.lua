@@ -22,7 +22,7 @@ if (gadgetHandler:IsSyncedCode()) then
 --------------------------------------------------------------------------------
 
 function gadget:RecvLuaMsg(msg, playerID)
-	if msg == "forceresign" then
+	if msg == "resign" then --forceresign
 		local team = select(4, Spring.GetPlayerInfo(playerID))
 		Spring.KillTeam(team)
 		Spring.SetTeamRulesParam(team, "WasKilled", 1)
@@ -39,7 +39,7 @@ local function Resign(_, name)
 	local myName = Spring.GetPlayerInfo(playerID)
 	if name == myName then
 		--Spring.SendCommands('spectator')
-		Spring.SendLuaRulesMsg("forceresign")
+		Spring.SendLuaRulesMsg("resign")
 	end
 end
 

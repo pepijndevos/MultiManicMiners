@@ -10,7 +10,7 @@ BuildPic = "Pointer.png",
     TEDClass = "Vech",
     UnitName = "Pointer",
     script = "pointerscript.lua",
-
+	icontype = "antiair",
 --Unit limitations and properties
     Description = "Anti Air unit.",
     MaxDamage = 400,

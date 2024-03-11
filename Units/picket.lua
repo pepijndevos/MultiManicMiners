@@ -10,7 +10,7 @@ BuildPic = "Picket.png",
     TEDClass = "Vech",
     UnitName = "Picket",
     script = "picketscript.lua",
-
+	icontype = "skirmisher",
 --Unit limitations and properties
     Description = "Skirmisher unit.",
     MaxDamage = 480,
