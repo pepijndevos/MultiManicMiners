@@ -32,10 +32,10 @@ BuildPic = "flow.png",
     FootprintX = 2,
     FootprintZ = 2,
     MaxSlope = 45,
-    Speed = 64,
+    Speed = 70,
     MaxWaterDepth = 5,
     MovementClass = "Small Hover",
-    TurnRate = 1150,
+    TurnRate = 2000,
 	
     
 --Abilities

@@ -20,17 +20,13 @@ BuildPic = "Tidal Generator.png",
     SightDistance = 400,
     SoundCategory = "Building",
     Upright = 0,
-	minWaterDepth = 1,
-	floater = true,
+	maxWaterDepth = 5,
 	corpse = [[tidalgenerator_dead]],
 --Energy and metal related
     BuildCostEnergy = 60,
     BuildCostMetal = 60,
     Buildtime = 60,
     tidalGenerator = 0.1,
-	customparams = {
-	energymultiplier = 0.1,
-	},
 --Size and Abilites
    MaxSlope = 33,
    FootprintX = 3,

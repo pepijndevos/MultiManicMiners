@@ -13,7 +13,7 @@ BuildPic = "Cleaver.png",
 	icontype = "riot",
 --Unit limitations and properties
     Description = "Slow riot unit.",
-    MaxDamage = 1175,
+    MaxDamage = 1075,
     idleTime = 300,
     idleAutoHeal = 5,
     RadarDistance = 0,

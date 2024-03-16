@@ -15,7 +15,7 @@ weaponDef = {
 	tolerance               = 5000,
 	--damage--
 	damage                  = {
-		default = 17.5,        
+		default = 15.5,        
 		},
 	areaOfEffect            = 0,
 	craterBoost             = 0,
