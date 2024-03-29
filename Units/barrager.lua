@@ -51,6 +51,7 @@ BuildPic = "Barrager.png",
     canSelfDestruct = 1,
     repairable = 1,
 	canManualFire = 1,
+	activateWhenBuilt = 1,
 --Hitbox
 collisionVolumeOffsets    =  "0 0 0",
 collisionVolumeScales     =  "48 45 96",

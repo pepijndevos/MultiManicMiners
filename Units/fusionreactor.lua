@@ -21,7 +21,7 @@ BuildPic = "Fusion Reactor.png",
     SightDistance = 450,
     SoundCategory = "Building",
     Upright = 0,
-	maxWaterDepth = 4,
+	maxWaterDepth = 400,
 --Energy and metal related
     BuildCostEnergy = 875,
     BuildCostMetal = 875,
