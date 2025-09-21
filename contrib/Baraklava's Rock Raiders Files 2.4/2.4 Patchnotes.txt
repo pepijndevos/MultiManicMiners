@@ -1,0 +1,23 @@
+2.4:
+- Changed to tabbed hoses on all models.
+- Fixed several models to be more accurate:
+	- Tool Store: Slopes moved outwards. Note: The base CAN be 4 2x4 bricks, do as you wish yourself
+	- Docks: Figured out Docks. Only has one ladder. Adjusted model appropriately.
+	- Power Station: Added clips on side, lights on the back, and changed the "tray" to fit the render better. Removed hoses.
+	- Geological center: Fixed colour of computers and inverted slopes
+	- Small Mobile Laser Cutter: Added 1x1 round plate behind laser, changed hinge colour, moved 1x4 tile on the back, added handle under backside, and fixed a lot with the base of the vehicle (using the Main Menu cinematic as reference)
+	- Large Mobile Laser Cutter: Backside reworked, replaced 1x2 bricks with pin with 2x2 bricks with pin. Fixed laser.
+	- Cargo Carrier: Moved propellers outwards, replaced 2x2 inverted slope with 2x2 brick underneath to improve stability
+- Updated Loader Dozer's upgrade model to use the correct 4476b brick, which unfortunately doesn't exist in Dark Turquoise
+- Added "Rock Raiders purist" Studio palette by Juniper: This ONLY contains bricks from retail sets!
+2.3:
+- Added some prototype builds by Brian's Bricks!
+- Updated models to use the newly added 30303pb1 part Dome plate with Danger Stripes
+- Fixed collisions after the LDraw library/Studio updated the clipping of some bricks
+- Fixed some erroneous bricks that had the wrong mould without internal tubes etc.
+- Fixed several upgrade models and looked over all models individually
+2.2:
+- Added sliding rail to the Docks building (seen in unused unload/load animation)
+- Added several incredibly early Rock Raiders prototypes of buildings and vehicles (from Brian's Bricks!)
+2.1:
+- Fixed incorrect wheel mould versions.
