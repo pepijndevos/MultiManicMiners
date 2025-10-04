@@ -22,12 +22,8 @@ In Blender:
     - No curved wall normals
 4. Select relevant parts of the model and combine them by pressing CTRL+J
 5. Select the Lego Mesh and ctrl+click the S3O root, then with the mouse on the model press CTRL+P to reparent the imported model to the S3O root.
-
-## Model export
-
-In the bottom right properties go to the data tab (axis), and tweak the S3O data.
-
-Then, in the S3O panel, hit Export *.s3o
+6. Hit tab to go into edit mode and hit m or go to mesh->clean up->merge by distance
+7. TODO: delete internal geometry freaks out
 
 ## Texture export
 
@@ -60,7 +56,7 @@ These Lego models use materials that don't render inside Recoil, so we'll need t
    - Press U to open the UV menu
    - Choose "Smart UV Project" or "Unwrap"
    - In the popup settings (bottom left), you can adjust:
-     - For Smart UV Project: Set Island Margin to 0.02
+     - For Smart UV Project: Set Island Margin to 0.001
      - Click OK
 
 6. **Pack UV islands** (optional but recommended for space efficiency):
@@ -95,6 +91,7 @@ These Lego models use materials that don't render inside Recoil, so we'll need t
    - Right-click the Image Texture node you just created
    - Select "Copy" from the context menu
    - For each material in your model:
+     - change any reflective or glowing material to "Lego Standard"
      - Select the material from the dropdown
      - Click in empty space in the Shader Editor to deselect everything
      - Press Ctrl+V to paste the texture node
@@ -137,37 +134,32 @@ These Lego models use materials that don't render inside Recoil, so we'll need t
    - Save as PNG format (recommended for Recoil)
    - Choose a memorable location
 
-### Step 5: Apply the Baked Texture
+## Texture 2 bake
 
-1. **Clean up the model**:
-   - Go back to Shading workspace
-   - In Object Data Properties (green triangle icon), find UV Maps
-   - Delete the original UV map(s), keeping only your "baked" UV map
-   - The remaining UV map will automatically become active
+Recoil supports a second texture where green=reflective red=glow: https://springrts.com/wiki/3DModels:Textures
 
-2. **Remove old materials**:
-   - In Material Properties (sphere icon)
-   - Select each material and click the "-" button to remove them all
+The steps for generating this are similar to the above.
 
-3. **Create new single material**:
-   - Click "+" to add a new material
-   - Name it something like "baked_material"
+For each material:
+- if it's a normal material, deselect the texture
+- if it's a reflective/glowing material, add a second texture image.
+- copy the material and make change it to red/green
+- bake the second texture with just the glowing/reflective materials active
+- save the image
 
-4. **Apply the baked texture**:
-   - In Shader Editor, add an Image Texture node (Shift+A → Texture → Image Texture)
-   - Click "Open" in the node and load your saved baked texture
-   - Connect the Color output to the Base Color input of the Principled BSDF
+## Model export
 
-### Step 6: Verify and Export
+In the bottom right properties go to the data tab (axis), and tweak the S3O data.
 
-1. **Check the result**:
-   - Switch viewport shading to "Material Preview" (sphere icons at top right of 3D view)
-   - Your model should now display with the single baked texture
+Then, in the S3O panel, hit Export *.s3o
 
-2. **Export for Recoil**:
-   - File → Export → glTF 2.0
-   - Use settings as recommended in the Recoil documentation
-   - The texture will be exported with the model
+## Texture conversion
+
+Run
+```
+./make_team_alpha_imagemagick.sh contrib/SupportStation.png UnitTextures/SupportStation.dds
+magick contrib/SupportStation2.png UnitTextures/SupportStation2.dds 
+```
 
 ### Troubleshooting
 

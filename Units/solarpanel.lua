@@ -4,7 +4,7 @@ local unitDef  =  {
 --Internal settings
 BuildPic = "Solar Pannel.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
-    ObjectName = "Solar Pannel2.s3o",
+    ObjectName = "SupportStation.s3o",
     name = "Solar Panel",
     Side = "Vroomers",
     TEDClass = "Building",
