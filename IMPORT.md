@@ -11,6 +11,7 @@ In Bricklink Studio:
 
 In Blender:
 
+0. Clear the default scene
 1. Hit N to open the sidebar and select the S3O tab
 2. Click Add S3O root
 3. File -> Import -> LDraw, Change the following settings:
