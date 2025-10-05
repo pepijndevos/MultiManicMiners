@@ -6,11 +6,27 @@ Based on IMPORT.md instructions
 
 import bpy
 import math
+import sys
 from mathutils import Vector
 
-model_name = "PowerStation"
-ldraw_file = "/home/pepijn/code/VroomRTS/contrib/PowerStation.ldr"
+# Parse command-line arguments (passed after --)
+if "--" not in sys.argv:
+    print("Error: No model name provided")
+    print("Usage: blender --background --python blender_import_script.py -- <model_name>")
+    sys.exit(1)
+
+args = sys.argv[sys.argv.index("--") + 1:]
+if len(args) < 1:
+    print("Error: Model name required")
+    print("Usage: blender --background --python blender_import_script.py -- <model_name>")
+    sys.exit(1)
+
+model_name = args[0]
+ldraw_file = f"/home/pepijn/code/VroomRTS/contrib/{model_name}.ldr"
 ldraw_library = "/home/pepijn/Games/bricklink-studio/drive_c/Program Files/Studio 2.0/ldraw"
+
+print(f"Model name: {model_name}")
+print(f"LDraw file: {ldraw_file}")
 
 # Step 0: Clear the default scene
 print("Clearing default scene...")
