@@ -85,7 +85,6 @@ These Lego models use materials that don't render inside Recoil, so we'll need t
      - Name: "baked_texture" (or any descriptive name)
      - Width/Height: 2048 (2K resolution, use 4096 for more detail)
      - Color: Black (important!)
-     - Check "32-bit Float" for better quality
    - Click OK to create
 
 4. **Add this texture node to ALL materials**:
