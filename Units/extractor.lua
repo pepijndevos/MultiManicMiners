@@ -4,7 +4,7 @@ local unitDef  =  {
 --Internal settings
 BuildPic = "Extractor.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
-    ObjectName = "Extractor.s3o",
+    ObjectName = "PowerStation.s3o",
     name = "Extractor",
     Side = "Vroomers",
     TEDClass = "Building",

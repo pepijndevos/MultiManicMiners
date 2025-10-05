@@ -137,14 +137,16 @@ bpy.context.view_layer.objects.active = combined_mesh
 combined_mesh.select_set(True)
 bpy.ops.object.mode_set(mode='EDIT')
 bpy.ops.mesh.select_all(action='SELECT')
-bpy.ops.uv.smart_project(angle_limit=66.0, island_margin=0.001)
-print("UV map created using Smart UV Project")
 
-# Step 9: Pack UV islands
+# Use Cube Projection for boxy Lego models - projects from 6 orthogonal directions
+bpy.ops.uv.cube_project(cube_size=1.0, correct_aspect=True, clip_to_bounds=False, scale_to_bounds=False)
+print("UV map created using Cube Projection")
+
+# Step 9: Pack UV islands with low margin
 print("Packing UV islands...")
-bpy.ops.uv.pack_islands(margin=0.001)
+bpy.ops.uv.pack_islands(margin=0.001, rotate=True)
 bpy.ops.object.mode_set(mode='OBJECT')
-print("UV islands packed")
+print("UV islands packed with margin=0.001")
 
 # Step 10: Convert non-standard materials to Lego Standard (preserving colors)
 print("Converting materials to Lego Standard (preserving colors)...")
