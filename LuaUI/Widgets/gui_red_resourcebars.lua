@@ -48,11 +48,11 @@ local Config = {
 		tooltip = {
 			background ="In CTRL+F11 mode: Hold \255\255\255\1middle mouse button\255\255\255\255 to drag the resource bar.\n\n"..
 			"\255\255\255\1Leftclick\255\255\255\255 on the bar to set team share.",
-			income = "Your metal income.",
-			pull = "Your metal pull.",
-			expense = "Your metal expense, same as pull if not shown.",
-			storage = "Your maximum metal storage.",
-			current = "Your current metal storage.",
+			income = "Your ore income.",
+			pull = "Your ore pull.",
+			expense = "Your ore expense, same as pull if not shown.",
+			storage = "Your maximum ore storage.",
+			current = "Your current ore storage.",
 		},
 	},
 	
@@ -86,11 +86,11 @@ local Config = {
 		tooltip = {
 			background ="In CTRL+F11 mode: Hold \255\255\255\1middle mouse button\255\255\255\255 to drag the resource bar.\n\n"..
 			"\255\255\255\1Leftclick\255\255\255\255 on the bar to set team share.",
-			income = "Your energy income.",
-			pull = "Your energy pull.",
-			expense = "Your energy expense, same as pull if not shown.",
-			storage = "Your maximum energy storage.",
-			current = "Your current energy storage.",
+			income = "Your air income.",
+			pull = "Your air pull.",
+			expense = "Your air expense, same as pull if not shown.",
+			storage = "Your maximum air storage.",
+			current = "Your current air storage.",
 		},
 	},
 }

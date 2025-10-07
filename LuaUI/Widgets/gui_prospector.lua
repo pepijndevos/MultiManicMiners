@@ -258,7 +258,7 @@ function widget:DrawScreen()
 	if (not coords) then return end
 	
 	IntegrateMetal(mexDefInfo, coords[1], coords[3], forceUpdate)
-	DrawTextWithBackground("\255\255\255\255Metal extraction: " .. strFormat("%.2f", extraction), mx, my, textSize, "d")
+	DrawTextWithBackground("\255\255\255\255Ore extraction: " .. strFormat("%.2f", extraction), mx, my, textSize, "d")
 	glColor(1, 1, 1, 1)
 end
 

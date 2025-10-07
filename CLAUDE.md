@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-VroomRTS is a Recoil/Spring RTS game mod - "A nice little game about cars killing each other". This is a Lua-based game modification compatible with the Recoil engine (a Spring 105 fork used by Beyond All Reason).
+Multi Manic Miners is a Recoil/Spring RTS game mod inspired by Lego Rock Raiders - dig for ore, manage resources, and defend your base! This is a Lua-based game modification compatible with the Recoil engine (a Spring 105 fork used by Beyond All Reason).
 
 ## Engine Context
 
@@ -41,9 +41,9 @@ The repository follows the standard Spring/Recoil RTS mod structure:
 This mod requires the Recoil engine (or Spring 105+) to run. There are no build commands - the mod is loaded directly by the engine.
 
 ### Testing the Mod
-1. Place this repository in your Spring/Recoil games directory (as `VroomRTS.sdd`)
+1. Place this repository in your Spring/Recoil games directory (as `MultiManicMiners.sdd`)
 2. Launch through a lobby client (Beyond All Reason lobby, SpringLobby, etc.)
-3. Select "Vroom RTS" as the game
+3. Select "Multi Manic Miners" as the game
 
 ### In-Game Development Commands
 - `/luaui reload` - Reload UI widgets (client-side)

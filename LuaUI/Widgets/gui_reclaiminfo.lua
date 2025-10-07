@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 --
 --  file:    gui_ReclaimInfo.lua
---  brief:   Shows the amount of metal/energy when using area reclaim.
+--  brief:   Shows the amount of ore/air when using area reclaim.
 --  original author:  Janis Lukss
 --
 --  Copyright (C) 2007.
@@ -14,7 +14,7 @@
 function widget:GetInfo()
 return {
 name      = "ReclaimInfo",
-desc      = "Shows the amount of metal/energy when using area reclaim.",
+desc      = "Shows the amount of ore/air when using area reclaim.",
 author    = "Pendrokar",
 date      = "Nov 17, 2007",
 license   = "GNU GPL, v2 or later",
@@ -132,14 +132,14 @@ function widget:DrawScreen()
      end
      metal=math.floor(metal)
      energy=math.floor(energy)
-    local textwidth = 12*gl.GetTextWidth("   M:"..metal.."\255\255\255\128".." E:"..energy)
+    local textwidth = 12*gl.GetTextWidth("   O:"..metal.."\255\255\255\128".." A:"..energy)
      if(textwidth+x>vsx) then
       x = x - textwidth - 10
      end
       if(12+y>vsy) then
        y = y - form
       end
-     gl.Text("   M:"..metal.."\255\255\255\128".." E:"..energy,x,y,form)
+     gl.Text("   O:"..metal.."\255\255\255\128".." A:"..energy,x,y,form)
     end
     --Unit resource info when mouse on one
     if (nonground=="Reclaim") and (rangestart ~= nil) and ((energy==0) or (metal==0)) and (b1==false) then
@@ -148,7 +148,7 @@ function widget:DrawScreen()
        local unitDefID = Spring.GetUnitDefID(unitID)
        local _,_,_,_,buildprogress = Spring.GetUnitHealth(unitID)
        metal=math.floor(UnitDefs[unitDefID].metalCost*buildprogress)
-       local textwidth = 12*gl.GetTextWidth("   M:"..metal.."\255\255\255\128")
+       local textwidth = 12*gl.GetTextWidth("   O:"..metal.."\255\255\255\128")
         if(textwidth+x>vsx) then
         x = x - textwidth - 10
         end
@@ -159,7 +159,7 @@ function widget:DrawScreen()
         if not UnitDefs[Spring.GetUnitDefID(unitID)].reclaimable then
          color = "\255\220\10\10"
         end
-        gl.Text(color.."   M:"..metal,x,y,form)
+        gl.Text(color.."   O:"..metal,x,y,form)
       end
     end
     --
