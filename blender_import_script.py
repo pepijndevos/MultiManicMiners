@@ -7,6 +7,7 @@ Based on IMPORT.md instructions
 import bpy
 import math
 import sys
+import os
 from mathutils import Vector
 
 # Parse command-line arguments (passed after --)
@@ -62,6 +63,77 @@ if mesh_objects:
     bpy.ops.object.join()
     combined_mesh = bpy.context.active_object
     print(f"Combined {len(mesh_objects)} objects into: {combined_mesh.name}")
+
+# Step 2.5: Render thumbnail for UI
+print("Rendering thumbnail...")
+
+# Ensure UnitPics directory exists
+unitpics_dir = "/home/pepijn/code/VroomRTS/UnitPics"
+os.makedirs(unitpics_dir, exist_ok=True)
+
+# Get bounding box for camera positioning
+bbox_corners = [combined_mesh.matrix_world @ Vector(corner) for corner in combined_mesh.bound_box]
+min_x = min(corner.x for corner in bbox_corners)
+max_x = max(corner.x for corner in bbox_corners)
+min_y = min(corner.y for corner in bbox_corners)
+max_y = max(corner.y for corner in bbox_corners)
+min_z = min(corner.z for corner in bbox_corners)
+max_z = max(corner.z for corner in bbox_corners)
+
+center_x = (min_x + max_x) / 2
+center_y = (min_y + max_y) / 2
+center_z = (min_z + max_z) / 2
+
+# Calculate model size for camera distance
+model_size = max(max_x - min_x, max_y - min_y, max_z - min_z)
+
+# Create camera
+cam_data = bpy.data.cameras.new("ThumbnailCamera")
+cam_obj = bpy.data.objects.new("ThumbnailCamera", cam_data)
+bpy.context.scene.collection.objects.link(cam_obj)
+
+# Position camera at 45 degree angle looking down at model
+camera_distance = model_size * 2.5
+cam_obj.location = (
+    center_x + camera_distance * 0.7,
+    center_y - camera_distance * 0.7,
+    center_z + camera_distance * 0.5
+)
+
+# Point camera at model center
+direction = Vector((center_x - cam_obj.location.x, center_y - cam_obj.location.y, center_z - cam_obj.location.z))
+rot_quat = direction.to_track_quat('-Z', 'Y')
+cam_obj.rotation_euler = rot_quat.to_euler()
+
+# Set as active camera
+bpy.context.scene.camera = cam_obj
+
+# Add lighting
+sun = bpy.data.lights.new(name="ThumbnailSun", type='SUN')
+sun_obj = bpy.data.objects.new("ThumbnailSun", sun)
+bpy.context.scene.collection.objects.link(sun_obj)
+sun_obj.location = (center_x, center_y, center_z + model_size * 2)
+sun_obj.rotation_euler = (math.radians(45), 0, math.radians(45))
+sun.energy = 2.0
+
+# Configure render settings for thumbnail
+bpy.context.scene.render.resolution_x = 512
+bpy.context.scene.render.resolution_y = 512
+bpy.context.scene.render.image_settings.file_format = 'PNG'
+bpy.context.scene.render.film_transparent = True
+
+# Render
+thumbnail_path = f"{unitpics_dir}/{model_name}.png"
+bpy.context.scene.render.filepath = thumbnail_path
+bpy.ops.render.render(write_still=True)
+
+print(f"  Saved thumbnail: UnitPics/{model_name}.png")
+
+# Clean up render objects
+bpy.data.objects.remove(cam_obj, do_unlink=True)
+bpy.data.objects.remove(sun_obj, do_unlink=True)
+bpy.data.cameras.remove(cam_data, do_unlink=True)
+bpy.data.lights.remove(sun, do_unlink=True)
 
 # Step 3: Merge vertices by distance
 print("Merging vertices by distance...")
@@ -184,6 +256,8 @@ if lego_standard:
 # Step 11: Switch to Cycles render engine
 print("Setting up render engine for baking...")
 bpy.context.scene.render.engine = 'CYCLES'
+bpy.context.scene.cycles.device = 'CPU'
+#bpy.context.scene.cycles.device = 'GPU'
 
 texture_size = 4096
 #texture_size = 1024  # For testing, use smaller size first
