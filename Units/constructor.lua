@@ -1,18 +1,18 @@
-local unitName  =  "constructor"
+local unitName  =  "miner"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Constructor.png",
+BuildPic = "miner.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
-    ObjectName = "Constructor.s3o",
-    name = "Constructor",
-    Side = "Vroomers",
+    ObjectName = "miner.s3o",
+    name = "Miner",
+    Side = "Rock Raiders",
     TEDClass = "Vech",
-    UnitName = "Constructor",
-    script = "constructorscript.lua",
+    UnitName = "Miner",
+    script = "minerscript.lua",
 	icontype = "constructor",
 --Unit limitations and properties
-    Description = "Basic Builder.",
+    Description = "Basic miner.",
     MaxDamage = 500,
     idleTime = 300,
     idleAutoHeal = 0,
@@ -21,15 +21,10 @@ BuildPic = "Constructor.png",
     SoundCategory = "TANK",
     Upright = 0,
 	corpse = [[constructor_dead]],
-	sfxtypes             = {
-	explosionGenerators = {
-	[[custom:buildermuzzleflash]],
-	},
-   },
 --Energy and metal related
-    BuildCostEnergy = 80,
-    BuildCostMetal = 80,
-	Buildtime = 80,
+    BuildCostEnergy = 0,
+    BuildCostMetal = 0,
+	Buildtime = 20,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,
@@ -64,26 +59,7 @@ buildDistance = 120,
 terraformSpeed = 9001,
 buildoptions = 
 	{
-	[[extractor]],
-	--[[windturbine]]--,
-	[[solarpanel]],
-	[[tidalgenerator]],
-	[[geothermalgenerator]],
-	[[fusionreactor]],
-	[[storage]],
-	[[groundfactory]],
-	[[hoverfactory]],
-	[[airfactory]],
-	[[navalfactory]],
-	[[llt]],
-	[[lmt]],
-	[[aat]],
-	[[hlt]],
-	[[tp]],
-	[[geothermalplasmacannon]],
-	[[radartower]],
-	[[caretaker]],
-	[[bb]],
+	[[toolstore]],
 	},
 
 --Hitbox
@@ -97,6 +73,12 @@ collisionVolumeType       =  "box",
       	explodeAs = [[MediumExplosion]],
 	selfDestructAs = [[MediumExplosion]],
     NoChaseCategory = "AIR",
+
+weapons = {
+[1]={name  = "ConstructorPickaxe",
+       turret = false
+	},
+},
 
 
 

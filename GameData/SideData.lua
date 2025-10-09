@@ -4,7 +4,7 @@ local sideData = {
 
 	{
 		name = "Rock Raiders",
-		startUnit = "commander",
+		startUnit = "toolstore",
 	},
 
 }

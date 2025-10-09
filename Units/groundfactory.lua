@@ -1,12 +1,12 @@
-local unitName  =  "groundfactory"
+local unitName  =  "toolstore"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Factory.png",
+BuildPic = "ToolStore.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
-    ObjectName = "Factory.s3o",
-    name = "Ground Factory",
-    Side = "Vroomers",
+    ObjectName = "ToolStore.s3o",
+    name = "Tool Store",
+    Side = "Rock Raiders",
     TEDClass = "Building",
     UnitName = "Ground Factory",
     script = "factoryscript.lua",
@@ -22,15 +22,10 @@ BuildPic = "Factory.png",
     SoundCategory = "Building",
     Upright = 1,
 	maxWaterDepth = 4,
-	sfxtypes             = {
-	explosionGenerators = {
-	[[custom:buildermuzzleflash]],
-	},
-   },
 --Energy and metal related
-    BuildCostEnergy = 750,
-    BuildCostMetal = 750,
-    Buildtime = 750, 
+    BuildCostEnergy = 0,
+    BuildCostMetal = 0,
+    Buildtime = 20, 
 --Size and Abilites
    MaxSlope = 33,
    FootprintX = 8,
@@ -53,15 +48,7 @@ canRestore = false,
 workerTime = 10,
 buildoptions = 
 	{
-	[[constructor]],
-	[[stunburst]],
-	[[hunter]],
-	[[pointer]],
-	[[picket]],
-	[[cleaver]],
-	[[ravager]],
-	[[panther]],
-	[[mangonel]],
+	[[miner]],
 	},
 	--Hitbox
 collisionVolumeOffsets    =  "0 0 -7.5",
