@@ -25,6 +25,7 @@ BuildPic = "miner.png",
     BuildCostEnergy = 0,
     BuildCostMetal = 0,
 	Buildtime = 20,
+	energyUpkeep = 10,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,
@@ -47,7 +48,8 @@ BuildPic = "miner.png",
     Reclaimable = 0,
     canSelfDestruct = 1,
     repairable = 1,
-    
+    activateWhenBuilt = 1,
+
 --building
 Builder = true,
 ShowNanoSpray = true,
@@ -60,6 +62,7 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[toolstore]],
+    [[supportstation]]
 	},
 
 --Hitbox

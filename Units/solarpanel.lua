@@ -1,18 +1,18 @@
-local unitName  =  "solarpanel"
+local unitName  =  "supportstation"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "Solar Pannel.png",
+BuildPic = "SupportStation.png",
     Category = "TANK SMALL NOTAIR NOTSUB",
     ObjectName = "SupportStation.s3o",
-    name = "Solar Panel",
-    Side = "Vroomers",
+    name = "Support Station",
+    Side = "Rock Raiders",
     TEDClass = "Building",
-    UnitName = "Solar Panel",
-    script = "solarpanelscript.lua",
+    UnitName = "Support Station",
+    script = "supportstationscript.lua",
 	icontype = "buildingenergy",
 --Unit limitations and properties
-    Description = "Basic Energy generator (2E).",
+    Description = "Generates energy to power miners.",
     MaxDamage = 500,
     damageModifier = 0.25,
     idleTime = 0,
@@ -24,11 +24,10 @@ BuildPic = "Solar Pannel.png",
 	maxWaterDepth = 4,
 	corpse = [[solarpanel_dead]],
 --Energy and metal related
-    BuildCostEnergy = 75,
-    BuildCostMetal = 75,
-    Buildtime = 75,
-	--2 energy
-    energyMake = 0, 
+    BuildCostEnergy = 0,
+    BuildCostMetal = 150,
+    Buildtime = 20,
+    energyMake = 100, 
 
 --Size and Abilites
    MaxSlope = 33,

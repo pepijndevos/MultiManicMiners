@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Multi Manic Miners is a Recoil/Spring RTS game mod inspired by Lego Rock Raiders - dig for ore, manage resources, and defend your base! This is a Lua-based game modification compatible with the Recoil engine (a Spring 105 fork used by Beyond All Reason).
 
+### Project Documentation
+- **Docs/LEGO_ROCK_RAIDERS_REFERENCE.md** - Original game unit stats, building costs, and mechanics reference
+- **Docs/implementation_suggestions.md** - Mapping of Rock Raiders concepts to Spring/Recoil mechanics (e.g., Air=Energy, Ore=Metal)
+
 ## Engine Context
 
 - **Recoil Engine**: A hard fork of Spring 105 maintained by the Beyond All Reason team
@@ -94,3 +98,15 @@ This mod requires the Recoil engine (or Spring 105+) to run. There are no build 
 - `Spring.GetGameFrame()` - Current simulation frame
 - `Spring.Echo()` - Debug output to console
 - Full API reference: https://springrts.com/wiki/Lua_Scripting
+
+### Unit Script Piece References
+- `local PieceName = piece "PieceName"` gets a handle to a piece in the model
+- The string "PieceName" must match the object name in the .s3o file exactly
+- Variable names are arbitrary - only the model piece names matter
+- Pieces are only used when explicitly passed to engine functions (EmitSfx, Explode, Turn, etc.) or returned from callbacks (QueryBuildInfo, etc.)
+- Unused declared pieces do nothing and can be omitted
+
+### Victory/Defeat Conditions
+- Core game-end logic: `LuaRules/Gadgets/game_end.lua` (zero units = defeat)
+- Custom conditions: Add new gadgets in `LuaRules/Gadgets/` that call `Spring.KillTeam(teamID)` for defeat or `Spring.GameOver(winners)` for victory
+- Check `Spring.GetTeamResources(teamID, "energy")` for resource-based conditions
