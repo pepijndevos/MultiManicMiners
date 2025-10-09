@@ -1,5 +1,6 @@
 -- Minimal miner script
 local miner = piece "miner"
+local Flare = piece "flare"
 
 function script.Create()
 end
@@ -10,6 +11,20 @@ end
 
 function script.StopBuilding()
 	SetUnitValue(COB.INBUILDSTANCE, 0)
+end
+
+-- Weapon callbacks for melee attack
+function script.AimFromWeapon1()
+	return Flare
+end
+
+function script.QueryWeapon1()
+	return Flare
+end
+
+function script.AimWeapon1(heading, pitch)
+	-- Unit body rotates to face target (turret=false)
+	return true
 end
 
 function script.Killed(recentDamage, maxHealth, corpsetype)
