@@ -1,15 +1,18 @@
-local weaponName = "ConstructorPickaxe"
+local weaponName = "MinerPickaxe"
 weaponDef = {
 	weaponType = "Melee",
-	name = "Pickaxe",
+	name = "Mining Pickaxe",
 
-	--physics / aiming--
+	-- Targeting
+	--onlyTargetCategory = "softrock",  -- Can only target soft rocks (dirt, loose rock)
+
+	-- Physics / aiming
 	range = 100,
-	reloadtime = 1.5,
+	reloadtime = 1.0,  -- 1 shot per second = 50 DPS
 
-	--damage--
+	-- Damage
 	damage = {
-		default = 50,
+		default = 50,  -- 50 DPS (matches Rock Raider baseline)
 	},
 	areaOfEffect = 0,
 }
