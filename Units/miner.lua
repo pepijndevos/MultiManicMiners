@@ -78,7 +78,7 @@ collisionVolumeType       =  "box",
     NoChaseCategory = "AIR",
 
 weapons = {
-[1]={name  = "ConstructorPickaxe",
+[1]={name  = "MinerPickaxe",
        turret = false
 	},
 },

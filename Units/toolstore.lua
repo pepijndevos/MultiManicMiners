@@ -9,7 +9,7 @@ BuildPic = "ToolStore.png",
     Side = "Rock Raiders",
     TEDClass = "Building",
     UnitName = "Ground Factory",
-    script = "factoryscript.lua",
+    script = "toolstorescript.lua",
 	corpse = [[groundfactory_dead]],
 	icontype = "buildinglandfactory",
 --Unit limitations and properties
