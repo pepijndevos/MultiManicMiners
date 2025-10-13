@@ -1,13 +1,144 @@
-# Lego Rock Raiders - Complete Buildings & Vehicles Reference
+# Lego Rock Raiders - Complete Game Reference
 
 Comprehensive guide compiled from the Rock Raiders United Knowledge Base
 
 ## Table of Contents
-1. [Vehicles](#vehicles)
+1. [Rock Raiders (Miners)](#rock-raiders-miners)
+2. [Vehicles](#vehicles)
    - [Small Vehicles](#small-vehicles)
    - [Large Vehicles](#large-vehicles)
-2. [Buildings](#buildings)
-3. [Platform Differences](#platform-differences)
+3. [Buildings](#buildings)
+4. [Creatures](#creatures)
+   - [Rock Monsters](#rock-monsters)
+   - [Other Creatures](#other-creatures)
+5. [Tools and Weapons](#tools-and-weapons)
+6. [Rock Types and HP Values](#rock-types-and-hp-values)
+7. [Combat Reference](#combat-reference)
+8. [Platform Differences](#platform-differences)
+
+---
+
+## Rock Raiders (Miners)
+
+Rock Raiders are the personnel units that perform all mining, construction, and combat tasks. All vehicles and specialized tasks require trained Rock Raiders.
+
+### Basic Stats
+
+**Movement Speed:**
+- Base: 1.1 blocks/second
+- On Rubble: 0.55 blocks/second (half speed)
+- On Power Paths: 2.2 blocks/second (double speed)
+
+**Cost:**
+- Teleportation: Free (no crystal cost to bring down from LMS Explorer)
+- Limited by Support Station capacity (10 Rock Raiders per Support Station)
+
+**Health/Shield Points:**
+- Default maximum: 100 shield points
+- Food level equals shield points
+- Hunger affects work efficiency
+
+### Drill Speeds (with Drill tool)
+
+**Windows Version:**
+- Dirt: 4 seconds
+- Loose Rock: 8 seconds
+- Hard Rock: Cannot drill
+- Seams: 40 seconds
+
+**PlayStation Version:**
+- Dirt: ~2.5 seconds
+- Loose Rock: 7 seconds
+- Hard Rock: Cannot drill
+
+### Carrying Capacity
+- Can carry: Tools, energy crystals, ore, dynamite, electric fences, barriers
+- Carries one item at a time
+- Cannot carry building studs
+
+### Training and Specializations
+
+Rock Raiders can train at various buildings to gain specialized skills:
+
+1. **Driver** (trained at Support Station)
+   - Required to operate land vehicles
+   - Can drive: Hover Scout, Small Digger, Small Transport Truck, Loader Dozer, Granite Grinder, Small/Large Mobile Laser Cutters, Chrome Crusher
+
+2. **Pilot** (trained at Teleport Pad)
+   - Required to operate flying/hovering vehicles
+   - Can pilot: Hover Scout, Tunnel Scout
+
+3. **Sailor** (trained at Docks)
+   - Required to operate water vehicles
+   - Can pilot: Rapid Rider, Cargo Carrier
+
+4. **Engineer** (trained at Upgrade Station)
+   - Can repair damaged buildings with Spanner tool
+   - Repairs restore building health
+
+5. **Geologist** (trained at Geological Center)
+   - Enhanced scanning abilities
+   - Works with Geological Center to reveal hidden areas
+
+6. **Explosives Expert** (trained at Level 2 Tool Store)
+   - Can use Dynamite
+   - Dynamite blasts through any rock type including hard rock
+
+### Upgrade System
+
+Rock Raiders can upgrade at the Tool Store to increase capabilities:
+
+**Upgrade Times:**
+- Level 2: 30 seconds
+- Level 3: 45 seconds
+- Level 4: 60 seconds
+
+**Effects:**
+- Increased efficiency
+- Better performance with tools
+- Can learn multiple professions
+
+### Combat Capabilities
+
+**Limitations:**
+- Only use weapons during Action Stations alert
+- Inaccurate targeting
+- No monster prioritization
+- Will not attack retreating Slimy Slugs
+
+**Available Weapons:**
+- Laser Beam (one-hit kill on rock/ice monsters)
+- Pusher Beam (knockback, minimal damage)
+- Freezer Beam (freeze effect, effective on lava monsters)
+- Sonic Blaster (scare creatures)
+
+### Other Tools
+
+**Shovel:**
+- Clears rubble
+- ~10 seconds per rubble section (unverified)
+- Generates 4 ore pieces per rubble section
+- Windows version only
+
+**Hammer:**
+- Reinforces walls
+- Prevents landslides and cave-ins
+- Stops monsters from emerging from walls
+- Windows version only
+
+**Spanner:**
+- Repairs damaged buildings
+- Requires Engineer training
+- Windows version only
+
+### Hunger and Food System
+
+**Hunger Mechanics:**
+- Maximum food level equals shield points (default 100)
+- Hunger decreases over time during work
+- Low hunger reduces work efficiency
+- Support Station provides food (fills 1/4 hunger per sandwich)
+- Manual feeding restores full hunger
 
 ---
 
@@ -792,6 +923,477 @@ Tool Store (auto-teleports, self-powered)
 
 ---
 
+## Creatures
+
+### Rock Monsters
+
+Rock monsters are hostile creatures that emerge from walls and attack Rock Raiders, vehicles, and buildings. They are attracted to energy crystals.
+
+#### 1. Rock Monster (Standard)
+
+**Characteristics:**
+- Smallest of the major monster types
+- Least threatening
+- Most common monster type
+- Brown color in physical Lego sets
+
+**Behavior:**
+- Can eat up to 6 energy crystals at a time
+- Emerges from walls (can be prevented with Hammer reinforcement)
+- Scared by "big bangs" (dynamite, sonic blaster)
+
+**Weapon Effectiveness:**
+- Laser Beam: 110 damage (one-hit kill)
+- Pusher Beam: 2 damage, pushes 0.5 blocks
+- Freezer Beam: 5 damage, freezes for 25 seconds
+
+**HP:** 100 HP
+
+---
+
+#### 2. Ice Monster
+
+**Characteristics:**
+- Located on icy terrain
+- Second most threatening monster after lava monster
+- Larger than standard rock monsters
+
+**Behavior:**
+- Consumes only 5 energy crystals at a time
+- Never appear in cutscenes
+- Scared by dynamite and sonic blaster
+
+**Weapon Effectiveness:**
+- Laser Beam: 110 damage (one-hit kill)
+- Pusher Beam: 2 damage, pushes 1.5 blocks
+- Freezer Beam: Completely ineffective (immune)
+
+**HP:** 100 HP
+
+---
+
+#### 3. Lava Monster
+
+**Characteristics:**
+- Largest and most threatening monster type
+- Can walk across lava
+- Believed to originate from rock monsters after prolonged exposure to molten terrain
+- When killed, transforms into Tiny Rock Monsters
+
+**Behavior:**
+- Can eat up to 7 energy crystals at a time
+- Most aggressive monster type
+- Requires special tactics to defeat
+
+**Weapon Effectiveness:**
+- Freezer Beam: 40 damage, freezes for 75 seconds (most effective)
+- Pusher Beam: 5 damage, pushes monster away
+- Laser Beam: ~1 damage, momentarily knocks down (highly resistant to lasers)
+
+**HP:** 100 HP (same as other monsters, but highly resistant to laser damage)
+
+---
+
+### Other Creatures
+
+#### Slimy Slug
+
+**Movement Speed:**
+- 0.3 blocks (4.8 studs) per second
+
+**Behavior:**
+- Generally non-aggressive near Rock Raider HQ
+- Primary food source: Energy crystals
+- When disturbed: Becomes aggressive, acts like battering ram
+- Slams at high speed into nearby Rock Raiders or vehicles
+- Drains power from buildings (converts energy crystals to purple/drained crystals)
+
+**Weapon Effectiveness:**
+- Laser Beam: Ineffective
+- Pusher Beam: Stuns but doesn't kill (PlayStation)
+- Freezer Beam: Unaffected
+
+**Special Notes:**
+- Rock Raiders will not attack retreating slugs
+- Power drain can be prevented by keeping slugs away from Power Stations
+- Windows version only
+
+**Quote:** *"These critters may look cute but once disturbed..."* - PlayStation PAL version manual
+
+---
+
+#### Natural Hazards
+
+While not creatures, these environmental threats behave similarly to hostile entities:
+
+**Landslides:**
+- Occur on dirt, loose rock, hard rock, and seam walls
+- Create rubble in adjacent squares
+- Cause significant damage to Rock Raiders, vehicles, and buildings
+- Preventable by drilling or reinforcing walls with Hammer
+
+**Cave-ins:**
+- More hazardous than landslides
+- Occur across several rock walls simultaneously
+- Create large rubble fields (up to 2 adjacent spaces)
+- Cause severe damage
+- Only occur in map-designated areas
+
+**Geysers:**
+- Found in ice caverns
+- Blast hot steam periodically
+- Damage Rock Raiders and most vehicles
+- Exception: Loader Dozer is immune
+
+**Lava Plumes:**
+- Found in molten and rocky terrain
+- Expel magma periodically
+- Can destroy even Tunnel Transports
+- Extremely dangerous to all units
+
+---
+
+## Tools and Weapons
+
+### Mining Tools
+
+#### Drill
+**Windows Version Drill Times:**
+- Dirt: 4 seconds
+- Loose Rock: 8 seconds
+- Hard Rock: Cannot drill
+- Seams: 40 seconds
+
+**PlayStation Version Drill Times:**
+- Dirt: ~2.5 seconds
+- Loose Rock: 7 seconds
+- Hard Rock: Cannot drill
+
+**Notes:**
+- Standard tool for Rock Raiders
+- Cannot penetrate hard rock
+- Vehicle drills are much faster
+
+---
+
+#### Shovel
+- Clears rubble in ~10 seconds (unverified)
+- Generates 4 ore pieces per rubble section
+- Windows version only
+- Loader Dozer clears rubble faster than Rock Raiders with shovel
+
+---
+
+#### Hammer
+- Reinforces walls
+- Prevents landslides and cave-ins
+- Stops monsters from emerging from walls
+- Windows version only
+- Defensive/preventative tool
+
+---
+
+#### Spanner
+- Repairs damaged buildings
+- Requires Engineer training
+- Windows version only
+- Restores building health
+
+---
+
+### Explosives
+
+#### Dynamite
+
+**Requirements:**
+- Explosives Expert training OR Level 2 Tool Store
+- Available from Tool Store
+
+**Effectiveness:**
+- Blasts through any rock type (including hard rock)
+- Point-blank explosion: 150 damage
+- Kills anything within close radius
+- Scares away monsters
+
+**Platform Differences:**
+- Windows: Requires training or upgraded Tool Store
+- PlayStation: Can be picked up and dropped, different explosion mechanics
+
+---
+
+### Weapons
+
+#### Laser Beam (Handheld)
+
+**Damage:** 110 HP per shot
+
+**Effectiveness:**
+- Rock Monster: One-hit kill
+- Ice Monster: One-hit kill
+- Lava Monster: ~1 damage (highly resistant)
+- Slimy Slugs: Ineffective
+
+**Availability:**
+- Rock Raiders only (during Action Stations)
+- Handheld personal weapon, not vehicle-mounted
+
+**Notes:**
+- Most powerful laser weapon in the game
+- Only usable during Action Stations alert
+- Distinct from vehicle-mounted laser weapons (see Vehicle Lasers below)
+
+---
+
+#### Vehicle Lasers
+
+Vehicle-mounted lasers are separate weapon systems with different damage values:
+
+**Small Mobile Laser Cutter:**
+- Damage: 4 HP per shot
+- Range: 1.25 blocks
+- Energy: 1 crystal per 2 shots
+
+**Chrome Crusher Laser:**
+- Damage: 20+ HP per shot
+- Range: 3 blocks
+- Energy: 1 crystal per 4 shots
+
+**Large Mobile Laser Cutter:**
+- Damage: 40+ HP per shot
+- Range: 5 blocks
+- Energy: 1 crystal per 4 shots
+
+**Mining Laser (Building):**
+- Damage: 40 HP per shot
+- Range: 5 blocks
+- Energy: 1 crystal per 4 shots
+
+**Special Notes:**
+- All vehicle lasers can mine through rock (damage applies to terrain)
+- Vehicle lasers are less effective against monsters than handheld laser
+- Windows version has bug: May drain all stored energy crystals when fired
+- PlayStation version: Can blast through drillable walls, only kills monsters
+
+---
+
+#### Freezer Beam
+
+**Effects:**
+- Rock Monster: Minimal damage, freezes for 25 seconds
+- Ice Monster: Completely ineffective (immune)
+- Lava Monster: 40 damage, freezes for 75 seconds (most effective weapon)
+- Slimy Slugs: Unaffected
+
+**PlayStation Version:**
+- Creates temporary spinning shield/cloud
+- Freezes creatures that walk into it
+- Does not cause damage
+- Temporarily immobilizes for easier escape or attack setup
+
+**Tactical Use:**
+- Best weapon against lava monsters
+- Crowd control for standard rock monsters
+- Useless against ice monsters
+
+---
+
+#### Pusher Beam
+
+**Damage:** 2-5 HP depending on target
+
+**Effects:**
+- Rock Monster: 2 damage, pushes 0.5 blocks
+- Ice Monster: 2 damage, pushes 1.5 blocks
+- Lava Monster: 5 damage, pushes back
+- Scorpions: 3 shots to kill (PlayStation)
+- Spiders: Stuns only
+- Slimy Slugs: Stuns only
+- Rock Whales: Too large, appears irritated
+
+**Tactical Use:**
+- Defensive weapon to push creatures away from HQ
+- Low damage, high utility
+- Good for crowd control
+
+---
+
+#### Sonic Blaster
+
+**Effects:**
+- Scares away creatures
+- No direct damage
+- Causes "big bang" effect similar to dynamite
+
+**Special Notes:**
+- Can cause game crashes (known bug)
+- Purely defensive tool
+
+---
+
+## Rock Types and HP Values
+
+### Rock Types
+
+All rock types can be mined through drilling or laser cutting. HP values calculated from laser damage data.
+
+#### 1. Dirt
+**HP:** 280 HP (calculated: 7 shots × 40 HP)
+**Drill Times:**
+- Rock Raider with Drill: 4 seconds (Windows), ~2.5 seconds (PlayStation)
+- Small Digger (base): 2 seconds
+- Small Digger (upgraded): 1 second
+- Granite Grinder (base): 0.8 seconds
+- Granite Grinder (upgraded): 0.4 seconds
+- Chrome Crusher (base): 0.4 seconds
+- Chrome Crusher (upgraded): 0.2 seconds
+
+**Laser Times:**
+- Mining Laser / Large Mobile Laser Cutter: 7 shots (40 HP each)
+- Chrome Crusher Laser: 3.5 seconds
+- Small Mobile Laser Cutter: 6 time units (4 HP per shot)
+
+---
+
+#### 2. Loose Rock
+**HP:** 440 HP (calculated: 11 shots × 40 HP)
+**Drill Times:**
+- Rock Raider with Drill: 8 seconds (Windows), 7 seconds (PlayStation)
+- Small Digger (base): 4 seconds
+- Small Digger (upgraded): 2 seconds
+- Granite Grinder (base): 2 seconds
+- Granite Grinder (upgraded): 1 second
+- Chrome Crusher (base): 0.8 seconds
+- Chrome Crusher (upgraded): 0.4 seconds
+
+**Laser Times:**
+- Mining Laser / Large Mobile Laser Cutter: 11 shots (40 HP each)
+- Chrome Crusher Laser: 7 seconds
+- Small Mobile Laser Cutter: 14 time units (4 HP per shot)
+
+---
+
+#### 3. Hard Rock
+**HP:** 6000 HP (calculated: 150 shots × 40 HP)
+**Drill Times:**
+- Rock Raider with Drill: Cannot drill
+- Small Digger (base): 180 seconds (3 minutes)
+- Small Digger (upgraded): 150 seconds (2.5 minutes)
+- Granite Grinder (base): 180 seconds (3 minutes)
+- Granite Grinder (upgraded): 150 seconds (2.5 minutes)
+- Chrome Crusher (base): 1 second
+- Chrome Crusher (upgraded): 0.5 seconds
+
+**Laser Times:**
+- Mining Laser / Large Mobile Laser Cutter: 150 shots (40 HP each)
+- Chrome Crusher Laser: 10.5 seconds
+- Small Mobile Laser Cutter: 200 time units (4 HP per shot)
+
+**Alternative Methods:**
+- Dynamite: One explosion destroys any rock type
+- PlayStation Small Mobile Laser Cutter: One shot
+
+---
+
+#### 4. Solid Rock
+**HP:** Infinite (indestructible)
+**Properties:**
+- Completely impenetrable
+- Cannot be mined by any tool or weapon
+- Used as level boundaries
+- Appears black on radar
+
+---
+
+#### 5. Soil (Unused)
+**HP:** Unknown
+**Properties:**
+- Exists in game data files
+- Cannot be placed in maps
+- Never appears in actual gameplay
+
+---
+
+#### 6. Seams
+
+**Energy Crystal Seam:**
+- Yields 4 energy crystals while drilling
+- Rock Raider drill time: 40 seconds (Windows)
+- Small Digger (base): 32 seconds
+- Small Digger (upgraded): 16 seconds
+- Granite Grinder (base): 16 seconds
+- Granite Grinder (upgraded): 8 seconds
+- Chrome Crusher (base): 4 seconds
+- Chrome Crusher (upgraded): 2 seconds
+
+**Ore Seam:**
+- Yields 4 pieces of ore while drilling
+- Same drill times as Energy Crystal Seam
+
+**Recharge Seam:**
+- Used to recharge drained (purple) energy crystals
+- Does not produce resources
+- Critical for recovering from Slimy Slug power drain
+
+---
+
+## Combat Reference
+
+### Damage Values Summary
+
+**Weapons vs Rock Monsters:**
+| Weapon | Rock Monster | Ice Monster | Lava Monster |
+|--------|-------------|-------------|--------------|
+| Laser Beam (Raider) | 110 (kill) | 110 (kill) | 1 |
+| Laser (Large Mobile) | 40+ HP | 40+ HP | ~1 HP |
+| Laser (Chrome Crusher) | 20+ HP | 20+ HP | ~1 HP |
+| Laser (Small Mobile) | 4 HP | 4 HP | ~0.5 HP |
+| Freezer Beam | 5 (freeze 25s) | 0 (immune) | 40 (freeze 75s) |
+| Pusher Beam | 2 (push 0.5) | 2 (push 1.5) | 5 (push) |
+| Dynamite | 150 (kill) | 150 (kill) | 150+ (kill) |
+
+**Monster HP Values:**
+- Rock Monster: 100 HP
+- Ice Monster: 100 HP (immune to freezer beam)
+- Lava Monster: 100 HP (highly resistant to laser damage, ~99% reduction)
+
+**Rock HP Values:**
+| Rock Type | HP | Best Drill Method | Best Laser Method |
+|-----------|----|--------------------|-------------------|
+| Dirt | 280 | Chrome Crusher (0.2s upgraded) | Large Mobile Laser (7 shots) |
+| Loose Rock | 440 | Chrome Crusher (0.4s upgraded) | Large Mobile Laser (11 shots) |
+| Hard Rock | 6000 | Chrome Crusher (0.5s upgraded) | Large Mobile Laser (150 shots) |
+| Solid Rock | ∞ | Cannot drill | Cannot destroy |
+
+**Energy Crystal Consumption:**
+| Vehicle/Building | Crystals per Use |
+|-----------------|-----------------|
+| Small Mobile Laser Cutter | 1 crystal per 2 shots |
+| Large Mobile Laser Cutter | 1 crystal per 4 shots |
+| Mining Laser | 1 crystal per 4 shots |
+| Chrome Crusher | 1 crystal per 4 shots |
+
+**Critical Damage Values for Spring/Recoil Conversion:**
+
+The Large Mobile Laser Cutter provides the key correlation between laser damage and drilling:
+- 40 HP damage per shot
+- 150 shots to drill through hard rock
+- Hard Rock = 6000 HP
+
+This establishes that **drill time can be expressed as DPS (damage per second)**:
+- Chrome Crusher drills hard rock (6000 HP) in 1 second = 6000 DPS (drill)
+- Chrome Crusher laser destroys hard rock in 10.5 seconds = 571 DPS (laser)
+- Large Mobile Laser needs 150 shots for hard rock = 6000 HP ÷ 40 damage = 150 shots
+- Small Digger (base) drills hard rock in 180 seconds = 33.3 DPS
+
+**Recommended Spring/Recoil Conversion:**
+1. Set Hard Rock HP to 6000
+2. Set Dirt HP to 280
+3. Set Loose Rock HP to 440
+4. Express all drill speeds as melee weapon DPS
+5. Express all laser weapons with actual damage values (4 HP, 20 HP, 40 HP, 110 HP)
+
+---
+
 ## Platform Differences
 
 ### Windows Version
@@ -891,14 +1493,66 @@ Tool Store (auto-teleports, self-powered)
 | Large Mobile Laser Cutter | 150 shots | Laser |
 | Mining Laser | 150 shots | Laser |
 
+### Rock Raider (Miner) Stats
+| Stat | Value |
+|------|-------|
+| Movement Speed (base) | 1.1 blocks/sec |
+| Movement Speed (rubble) | 0.55 blocks/sec |
+| Movement Speed (power path) | 2.2 blocks/sec |
+| HP / Shield Points | 100 |
+| Drill Time (Dirt) | 4 sec (Windows), 2.5 sec (PlayStation) |
+| Drill Time (Loose Rock) | 8 sec (Windows), 7 sec (PlayStation) |
+| Drill Time (Hard Rock) | Cannot drill |
+| Teleport Cost | Free |
+| Support Station Capacity | 10 per station |
+
+### Monster Stats Summary
+| Monster Type | HP | Speed | Crystals Eaten | Best Weapon | Special Resistance |
+|-------------|-------|-------|----------------|-------------|--------------------|
+| Rock Monster | 100 | Unknown | 6 | Laser Beam (110 dmg) | None |
+| Ice Monster | 100 | Unknown | 5 | Laser Beam (110 dmg) | Immune to freezer |
+| Lava Monster | 100 | Unknown | 7 | Freezer Beam (40 dmg, 75s freeze) | ~99% laser resistance |
+| Slimy Slug | Unknown | 0.3 blocks/sec | Drains power | None effective | Unknown |
+
+### Weapon Damage Quick Reference
+| Weapon | Damage | Range | Special Effect |
+|--------|--------|-------|----------------|
+| Laser (Handheld) | 110 HP | Unknown | One-hit kill rock/ice monsters |
+| Large Mobile Laser | 40 HP | 5 blocks | Best vehicle laser for drilling |
+| Mining Laser | 40 HP | 5 blocks | Stationary building laser |
+| Chrome Crusher Laser | 20+ HP | 3 blocks | Mid-range vehicle laser |
+| Small Mobile Laser | 4 HP | 1.25 blocks | Weakest laser |
+| Freezer Beam vs Lava | 40 HP | Unknown | Freezes 75 seconds |
+| Freezer Beam vs Rock | 5 HP | Unknown | Freezes 25 seconds |
+| Pusher Beam | 2-5 HP | Unknown | Knockback effect |
+| Dynamite | 150 HP | Area | Area damage, kills anything |
+
+### Rock Type HP Values for Recoil Conversion
+| Rock Type | HP | Drill DPS (Chrome Crusher Upgraded) |
+|-----------|----|------------------------------------|
+| Dirt | 280 | 1400 DPS (0.2s) |
+| Loose Rock | 440 | 1100 DPS (0.4s) |
+| Hard Rock | 6000 | 12000 DPS (0.5s) |
+| Seams | Similar to host rock | Yields resources while drilling |
+
 ---
 
 ## Sources
 
 Data compiled from Rock Raiders United Knowledge Base:
-- https://kb.rockraidersunited.com/Rock_Raider_vehicles
-- https://kb.rockraidersunited.com/Rock_Raider_buildings
-- Individual vehicle and building pages
+- https://kb.rockraidersunited.com/Rock_Raider - Rock Raider personnel unit
+- https://kb.rockraidersunited.com/Rock_Raider_vehicles - Vehicle overview
+- https://kb.rockraidersunited.com/Rock_Raider_buildings - Building overview
+- https://kb.rockraidersunited.com/Rock_Raider_tools - Tools and weapons
+- https://kb.rockraidersunited.com/Rock_monster - Rock monsters
+- https://kb.rockraidersunited.com/Ice_monster - Ice monsters
+- https://kb.rockraidersunited.com/Lava_monster - Lava monsters
+- https://kb.rockraidersunited.com/Slimy_slugs - Slimy slugs
+- https://kb.rockraidersunited.com/Rock_types - Rock types and drilling
+- https://kb.rockraidersunited.com/Natural_hazards - Environmental hazards
+- https://kb.rockraidersunited.com/Lego.cfg - Configuration file structure
+- Individual vehicle, building, and weapon pages
 
-*Document compiled: 2025-10-07*
+*Document originally compiled: 2025-10-07*
+*Extended with creatures, tools, weapons, and combat data: 2025-10-13*
 *All stats are for the Windows version unless otherwise noted.*
