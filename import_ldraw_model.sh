@@ -37,8 +37,8 @@ echo "Step 1: Running Blender import script..."
 blender --background --python "$SCRIPT_DIR/blender_import_script.py" -- "$MODEL_NAME"
 
 # Check if Blender export succeeded
-if [ ! -f "$SCRIPT_DIR/Objects3d/$MODEL_NAME.s3o" ]; then
-    echo "Error: S3O export failed - Objects3d/$MODEL_NAME.s3o not found"
+if [ ! -f "$SCRIPT_DIR/MultiManicMiners/Objects3d/$MODEL_NAME.s3o" ]; then
+    echo "Error: S3O export failed - MultiManicMiners/Objects3d/$MODEL_NAME.s3o not found"
     exit 1
 fi
 
@@ -60,13 +60,13 @@ echo "Step 2: Converting textures to DDS..."
 echo "  Converting texture 1 (team alpha)..."
 "$SCRIPT_DIR/make_team_alpha.sh" \
     "$SCRIPT_DIR/contrib/$MODEL_NAME.png" \
-    "$SCRIPT_DIR/UnitTextures/$MODEL_NAME.dds"
+    "$SCRIPT_DIR/MultiManicMiners/UnitTextures/$MODEL_NAME.dds"
 
 # Texture 2: Opaque (flatten transparency)
 echo "  Converting texture 2 (opaque)..."
 "$SCRIPT_DIR/make_opaque_dds.sh" \
     "$SCRIPT_DIR/contrib/${MODEL_NAME}2.png" \
-    "$SCRIPT_DIR/UnitTextures/${MODEL_NAME}2.dds"
+    "$SCRIPT_DIR/MultiManicMiners/UnitTextures/${MODEL_NAME}2.dds"
 
 # Done!
 echo ""
@@ -74,9 +74,9 @@ echo "========================================="
 echo "Import complete!"
 echo "========================================="
 echo "Outputs:"
-echo "  - Objects3d/$MODEL_NAME.s3o"
-echo "  - UnitTextures/$MODEL_NAME.dds (team alpha)"
-echo "  - UnitTextures/${MODEL_NAME}2.dds (opaque)"
+echo "  - MultiManicMiners/Objects3d/$MODEL_NAME.s3o"
+echo "  - MultiManicMiners/UnitTextures/$MODEL_NAME.dds (team alpha)"
+echo "  - MultiManicMiners/UnitTextures/${MODEL_NAME}2.dds (opaque)"
 echo "  - contrib/$MODEL_NAME.blend (Blender file)"
 echo "  - contrib/$MODEL_NAME.png (intermediate)"
 echo "  - contrib/${MODEL_NAME}2.png (intermediate)"

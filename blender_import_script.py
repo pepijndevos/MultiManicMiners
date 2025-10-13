@@ -23,11 +23,18 @@ if len(args) < 1:
     sys.exit(1)
 
 model_name = args[0]
-ldraw_file = f"/home/pepijn/code/VroomRTS/contrib/{model_name}.ldr"
-ldraw_library = "/home/pepijn/Games/bricklink-studio/drive_c/Program Files/Studio 2.0/ldraw"
+
+# Get script directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+ldraw_file = os.path.join(script_dir, "contrib", f"{model_name}.ldr")
+
+# LDraw library path - check environment variable or use default Lutris path
+ldraw_library = os.environ.get('LDRAW_LIBRARY') or os.path.expanduser("~/Games/bricklink-studio/drive_c/Program Files/Studio 2.0/ldraw")
 
 print(f"Model name: {model_name}")
 print(f"LDraw file: {ldraw_file}")
+print(f"LDraw library: {ldraw_library}")
 
 # Step 0: Clear the default scene
 print("Clearing default scene...")
@@ -68,7 +75,7 @@ if mesh_objects:
 print("Rendering thumbnail...")
 
 # Ensure UnitPics directory exists
-unitpics_dir = "/home/pepijn/code/VroomRTS/UnitPics"
+unitpics_dir = os.path.join(script_dir, "MultiManicMiners", "UnitPics")
 os.makedirs(unitpics_dir, exist_ok=True)
 
 # Get bounding box for camera positioning
@@ -127,7 +134,7 @@ thumbnail_path = f"{unitpics_dir}/{model_name}.png"
 bpy.context.scene.render.filepath = thumbnail_path
 bpy.ops.render.render(write_still=True)
 
-print(f"  Saved thumbnail: UnitPics/{model_name}.png")
+print(f"  Saved thumbnail: MultiManicMiners/UnitPics/{model_name}.png")
 
 # Clean up render objects
 bpy.data.objects.remove(cam_obj, do_unlink=True)
@@ -328,10 +335,10 @@ print("First bake complete!")
 # TEMPORARY: Exit here to inspect the result
 print("Saving textures...")
 texture1.file_format = 'PNG'
-texture1.filepath_raw = f"/home/pepijn/code/VroomRTS/contrib/{model_name}.png"
+texture1.filepath_raw = os.path.join(script_dir, "contrib", f"{model_name}.png")
 texture1.save()
 print(f"  Saved: contrib/{model_name}.png")
-# blend_file_path = f"/home/pepijn/code/VroomRTS/contrib/{model_name}.blend"
+# blend_file_path = os.path.join(script_dir, "contrib", f"{model_name}.blend")
 # bpy.ops.wm.save_as_mainfile(filepath=blend_file_path)
 # print(f"  Saved: contrib/{model_name}.blend")
 # import sys
@@ -375,21 +382,21 @@ print("Second bake complete!")
 # Step 18: Save both textures
 
 texture2.file_format = 'PNG'
-texture2.filepath_raw = f"/home/pepijn/code/VroomRTS/contrib/{model_name}2.png"
+texture2.filepath_raw = os.path.join(script_dir, "contrib", f"{model_name}2.png")
 texture2.save()
 print(f"  Saved: contrib/{model_name}2.png")
 
 # Step 19: Export S3O model
 print("Exporting S3O model...")
-s3o_export_path = f"/home/pepijn/code/VroomRTS/Objects3d/{model_name}.s3o"
+s3o_export_path = os.path.join(script_dir, "MultiManicMiners", "Objects3d", f"{model_name}.s3o")
 bpy.context.view_layer.objects.active = s3o_root
 bpy.ops.object.select_all(action='DESELECT')
 s3o_root.select_set(True)
 bpy.ops.s3o_tools.export_s3o(filepath=s3o_export_path)
-print(f"  Exported: Objects3d/{model_name}.s3o")
+print(f"  Exported: MultiManicMiners/Objects3d/{model_name}.s3o")
 
 # Step 20: Save Blender file for inspection
-blend_file_path = f"/home/pepijn/code/VroomRTS/contrib/{model_name}.blend"
+blend_file_path = os.path.join(script_dir, "contrib", f"{model_name}.blend")
 bpy.ops.wm.save_as_mainfile(filepath=blend_file_path)
 print(f"  Saved: contrib/{model_name}.blend")
 
