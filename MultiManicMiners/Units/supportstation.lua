@@ -3,7 +3,7 @@ local unitName  =  "supportstation"
 local unitDef  =  {
 --Internal settings
 BuildPic = "SupportStation.png",
-    Category = "TANK SMALL NOTAIR NOTSUB",
+    Category = "LAND BUILDING POWER",
     ObjectName = "SupportStation.s3o",
     name = "Support Station",
     Side = "Rock Raiders",
@@ -30,8 +30,8 @@ BuildPic = "SupportStation.png",
 
 --Size and Abilites
    MaxSlope = 33,
-   FootprintX = 4,
-   FootprintZ = 4,
+   FootprintX = 8,
+   FootprintZ = 8,
    canSelfDestruct = 1,
    repairable = 1,
    CanMove = 0,
@@ -44,7 +44,7 @@ BuildPic = "SupportStation.png",
 collisionVolumeOffsets    =  "0 0 0",
 collisionVolumeScales     =  "33 45 33",
 collisionVolumeType       =  "box",
-YardMap = "oooo oooo oooo oooo",
+YardMap = "oooooooo oooooooo oooooooo oooooooo oooooooo oooooooo oooooooo oooooooo",
 --Weapons and related
   explodeAs = [[MediumBuildingExplosion]],
 	selfDestructAs = [[MediumBuildingExplosion]],

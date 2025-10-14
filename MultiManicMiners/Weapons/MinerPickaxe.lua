@@ -3,9 +3,6 @@ weaponDef = {
 	weaponType = "Melee",
 	name = "Mining Pickaxe",
 
-	-- Targeting
-	--onlyTargetCategory = "softrock",  -- Can only target soft rocks (dirt, loose rock)
-
 	-- Physics / aiming
 	range = 200,
 	reloadtime = 1.0,  -- 1 shot per second = 50 DPS

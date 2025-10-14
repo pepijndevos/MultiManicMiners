@@ -3,7 +3,7 @@ local unitName  =  "miner"
 local unitDef  =  {
 --Internal settings
 BuildPic = "miner.png",
-    Category = "TANK SMALL NOTAIR NOTSUB",
+    Category = "LAND UNIT MINER",
     ObjectName = "miner.s3o",
     name = "Miner",
     Side = "Rock Raiders",
@@ -31,7 +31,7 @@ BuildPic = "miner.png",
     FootprintX = 3,
     FootprintZ = 3,
     MaxSlope = 45,
-    MaxVelocity = 1.6,
+    MaxVelocity = 4.5,  -- 1.1 blocks/second = ~4.5 elmos/sec
     MaxWaterDepth = 5,
     MovementClass = "Small Vechicle",
     TurnRate = 1000,
@@ -61,23 +61,23 @@ terraformSpeed = 9001,
 buildoptions = 
 	{
 	[[toolstore]],
+    [[teleportpad]],
     [[supportstation]]
 	},
 
 --Hitbox
- collisionVolumeOffsets    =  "0 -4 -2",
-collisionVolumeScales     =  "28 28 35",
+ collisionVolumeOffsets    =  "0 0 0",
+collisionVolumeScales     =  "23 45 25",
 collisionVolumeType       =  "box",
 
    
 --Weapons and related
-    BadTargetCategory = "NOTAIR",
       	explodeAs = [[MediumExplosion]],
 	selfDestructAs = [[MediumExplosion]],
-    NoChaseCategory = "AIR",
 
 weapons = {
 [1]={name  = "MinerPickaxe",
+       onlyTargetCategory = "softrock",  -- Can only target soft rocks
        turret = false
 	},
 },

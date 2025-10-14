@@ -1,15 +1,15 @@
-local unitName  =  "toolstore"
+local unitName  =  "teleportpad"
 
 local unitDef  =  {
 --Internal settings
-BuildPic = "ToolStore.png",
+BuildPic = "TeleportPad.png",
     Category = "LAND BUILDING FACTORY",
-    ObjectName = "ToolStore.s3o",
-    name = "Tool Store",
+    ObjectName = "TeleportPad.s3o",
+    name = "Teleport Pad",
     Side = "Rock Raiders",
     TEDClass = "Building",
     UnitName = "Ground Factory",
-    script = "toolstorescript.lua",
+    script = "teleportpadscript.lua",
 	icontype = "buildinglandfactory",
 --Unit limitations and properties
     Description = "Makes ground units.",
@@ -23,7 +23,7 @@ BuildPic = "ToolStore.png",
 	maxWaterDepth = 4,
 --Energy and metal related
     BuildCostEnergy = 0,
-    BuildCostMetal = 0,
+    BuildCostMetal = 80,
     Buildtime = 20, 
 --Size and Abilites
    MaxSlope = 33,
@@ -47,7 +47,7 @@ canRestore = false,
 workerTime = 10,
 buildoptions = 
 	{
-	[[miner]],
+	[[smalldigger]],
 	},
 	--Hitbox
 collisionVolumeOffsets    =  "0 0 0",

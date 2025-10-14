@@ -1,19 +1,19 @@
-local unitName = "looserock"
+local unitName = "solidrock"
 
 local unitDef = {
     -- Internal settings
-    BuildPic = "looserock.png",
-    Category = "rocks softrock",  -- rocks+softrock categories (miners can target softrock)
-    ObjectName = "LooseRock.s3o",
-    name = "Loose Rock",
+    BuildPic = "solidrock.png",
+    Category = "rocks indestructible",
+    ObjectName = "SolidRock.s3o",
+    name = "Solid Rock",
     Side = "Rock Raiders",
     TEDClass = "Feature",
-    UnitName = "Loose Rock",
+    UnitName = "Solid Rock",
     script = "rockscript.lua",
 
     -- Unit limitations and properties
-    Description = "Loose Rock - can be mined by miners and drills",
-    MaxDamage = 400,  -- 400 HP (from ROCK_DRILL_SYSTEM_DESIGN.md)
+    Description = "Solid Rock - indestructible, forms level boundaries",
+    MaxDamage = 999999,  -- Effectively indestructible
     idleTime = 0,
     idleAutoHeal = 0,
     RadarDistance = 0,
@@ -26,7 +26,7 @@ local unitDef = {
     Buildtime = 1,
 
     -- Size and abilities
-    FootprintX = 8,  -- 123 elmos / 16 = 8
+    FootprintX = 8,  -- 128 elmos / 16 = 8
     FootprintZ = 8,
     MaxSlope = 255,  -- Can be placed anywhere
 
@@ -40,7 +40,7 @@ local unitDef = {
     canSelfDestruct = 0,
     repairable = 0,
 
-    -- Collision - cube with 60 elmo radius (128 elmo sides)
+    -- Collision - cube 128x128x128 elmos
     blocking = true,
     collisionVolumeOffsets = "0 0 0",
     collisionVolumeScales = "128 128 128",
@@ -51,7 +51,7 @@ local unitDef = {
     selfDestructAs = "NOWEAPON",
 
     customparams = {
-        rock_type = "loose",
+        rock_type = "solid",
     },
 }
 
