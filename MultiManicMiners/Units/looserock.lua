@@ -9,6 +9,7 @@ local unitDef = {
     Side = "Rock Raiders",
     TEDClass = "Feature",
     UnitName = "Loose Rock",
+    script = "looserockscript.lua",
 
     -- Unit limitations and properties
     Description = "Loose Rock - can be mined by miners and drills",

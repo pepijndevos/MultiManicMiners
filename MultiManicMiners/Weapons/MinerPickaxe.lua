@@ -7,7 +7,7 @@ weaponDef = {
 	--onlyTargetCategory = "softrock",  -- Can only target soft rocks (dirt, loose rock)
 
 	-- Physics / aiming
-	range = 100,
+	range = 200,
 	reloadtime = 1.0,  -- 1 shot per second = 50 DPS
 
 	-- Damage

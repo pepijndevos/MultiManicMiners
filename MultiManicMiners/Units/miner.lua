@@ -20,7 +20,6 @@ BuildPic = "miner.png",
     SightDistance = 500,
     SoundCategory = "TANK",
     Upright = 0,
-	corpse = [[constructor_dead]],
 --Energy and metal related
     BuildCostEnergy = 0,
     BuildCostMetal = 0,

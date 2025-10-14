@@ -22,7 +22,6 @@ BuildPic = "SupportStation.png",
     SoundCategory = "Building",
     Upright = 0,
 	maxWaterDepth = 4,
-	corpse = [[solarpanel_dead]],
 --Energy and metal related
     BuildCostEnergy = 0,
     BuildCostMetal = 150,

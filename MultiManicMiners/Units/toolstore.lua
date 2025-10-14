@@ -10,7 +10,6 @@ BuildPic = "ToolStore.png",
     TEDClass = "Building",
     UnitName = "Ground Factory",
     script = "toolstorescript.lua",
-	corpse = [[groundfactory_dead]],
 	icontype = "buildinglandfactory",
 --Unit limitations and properties
     Description = "Makes ground units.",
