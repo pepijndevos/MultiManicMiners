@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Blender script to import Bricklink Studio LDraw models into Recoil/Spring S3O format
+Uses the import_scene.importldr operator (modern LDraw plugin)
 Based on IMPORT.md instructions
 """
 
@@ -12,22 +13,24 @@ from mathutils import Vector
 
 # Parse command-line arguments (passed after --)
 if "--" not in sys.argv:
-    print("Error: No model name provided")
-    print("Usage: blender --background --python blender_import_script.py -- <model_name>")
+    print("Error: No LDraw file path provided")
+    print("Usage: blender --background --python blender_import_script.py -- <path/to/file.ldr>")
     sys.exit(1)
 
 args = sys.argv[sys.argv.index("--") + 1:]
 if len(args) < 1:
-    print("Error: Model name required")
-    print("Usage: blender --background --python blender_import_script.py -- <model_name>")
+    print("Error: LDraw file path required")
+    print("Usage: blender --background --python blender_import_script.py -- <path/to/file.ldr>")
     sys.exit(1)
 
-model_name = args[0]
+# Get full path to LDraw file
+ldraw_file = os.path.abspath(args[0])
+
+# Extract model name from filename (without extension)
+model_name = os.path.splitext(os.path.basename(ldraw_file))[0]
 
 # Get script directory
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
-ldraw_file = os.path.join(script_dir, "contrib", f"{model_name}.ldr")
 
 # LDraw library path - check environment variable or use default Lutris path
 ldraw_library = os.environ.get('LDRAW_LIBRARY') or os.path.expanduser("~/Games/bricklink-studio/drive_c/Program Files/Studio 2.0/ldraw")
@@ -43,34 +46,84 @@ bpy.ops.object.delete(use_global=False)
 
 # Step 1: Import LDraw file
 print(f"Importing LDraw file from {ldraw_file}...")
-bpy.ops.import_scene.importldraw(
+bpy.ops.import_scene.importldr(
     filepath=ldraw_file,
-    ldrawPath=ldraw_library,
-    realScale=1000,
-    resPrims='Low',
-    addEnvironment=False,
-    bevelEdges=False,
-    curvedWalls=False
+    ldraw_path=ldraw_library,
+    scene_scale=0.4,
+    instance_type='LinkedDuplicates',
+    stud_type='Normal',
+    primitive_resolution='Low',
+    add_gap_between_parts=False
 )
 print("Import complete!")
 
-# Step 2: Combine all mesh objects
-print("Combining mesh objects...")
-bpy.ops.object.select_all(action='DESELECT')
-mesh_objects = []
+# Step 2: Combine mesh objects while preserving hierarchy
+print("Combining mesh objects while preserving hierarchy...")
 
+# Step 2a: Make all meshes single-user to avoid LinkedDuplicates issues
 for obj in bpy.data.objects:
     if obj.type == 'MESH':
-        obj.select_set(True)
-        mesh_objects.append(obj)
+        obj.data = obj.data.copy()
 
-# Join all meshes
-if mesh_objects:
-    bpy.context.view_layer.objects.active = mesh_objects[0]
-    bpy.ops.object.join()
-    combined_mesh = bpy.context.active_object
-    combined_mesh.name = "Base"
-    print(f"Combined {len(mesh_objects)} objects into: {combined_mesh.name}")
+# Step 2b: Find the root empty and any sub-empties (like turret pivots)
+root_empty = None
+for obj in bpy.data.objects:
+    if obj.type == 'EMPTY' and obj.parent is None:
+        root_empty = obj
+        break
+
+if not root_empty:
+    print("Warning: No root empty found, combining all meshes into one")
+    # Fallback: combine everything
+    mesh_objects = [obj for obj in bpy.data.objects if obj.type == 'MESH']
+    if mesh_objects:
+        bpy.ops.object.select_all(action='DESELECT')
+        for obj in mesh_objects:
+            obj.select_set(True)
+        bpy.context.view_layer.objects.active = mesh_objects[0]
+        bpy.ops.object.join()
+        combined_mesh = bpy.context.active_object
+        combined_mesh.name = "Base"
+        print(f"Combined {len(mesh_objects)} objects into: {combined_mesh.name}")
+else:
+    print(f"Found root: {root_empty.name}")
+
+    # Step 2c: Find sub-empties (turret pivots, etc.) that should remain separate pieces
+    sub_empties = [child for child in root_empty.children if child.type == 'EMPTY']
+
+    # Step 2d: Combine base meshes (direct mesh children of root)
+    base_meshes = [child for child in root_empty.children if child.type == 'MESH']
+    print(f"Found {len(base_meshes)} base mesh parts")
+
+    if base_meshes:
+        bpy.ops.object.select_all(action='DESELECT')
+        for obj in base_meshes:
+            obj.select_set(True)
+        bpy.context.view_layer.objects.active = base_meshes[0]
+        bpy.ops.object.join()
+        combined_mesh = bpy.context.active_object
+        combined_mesh.name = "Base"
+        print(f"  Combined into 'Base': {len(combined_mesh.data.vertices)} vertices")
+    else:
+        combined_mesh = None
+
+    # Step 2e: Combine meshes within each sub-empty (preserving the pivot empties)
+    for sub_empty in sub_empties:
+        sub_meshes = [child for child in sub_empty.children if child.type == 'MESH']
+        print(f"Found {len(sub_meshes)} mesh parts under '{sub_empty.name}'")
+
+        if sub_meshes:
+            bpy.ops.object.select_all(action='DESELECT')
+            for obj in sub_meshes:
+                obj.select_set(True)
+            bpy.context.view_layer.objects.active = sub_meshes[0]
+            bpy.ops.object.join()
+            sub_combined = bpy.context.active_object
+            # Keep the name matching the empty's name for Spring unit scripts
+            sub_combined.name = sub_empty.name.replace('.io', '')
+            print(f"  Combined into '{sub_combined.name}': {len(sub_combined.data.vertices)} vertices")
+
+print("Mesh combining complete!")
 
 # Step 2.5: Render thumbnail for UI
 print("Rendering thumbnail...")
@@ -79,8 +132,11 @@ print("Rendering thumbnail...")
 unitpics_dir = os.path.join(script_dir, "MultiManicMiners", "UnitPics")
 os.makedirs(unitpics_dir, exist_ok=True)
 
-# Get bounding box for camera positioning
-bbox_corners = [combined_mesh.matrix_world @ Vector(corner) for corner in combined_mesh.bound_box]
+# Get bounding box for camera positioning (calculate from all mesh objects)
+bbox_corners = []
+for obj in bpy.data.objects:
+    if obj.type == 'MESH':
+        bbox_corners.extend([obj.matrix_world @ Vector(corner) for corner in obj.bound_box])
 min_x = min(corner.x for corner in bbox_corners)
 max_x = max(corner.x for corner in bbox_corners)
 min_y = min(corner.y for corner in bbox_corners)
@@ -143,17 +199,25 @@ bpy.data.objects.remove(sun_obj, do_unlink=True)
 bpy.data.cameras.remove(cam_data, do_unlink=True)
 bpy.data.lights.remove(sun, do_unlink=True)
 
-# Step 3: Merge vertices by distance
+# Step 3: Merge vertices by distance and apply flat shading
 print("Merging vertices by distance...")
-bpy.ops.object.mode_set(mode='EDIT')
-bpy.ops.mesh.select_all(action='SELECT')
-bpy.ops.mesh.remove_doubles()
-bpy.ops.object.mode_set(mode='OBJECT')
-print(f"Vertex count: {len(combined_mesh.data.vertices)}")
+for obj in bpy.data.objects:
+    if obj.type == 'MESH':
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.mode_set(mode='EDIT')
+        bpy.ops.mesh.select_all(action='SELECT')
+        bpy.ops.mesh.remove_doubles()
+        bpy.ops.mesh.faces_shade_flat()
+        bpy.ops.object.mode_set(mode='OBJECT')
+        print(f"  {obj.name}: {len(obj.data.vertices)} vertices")
 
 # Step 4: Calculate dimensions for S3O root
 print("Calculating model dimensions...")
-bbox_corners = [combined_mesh.matrix_world @ Vector(corner) for corner in combined_mesh.bound_box]
+# Calculate from all mesh objects
+bbox_corners = []
+for obj in bpy.data.objects:
+    if obj.type == 'MESH':
+        bbox_corners.extend([obj.matrix_world @ Vector(corner) for corner in obj.bound_box])
 
 min_x = min(corner.x for corner in bbox_corners)
 max_x = max(corner.x for corner in bbox_corners)
@@ -166,8 +230,9 @@ midpoint_x = (min_x + max_x) / 2
 midpoint_y = (min_y + max_y) / 2
 midpoint_z = (min_z + max_z) / 2
 
+# Calculate 3D collision radius (sphere encompassing entire model)
 collision_radius = max(
-    math.sqrt((corner.x - midpoint_x)**2 + (corner.y - midpoint_y)**2)
+    math.sqrt((corner.x - midpoint_x)**2 + (corner.y - midpoint_y)**2 + (corner.z - midpoint_z)**2)
     for corner in bbox_corners
 )
 
@@ -189,79 +254,65 @@ bpy.ops.s3o_tools.add_s3o_root(
 )
 s3o_root = bpy.data.objects.get(model_name)
 
-# Step 6: Parent the combined mesh to S3O root
-print("Parenting mesh to S3O root...")
-bpy.ops.object.select_all(action='DESELECT')
-combined_mesh.select_set(True)
-s3o_root.select_set(True)
-bpy.context.view_layer.objects.active = s3o_root
-bpy.ops.object.parent_set(type='OBJECT', keep_transform=True)
-print(f"Parented to {s3o_root.name}")
+# Step 6: Re-parent model pieces to S3O root (preserving transforms)
+print("Parenting model pieces to S3O root...")
 
-# Step 7: Clean up empty objects left from joining
-print("Cleaning up empty objects...")
-empties_to_delete = []
+# Find the LDraw root (MiningLaser.io or similar)
+ldraw_root = None
 for obj in bpy.data.objects:
-    if obj.type == 'EMPTY':
-        # Keep S3O root and its children
-        if not (obj.name == model_name or obj.name.startswith(f"{model_name}.")):
-            empties_to_delete.append(obj)
+    if obj.type == 'EMPTY' and obj.parent is None and obj != s3o_root:
+        ldraw_root = obj
+        break
 
-for obj in empties_to_delete:
-    bpy.data.objects.remove(obj, do_unlink=True)
-print(f"Deleted {len(empties_to_delete)} empty objects")
+if ldraw_root:
+    ldraw_root_name = ldraw_root.name
+    # Get children before re-parenting
+    children_to_move = list(ldraw_root.children)
 
-# Step 8: Create UV map
-print("Creating UV map...")
-bpy.context.view_layer.objects.active = combined_mesh
-combined_mesh.select_set(True)
-bpy.ops.object.mode_set(mode='EDIT')
-bpy.ops.mesh.select_all(action='SELECT')
+    for child in children_to_move:
+        # Store world matrix before reparenting
+        world_matrix = child.matrix_world.copy()
 
-# Use Cube Projection for boxy Lego models - projects from 6 orthogonal directions
-bpy.ops.uv.cube_project(cube_size=1.0, correct_aspect=True, clip_to_bounds=False, scale_to_bounds=False)
-print("UV map created using Cube Projection")
+        # Set new parent
+        child.parent = s3o_root
 
-# Step 9: Pack UV islands with low margin
-print("Packing UV islands...")
-bpy.ops.uv.pack_islands(margin=0.001, rotate=True)
-bpy.ops.object.mode_set(mode='OBJECT')
-print("UV islands packed with margin=0.001")
+        # Restore world matrix (which updates local matrix automatically)
+        child.matrix_world = world_matrix
 
-# Step 10: Convert non-standard materials to Lego Standard (preserving colors)
-print("Converting materials to Lego Standard (preserving colors)...")
-lego_standard = bpy.data.node_groups.get("Lego Standard")
-if lego_standard:
-    for mat_slot in combined_mesh.material_slots:
-        mat = mat_slot.material
-        if mat and mat.use_nodes:
-            nodes = mat.node_tree.nodes
-            links = mat.node_tree.links
+        print(f"  Parented {child.name} to {s3o_root.name}")
 
-            group_node = None
-            output_node = None
-            old_color = None
+    # Delete the empty LDraw root
+    bpy.data.objects.remove(ldraw_root, do_unlink=True)
+    print(f"  Removed {ldraw_root_name}")
 
-            for node in nodes:
-                if node.type == 'GROUP' and hasattr(node, 'node_tree'):
-                    if node.node_tree.name not in ['Lego Standard', 'Slope Texture']:
-                        group_node = node
-                        old_color = tuple(node.inputs['Color'].default_value)
-                elif node.type == 'OUTPUT_MATERIAL':
-                    output_node = node
+# Step 8: Create UV maps for each mesh
+print("Creating UV maps...")
+for obj in bpy.data.objects:
+    if obj.type == 'MESH':
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.mode_set(mode='EDIT')
+        bpy.ops.mesh.select_all(action='SELECT')
+        # Use Cube Projection for boxy Lego models - projects from 6 orthogonal directions
+        bpy.ops.uv.cube_project(cube_size=1.0, correct_aspect=True, clip_to_bounds=False, scale_to_bounds=False)
+        bpy.ops.object.mode_set(mode='OBJECT')
+        print(f"  {obj.name}: UV map created")
 
-            if group_node and old_color:
-                location = group_node.location
-                nodes.remove(group_node)
-                new_node = nodes.new('ShaderNodeGroup')
-                new_node.node_tree = lego_standard
-                new_node.location = location
-                # Preserve the original color (including alpha)
-                new_node.inputs['Color'].default_value = old_color
-                if output_node and 'Shader' in new_node.outputs and 'Surface' in output_node.inputs:
-                    links.new(new_node.outputs['Shader'], output_node.inputs['Surface'])
+# Step 9: Pack all UV islands together into shared texture space
+print("Packing UV islands from all meshes...")
+mesh_objects = [obj for obj in bpy.data.objects if obj.type == 'MESH']
+bpy.ops.object.select_all(action='DESELECT')
+for obj in mesh_objects:
+    obj.select_set(True)
 
-# Step 11: Switch to Cycles render engine
+if mesh_objects:
+    bpy.context.view_layer.objects.active = mesh_objects[0]
+    bpy.ops.object.mode_set(mode='EDIT')
+    bpy.ops.mesh.select_all(action='SELECT')
+    bpy.ops.uv.pack_islands(margin=0.001, rotate=True)
+    bpy.ops.object.mode_set(mode='OBJECT')
+    print(f"Packed {len(mesh_objects)} meshes into shared UV space")
+
+# Step 10: Switch to Cycles render engine
 print("Setting up render engine for baking...")
 bpy.context.scene.render.engine = 'CYCLES'
 bpy.context.scene.cycles.device = 'CPU'
@@ -290,21 +341,32 @@ texture2 = bpy.data.images.new(
 )
 texture2.generated_color = (0, 0, 0, 1)
 
-# Step 13: Add texture nodes for baking
+# Step 13: Add TWO texture nodes for baking to all materials
 print("Adding bake target texture nodes...")
-special_materials = ["Material_38", "Material_42"]
+special_materials = ["38 Trans-Neon Orange", "42 Trans-Neon Green"]
 
-for mat_slot in combined_mesh.material_slots:
-    mat = mat_slot.material
-    if mat and mat.use_nodes:
-        nodes = mat.node_tree.nodes
+for obj in bpy.data.objects:
+    if obj.type != 'MESH':
+        continue
+    for mat_slot in obj.material_slots:
+        mat = mat_slot.material
+        if mat and mat.use_nodes:
+            nodes = mat.node_tree.nodes
 
-        # Add single texture node for texture1 (will reuse for texture2)
-        tex_node = nodes.new('ShaderNodeTexImage')
-        tex_node.image = texture1
-        tex_node.name = "BakeTarget"
-        tex_node.location = (0, -400)
-        nodes.active = tex_node
+            # Add BakeTarget1 for texture1 (color)
+            tex_node1 = nodes.new('ShaderNodeTexImage')
+            tex_node1.image = texture1
+            tex_node1.name = "BakeTarget1"
+            tex_node1.location = (0, -400)
+
+            # Add BakeTarget2 for texture2 (glow)
+            tex_node2 = nodes.new('ShaderNodeTexImage')
+            tex_node2.image = texture2
+            tex_node2.name = "BakeTarget2"
+            tex_node2.location = (0, -600)
+
+            # Set BakeTarget1 as active for first bake
+            nodes.active = tex_node1
 
 # Step 14: Configure bake settings
 print("Configuring bake settings...")
@@ -314,7 +376,7 @@ bpy.context.scene.render.bake.use_pass_indirect = False
 bpy.context.scene.render.bake.use_pass_color = True
 bpy.context.scene.render.bake.margin = 16
 
-# Step 15: Perform first bake (all materials to texture1)
+# Step 15: Perform first bake (all meshes to texture1)
 print("Baking first texture (this may take a while)...")
 
 # Make sure we're in object mode
@@ -324,12 +386,16 @@ if bpy.context.object and bpy.context.object.mode != 'OBJECT':
 # Update the scene to ensure all changes are applied
 bpy.context.view_layer.update()
 
-# Select and set active
-bpy.context.view_layer.objects.active = combined_mesh
+# Select all mesh objects for baking
+mesh_objects = [obj for obj in bpy.data.objects if obj.type == 'MESH']
 bpy.ops.object.select_all(action='DESELECT')
-combined_mesh.select_set(True)
+for obj in mesh_objects:
+    obj.select_set(True)
 
-# Bake
+if mesh_objects:
+    bpy.context.view_layer.objects.active = mesh_objects[0]
+
+# Bake all selected meshes
 bpy.ops.object.bake(type='DIFFUSE')
 print("First bake complete!")
 
@@ -346,38 +412,39 @@ print(f"  Saved: contrib/{model_name}.png")
 # print("Stopping for inspection. Remove the sys.exit() to continue.")
 # sys.exit(0)
 
-# Step 16: Switch special materials to red emission for texture2
-print("Setting up second texture bake...")
-for mat_slot in combined_mesh.material_slots:
-    mat = mat_slot.material
-    if mat and mat.use_nodes:
-        nodes = mat.node_tree.nodes
+# Step 16: Set up emission on special materials and switch to BakeTarget2
+print("Setting up second texture bake (glow map)...")
+for obj in bpy.data.objects:
+    if obj.type != 'MESH':
+        continue
+    for mat_slot in obj.material_slots:
+        mat = mat_slot.material
+        if mat and mat.use_nodes:
+            nodes = mat.node_tree.nodes
 
-        if mat.name in special_materials:
-            # Find the Lego Standard node and texture node
-            lego_standard = None
-            bake_target = None
-
+            # Find BakeTarget2 and activate it
+            bake_target2 = None
             for node in nodes:
-                if node.type == 'GROUP' and hasattr(node, 'node_tree') and node.node_tree.name == 'Lego Standard':
-                    lego_standard = node
-                elif node.name == 'BakeTarget':
-                    bake_target = node
+                if node.name == 'BakeTarget2':
+                    bake_target2 = node
+                    nodes.active = node
+                    break
 
-            if lego_standard and bake_target:
-                # Change to red color for emission
-                lego_standard.inputs['Color'].default_value = (0.5, 0, 0, 1)
-                # Change texture to texture2
-                bake_target.image = texture2
-                # Make sure it's active
-                nodes.active = bake_target
-        else:
-            # Deactivate texture nodes for non-special materials
-            nodes.active = None
+            # For special materials, set red emission
+            if mat.name in special_materials:
+                for node in nodes:
+                    if node.type == 'BSDF_PRINCIPLED':
+                        # Set red emission for glow map (R channel = glow in Spring)
+                        node.inputs['Emission Color'].default_value = (0.5, 0.0, 0.0, 1.0)
+                        node.inputs['Emission Strength'].default_value = 1.0
+                        print(f"  Set emission on: {mat.name}")
+                        break
+            # Non-special materials will bake black to texture2 (no emission)
 
-# Step 17: Perform second bake (special materials to texture2)
+# Step 17: Perform second bake (EMIT type for glow map)
 print("Baking second texture (this may take a while)...")
-bpy.ops.object.bake(type='DIFFUSE')
+bpy.context.scene.cycles.bake_type = 'EMIT'
+bpy.ops.object.bake(type='EMIT')
 print("Second bake complete!")
 
 # Step 18: Save both textures
