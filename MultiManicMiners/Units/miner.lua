@@ -33,7 +33,7 @@ BuildPic = "miner.png",
     MaxSlope = 45,
     MaxVelocity = 4.5,  -- 1.1 blocks/second = ~4.5 elmos/sec
     MaxWaterDepth = 5,
-    MovementClass = "Small Vechicle",
+    MovementClass = "Miner",
     TurnRate = 1000,
 
     

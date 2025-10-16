@@ -24,6 +24,7 @@ BuildPic = "smalldigger.png",
     BuildCostEnergy = 0,
     BuildCostMetal = 50,  -- 1 crystal × 50 = 50 metal
     Buildtime = 30,
+	energyUpkeep = 10,
 --Pathfinding and related
     maxAcc = 0.4,
     BrakeRate = 0.15,

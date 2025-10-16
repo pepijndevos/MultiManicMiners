@@ -69,6 +69,7 @@ if mesh_objects:
     bpy.context.view_layer.objects.active = mesh_objects[0]
     bpy.ops.object.join()
     combined_mesh = bpy.context.active_object
+    combined_mesh.name = "Base"
     print(f"Combined {len(mesh_objects)} objects into: {combined_mesh.name}")
 
 # Step 2.5: Render thumbnail for UI

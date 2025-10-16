@@ -45,9 +45,10 @@ canReclaim = false,
 canRepair = true,
 canRestore = false,	
 workerTime = 10,
-buildoptions = 
+buildoptions =
 	{
 	[[smalldigger]],
+	[[smalltransporttruck]],
 	},
 	--Hitbox
 collisionVolumeOffsets    =  "0 0 0",
