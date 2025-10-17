@@ -33,7 +33,7 @@ fi
 # Create mask: white on #008d99, very dark gray everywhere else (preserves RGB in mipmaps)
 # Using gray2 (alpha=2/255) instead of black to prevent mipmap color corruption
 magick "$INPUT" \
-  \( +clone -alpha off -fuzz 1% -fill white -opaque "#008d99" -fuzz 0% -fill gray2 +opaque white \) \
+  \( +clone -alpha off -fuzz 1% -fill white -opaque "#00808b" -fuzz 0% -fill gray2 +opaque white \) \
   -compose copy-opacity -composite \
   $DDS_FLAGS \
   "$OUTPUT"

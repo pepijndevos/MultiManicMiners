@@ -62,7 +62,8 @@ buildoptions =
 	{
 	[[toolstore]],
     [[teleportpad]],
-    [[supportstation]]
+    [[supportstation]],
+    [[mininglaser]],
 	},
 
 --Hitbox

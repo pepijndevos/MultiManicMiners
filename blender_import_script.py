@@ -265,25 +265,40 @@ for obj in bpy.data.objects:
         break
 
 if ldraw_root:
-    ldraw_root_name = ldraw_root.name
-    # Get children before re-parenting
-    children_to_move = list(ldraw_root.children)
+    # Store world matrix before reparenting
+    world_matrix = ldraw_root.matrix_world.copy()
 
-    for child in children_to_move:
-        # Store world matrix before reparenting
-        world_matrix = child.matrix_world.copy()
+    # Parent the entire LDraw root under the S3O root
+    ldraw_root.parent = s3o_root
 
-        # Set new parent
-        child.parent = s3o_root
+    # Restore world matrix (which updates local matrix automatically)
+    ldraw_root.matrix_world = world_matrix
 
-        # Restore world matrix (which updates local matrix automatically)
-        child.matrix_world = world_matrix
+    # CRITICAL: Mark EMPTYs with mesh descendants as non-placeholder pieces for S3O export
+    # Without s3o_empty_type=1, EMPTYs are treated as placeholders and ignored!
+    def has_mesh_descendant(obj):
+        """Check if object has any mesh descendants (children, grandchildren, etc.)"""
+        if obj.type == 'MESH':
+            return True
+        for child in obj.children:
+            if has_mesh_descendant(child):
+                return True
+        return False
 
-        print(f"  Parented {child.name} to {s3o_root.name}")
+    def mark_empties_recursive(obj):
+        """Recursively mark EMPTYs that have mesh descendants as structural pieces"""
+        if obj.type == 'EMPTY' and has_mesh_descendant(obj):
+            obj.s3o_empty_type = 'AIM_POINT'
+            bpy.context.view_layer.update()
+            if 's3o_root' in obj:
+                del obj['s3o_root']
+            print(f"  Marked {obj.name} as structural piece (s3o_empty_type='AIM_POINT')")
+        # Recurse to children
+        for child in obj.children:
+            mark_empties_recursive(child)
 
-    # Delete the empty LDraw root
-    bpy.data.objects.remove(ldraw_root, do_unlink=True)
-    print(f"  Removed {ldraw_root_name}")
+    mark_empties_recursive(ldraw_root)
+    print(f"  Parented {ldraw_root.name} to {s3o_root.name}")
 
 # Step 8: Create UV maps for each mesh
 print("Creating UV maps...")
@@ -375,6 +390,17 @@ bpy.context.scene.render.bake.use_pass_direct = False
 bpy.context.scene.render.bake.use_pass_indirect = False
 bpy.context.scene.render.bake.use_pass_color = True
 bpy.context.scene.render.bake.margin = 16
+
+# Step 14.5: Disable transmission and subsurface for diffuse bake (to get true base colors)
+print("Disabling transmission and subsurface for diffuse bake...")
+for mat in bpy.data.materials:
+    if mat and mat.use_nodes:
+        for node in mat.node_tree.nodes:
+            if node.type == 'BSDF_PRINCIPLED':
+                if node.inputs['Transmission Weight'].default_value > 0:
+                    changed = f"transmission {node.inputs['Transmission Weight'].default_value} -> 0.0"
+                    node.inputs['Transmission Weight'].default_value = 0.0
+                    print(f"  {mat.name}: {changed}")
 
 # Step 15: Perform first bake (all meshes to texture1)
 print("Baking first texture (this may take a while)...")
