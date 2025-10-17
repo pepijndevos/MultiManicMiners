@@ -47,8 +47,7 @@ canRestore = false,
 workerTime = 10,
 buildoptions =
 	{
-	[[smalldigger]],
-	[[smalltransporttruck]],
+	[[granitegrinder]],
 	},
 	--Hitbox
 collisionVolumeOffsets = "0 0 0",

@@ -1,8 +1,8 @@
 #!/bin/bash
 # Wrapper script to import LDraw models into Recoil/Spring S3O format
-# Usage: ./import_ldraw_model.sh <model_name>
+# Usage: ./import_ldraw_model.sh <path/to/file.io>
 #
-# Example: ./import_ldraw_model.sh PowerStation
+# Example: ./import_ldraw_model.sh contrib/PowerStation.io
 # Produces:
 #   - Objects3d/PowerStation.s3o
 #   - UnitTextures/PowerStation.dds (team alpha)
@@ -13,19 +13,22 @@
 set -e  # Exit on error
 
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 <model_name>"
-    echo "Example: $0 PowerStation"
+    echo "Usage: $0 <path/to/file.io>"
+    echo "Example: $0 contrib/PowerStation.io"
     exit 1
 fi
 
-MODEL_NAME="$1"
+LDRAW_FILE="$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Check if input file exists
-if [ ! -f "$SCRIPT_DIR/contrib/$MODEL_NAME.ldr" ]; then
-    echo "Error: LDraw file 'contrib/$MODEL_NAME.ldr' not found"
+if [ ! -f "$LDRAW_FILE" ]; then
+    echo "Error: LDraw file '$LDRAW_FILE' not found"
     exit 1
 fi
+
+# Extract model name from filename (without extension)
+MODEL_NAME="$(basename "$LDRAW_FILE" .io)"
 
 echo "========================================="
 echo "Importing LDraw model: $MODEL_NAME"
@@ -34,7 +37,7 @@ echo "========================================="
 # Step 1: Run Blender import script
 echo ""
 echo "Step 1: Running Blender import script..."
-blender --background --python "$SCRIPT_DIR/blender_import_script.py" -- "$MODEL_NAME"
+blender --background --python "$SCRIPT_DIR/blender_import_script.py" -- "$LDRAW_FILE"
 
 # Check if Blender export succeeded
 if [ ! -f "$SCRIPT_DIR/MultiManicMiners/Objects3d/$MODEL_NAME.s3o" ]; then
