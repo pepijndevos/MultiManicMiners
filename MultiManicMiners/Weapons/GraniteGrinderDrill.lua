@@ -8,8 +8,9 @@ local weaponDef = {
     onlyTargetCategory = "rocks",
 
     -- Physics
-    range = 200,
+    range = 50,
     reloadtime = 1.0,  -- 1 shot per second
+    tolerance = 6000,
 
     -- Damage - 250 DPS for base Granite Grinder
     -- Drill times: Dirt (0.8s), Loose Rock (1.6s), Hard Rock (72s)

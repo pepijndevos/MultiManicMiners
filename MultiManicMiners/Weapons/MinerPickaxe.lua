@@ -4,8 +4,9 @@ weaponDef = {
 	name = "Mining Pickaxe",
 
 	-- Physics / aiming
-	range = 200,
+	range = 50,
 	reloadtime = 1.0,  -- 1 shot per second = 50 DPS
+    tolerance = 9000,
 
 	-- Damage
 	damage = {

@@ -4,8 +4,9 @@ weaponDef = {
 	name = "Small Digger Drill",
 
 	-- Physics / aiming
-	range = 200,
+	range = 50,
 	reloadtime = 1.0,  -- 1 shot per second = 100 DPS
+    tolerance = 6000,
 
 	-- Damage
 	damage = {
