@@ -1,6 +1,6 @@
 # Importing Brickink Studio models into Recoil via Blender
 
-This process requires the [Import LDraw](https://github.com/TobyLobster/ImportLDraw) and [s3o](https://github.com/ChrisFloofyKitsune/s3o-blender-tools) Blender plug-in.
+This process requires the [ldr_tools_blender](https://github.com/ScanMountGoat/ldr_tools_blender) and [s3o](https://github.com/ChrisFloofyKitsune/s3o-blender-tools) Blender plug-in.
 
 ## Import into Blender
 

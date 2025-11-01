@@ -21,6 +21,23 @@ fi
 LDRAW_FILE="$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Detect Blender executable path
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
+    # Running on MSYS2/Windows - find Blender installation
+    BLENDER_BASE="/c/Program Files/Blender Foundation"
+    BLENDER_DIR=$(find "$BLENDER_BASE" -maxdepth 1 -type d -name "Blender *" 2>/dev/null | sort -V | tail -n 1)
+
+    if [ -n "$BLENDER_DIR" ] && [ -f "$BLENDER_DIR/blender.exe" ]; then
+        BLENDER="$BLENDER_DIR/blender.exe"
+    else
+        echo "Error: Could not find Blender installation in $BLENDER_BASE"
+        exit 1
+    fi
+else
+    # Linux/Mac - use blender from PATH
+    BLENDER="blender"
+fi
+
 # Check if input file exists
 if [ ! -f "$LDRAW_FILE" ]; then
     echo "Error: LDraw file '$LDRAW_FILE' not found"
@@ -37,7 +54,7 @@ echo "========================================="
 # Step 1: Run Blender import script
 echo ""
 echo "Step 1: Running Blender import script..."
-blender --background --python "$SCRIPT_DIR/blender_import_script.py" -- "$LDRAW_FILE"
+"$BLENDER" --background --python "$SCRIPT_DIR/blender_import_script.py" -- "$LDRAW_FILE"
 
 # Check if Blender export succeeded
 if [ ! -f "$SCRIPT_DIR/MultiManicMiners/Objects3d/$MODEL_NAME.s3o" ]; then
