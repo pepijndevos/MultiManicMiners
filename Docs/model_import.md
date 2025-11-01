@@ -22,9 +22,9 @@ Launch the Spring application from the Recoil folder you downloaded. Select the 
 
 Install imagemagick by opening a terminal (msys2 on Windows) and running the corresponding installation command
 
-Arch: `sudo pacman -S imagemagick`
-Ubuntu: `sude apt install imagemagick`
-Windows: `pacman -S mingw64/mingw-w64-x86_64-imagemagick`
+- Arch: `sudo pacman -S imagemagick`
+- Ubuntu: `sude apt install imagemagick`
+- Windows: `pacman -S mingw64/mingw-w64-x86_64-imagemagick`
 
 then change directory to the game: `cd path/to/mmm.sdd`
 
