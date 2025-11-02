@@ -1,12 +1,12 @@
 function gadget:GetInfo()
 	return {
 		name      = "Air Depletion Defeat",
-		desc      = "Teams lose when air (energy) reaches 0",
+		desc      = "Teams lose when air (energy) reaches 0 - DISABLED: air mechanic not implemented",
 		author    = "Rock Raiders",
 		date      = "2025",
 		license   = "GNU GPL, v2 or later",
 		layer     = 0,
-		enabled   = true
+		enabled   = false  -- Disabled: energy now represents Energy Crystals, not Air
 	}
 end
 

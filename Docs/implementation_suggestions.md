@@ -14,11 +14,11 @@ The 1999 PC game combines **ore collection** (brown mineral found behind rock wa
 
 The engine's C++ core **natively supports exactly two resources: metal and energy**. The optimal mapping aligns resource behavior patterns:
 
-- **Metal = Ore**: Gathered from rubble (via reclaim), stored, used for construction
-- **Energy = Air/Oxygen**: Constantly produced by buildings, consumed by units/buildings over time  
-- **Energy Crystals = Collectible features**: Discrete items carried to Power Station for energy conversion
+- **Metal = Ore**: Gathered from rubble (via reclaim), stored, used for construction (1 ore from reference = 10 metal)
+- **Energy = Energy Crystals**: Stored resource required to build units and buildings (1 crystal from reference = 50 energy)
+- **Air/Oxygen = Not implemented**: The original game's air mechanic is not included in this mod
 
-This mapping works because **air behaves like energy** (continuous production/consumption) while **ore behaves like metal** (discrete gathering from sources). Energy crystals become a special mechanic - collectible features that units carry and deposit at Power Stations to generate energy.
+This mapping works because both **ore and crystals are construction costs** that can be mapped to Spring's metal/energy build cost system. Units and buildings cost both resources upfront (vehicles cost only energy/crystals), rather than having ongoing consumption.
 
 **Cosmetic renaming via Lua widgets** displays appropriate names while maintaining full engine optimization for reclaim systems, production, and AI support:
 
@@ -27,70 +27,54 @@ This mapping works because **air behaves like energy** (continuous production/co
 function widget:DrawScreen()
     local teamID = Spring.GetMyTeamID()
     local ore = Spring.GetTeamResources(teamID, "metal")
-    local oxygen = Spring.GetTeamResources(teamID, "energy")
-    
+    local crystals = Spring.GetTeamResources(teamID, "energy")
+
     gl.Text("Ore: " .. math.floor(ore), 10, 100, 16)
-    gl.Text("Oxygen: " .. math.floor(oxygen), 10, 80, 16)
+    gl.Text("Energy Crystals: " .. math.floor(crystals), 10, 80, 16)
 end
 ```
 
-**Energy crystal collection** works through a custom carrying system since they're not directly mapped to Spring resources:
+**Energy crystal collection** works through Spring's native reclaim system - crystals are reclaimable features that provide energy directly to the team when collected:
 
 ```lua
--- Gadget: energy crystal carrying system
-local unitCrystalInventory = {} -- unitID -> crystal count
-
-function gadget:AllowFeatureBuildStep(builderID, builderTeam, featureID, featureDefID, part)
-    if energyCrystalFeatures[featureDefID] then
-        -- Pick up crystal instead of reclaiming normally
-        unitCrystalInventory[builderID] = (unitCrystalInventory[builderID] or 0) + 1
-        Spring.DestroyFeature(featureID)
-        
-        -- Order return to Power Station if carrying capacity full
-        if unitCrystalInventory[builderID] >= GetMaxCrystals(builderID) then
-            OrderReturnToPowerStation(builderID, builderTeam)
-        end
-        
-        return false -- Prevent normal reclaim
-    end
-    return true
-end
-
--- Deposit crystals at Power Station → convert to energy
-function DepositCrystals(unitID, powerStationID, teamID)
-    local crystalCount = unitCrystalInventory[unitID] or 0
-    if crystalCount > 0 then
-        -- Each crystal provides 5 energy (configurable)
-        Spring.AddTeamResource(teamID, "e", crystalCount * 5)
-        unitCrystalInventory[unitID] = 0
-        
-        -- Visual/audio feedback
-        Spring.PlaySoundFile("sounds/crystal_deposit.wav", 1.0)
-    end
-end
+-- FeatureDef example: energy crystal as reclaimable feature
+local energyCrystalFeature = {
+    name = "Energy Crystal",
+    metal = 0,        -- Provides no ore/metal when reclaimed
+    energy = 50,      -- Provides 50 energy (1 crystal equivalent)
+    reclaimable = true,
+    autoreclaimable = false,
+}
 ```
 
-**Air/oxygen production and consumption** uses Spring's native energy system:
-
-**Air/oxygen production and consumption** uses Spring's native energy system:
+**Units and buildings have upfront costs only** - no ongoing consumption or production:
 
 ```lua
 -- Support Station building definition
 local supportStationDef = {
     name = "Support Station",
-    energyMake = 10, -- Produces 10 air/second
-    energyStorage = 200, -- Stores 200 air
+    buildCostMetal = 150,    -- 15 ore × 10
+    buildCostEnergy = 150,   -- 3 crystals × 50
+    -- No energyMake or energyUpkeep
 }
 
--- Rock Raider unit definition  
+-- Rock Raider unit definition
 local rockRaiderDef = {
     name = "Rock Raider",
-    energyUpkeep = 0.1, -- Consumes 0.1 air/second
-    -- If team energy (air) reaches 0, units take damage or stop functioning
+    buildCostMetal = 0,      -- Free teleportation
+    buildCostEnergy = 0,     -- Free teleportation
+    -- No energyUpkeep
+}
+
+-- Small Digger vehicle definition (vehicles cost only energy)
+local smallDiggerDef = {
+    name = "Small Digger",
+    buildCostMetal = 0,      -- Vehicles don't cost ore
+    buildCostEnergy = 50,    -- 1 crystal × 50
 }
 ```
 
-This mapping means **running out of air naturally drains team energy to zero**, which Spring already handles. You can add custom effects when air depletes through gadget hooks.
+This mapping means **resources are spent only during construction**, making resource management focus on gathering for expansion rather than maintaining supply lines.
 
 **Recoil vs. Spring**: Recoil is a modern hard fork of Spring 105.0 maintaining OpenGL 3 compatibility while adding features. The primary game using Recoil is **Beyond All Reason (BAR)**, and the engine offers "active and easy to reach maintainers who are happy to accommodate your game's needs." Most Spring 105 documentation applies directly to Recoil, making it the recommended target for new mods with backward compatibility to Spring.
 
@@ -607,10 +591,10 @@ function gadget:GameFrame(n)
         end
     end
     
-    -- Check time limit (oxygen)
+    -- Check time limit (game time, not oxygen-based)
     if missionObjectives.timeLimit then
         if n >= missionObjectives.timeLimit then
-            MissionFailed("Oxygen depleted!")
+            MissionFailed("Time limit exceeded!")
         end
     end
 end
@@ -618,69 +602,61 @@ end
 function MissionComplete(teamID)
     -- Calculate score (0-100%)
     local score = CalculateMissionScore(teamID)
-    
+
     Spring.Echo("Mission Complete! Score: " .. score .. "%")
     Spring.GameOver({teamID}) -- Victory
 end
 ```
 
-**Air/oxygen management** for missions with limited atmosphere uses Spring's energy system naturally:
+**Resource management** for missions can set starting resources:
 
 ```lua
 -- Mission setup gadget
 function gadget:Initialize()
-    -- Set initial air supply (uses energy resource)
+    -- Set initial resources
     for _, teamID in ipairs(Spring.GetTeamList()) do
-        Spring.SetTeamResource(teamID, "e", 200) -- Starting air
-        Spring.SetTeamResource(teamID, "es", 200) -- Storage capacity
+        Spring.SetTeamResource(teamID, "m", 100)   -- Starting ore (100 metal)
+        Spring.SetTeamResource(teamID, "ms", 1000) -- Metal storage capacity
+        Spring.SetTeamResource(teamID, "e", 50)    -- Starting crystals (50 energy)
+        Spring.SetTeamResource(teamID, "es", 1000) -- Energy storage capacity
     end
 end
 
 function gadget:GameFrame(n)
-    if missionHasOxygenLimit then
-        for _, teamID in ipairs(Spring.GetTeamList()) do
-            local currentAir = Spring.GetTeamResources(teamID, "e")
-            
-            -- Support Station produces air (defined in unitDef.energyMake)
-            -- Raiders consume air (defined in unitDef.energyUpkeep)
-            -- Spring handles production/consumption automatically!
-            
-            -- Display warning at 20%
-            if currentAir < 40 and n % 60 == 0 then
-                Spring.Echo("WARNING: Oxygen running low!")
-                Spring.PlaySoundFile("sounds/oxygen_warning.wav", 1.0)
-            end
-            
-            -- Mission failure if air depleted
-            if currentAir <= 0 then
-                MissionFailed(teamID, "Oxygen depleted! Raiders evacuated.")
-            end
+    -- Check for low resources and provide warnings
+    for _, teamID in ipairs(Spring.GetTeamList()) do
+        local currentEnergy = Spring.GetTeamResources(teamID, "e")
+
+        -- Display warning at low crystal levels
+        if currentEnergy < 50 and n % 60 == 0 then
+            Spring.Echo("WARNING: Energy Crystal supply running low!")
+            Spring.PlaySoundFile("sounds/crystal_warning.wav", 1.0)
         end
     end
 end
 
--- Support Station increases air production when powered
+-- Support Station provides food and capacity for raiders
 local supportStationDef = {
     name = "Support Station",
-    energyMake = 10, -- Produces 10 air/second when operational
-    energyUse = 0, -- Doesn't consume energy (air) to run
-    activateWhenBuilt = true,
+    buildCostMetal = 150,    -- 15 ore × 10
+    buildCostEnergy = 150,   -- 3 crystals × 50
+    -- Supports 10 Rock Raiders per station (enforced by gadget)
 }
 ```
 
 ## Key implementation challenges and recommended solutions
 
-**Challenge 1: Three-resource economy**
-- **Solution**: Use metal = ore (from reclaiming rubble), energy = air/oxygen (production/consumption), crystals = carried features
-- **Benefit**: Perfect behavioral mapping - air regenerates like energy, ore collected like metal, crystals are unique mechanic
+**Challenge 1: Two-resource construction costs**
+- **Solution**: Use metal = ore (from reclaiming rubble), energy = energy crystals (from reclaiming crystal features)
+- **Benefit**: Simple mapping - both resources are gathered and spent on construction, no ongoing production/consumption complexity
 
 **Challenge 2: Drillable walls and resource drops**
 - **Solution**: Walls are destructible features with wreckage (rubble) for ore, or spawn crystal features for seams
 - **Benefit**: Spring's wreckage system handles ore automatically; crystal spawning adds variety
 
-**Challenge 3: Crystal carrying vs ore collection**
-- **Solution**: Ore uses Spring's native reclaim (instant team resources), crystals use custom inventory and deposit
-- **Benefit**: Simpler implementation for ore, engaging gameplay for valuable crystals
+**Challenge 3: Ore and crystal collection**
+- **Solution**: Both ore and crystals use Spring's native reclaim system (instant team resources when collected)
+- **Benefit**: Simple and consistent - no custom inventory or deposit mechanics needed
 
 **Challenge 4: Cave-ins and landslides**
 - **Solution**: Event-driven system triggered by wall destruction or timers, causing feature spawns and damage

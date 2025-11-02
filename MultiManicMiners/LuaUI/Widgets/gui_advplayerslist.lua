@@ -2465,7 +2465,7 @@ function ShareTip(mouseX, playerID)
 		if mouseX >= widgetPosX + (m_share.posX  + 1) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 17) * widgetScale then
 			tipText = "Double click to ask for Unit support"
 		elseif mouseX >= widgetPosX + (m_share.posX + 19) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 35) * widgetScale then
-			tipText = "Click and drag to ask for Air"
+			tipText = "Click and drag to ask for Energy Crystals"
 		elseif mouseX >= widgetPosX + (m_share.posX + 37) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 53) * widgetScale then
 			tipText = "Click and drag to ask for Ore"
 		end
@@ -2473,7 +2473,7 @@ function ShareTip(mouseX, playerID)
 		if mouseX >= widgetPosX + (m_share.posX + 1) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 17) * widgetScale then
 			tipText = "Double click to share Units"
 		elseif mouseX >= widgetPosX + (m_share.posX + 19) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 35) * widgetScale then
-			tipText = "Click and drag to share Air"
+			tipText = "Click and drag to share Energy Crystals"
 		elseif mouseX >= widgetPosX + (m_share.posX + 37) * widgetScale  and  mouseX <= widgetPosX + (m_share.posX + 53) * widgetScale then
 			tipText = "Click and drag to share Ore"
 		end
@@ -2946,13 +2946,13 @@ function widget:MouseRelease(x,y,button)
 		if energyPlayer ~= nil then                                                -- share energy/metal mouse release
 			if energyPlayer.team == myTeamID then
 				if amountEM == 0 then
-					Spring_SendCommands("say a: I need Air!")
+					Spring_SendCommands("say a: I need Energy Crystals!")
 				else
-					Spring_SendCommands("say a: I need "..amountEM.." Air!")
+					Spring_SendCommands("say a: I need "..amountEM.." Energy Crystals!")
 				end
 			elseif amountEM > 0 then
 				Spring_ShareResources(energyPlayer.team, "energy", amountEM)
-				Spring_SendCommands("say a: I sent "..amountEM.." air to "..energyPlayer.name)
+				Spring_SendCommands("say a: I sent "..amountEM.." energy crystals to "..energyPlayer.name)
 			end
 			sliderOrigin = nil
 			amountEMMax = nil
@@ -3550,7 +3550,7 @@ function widget:Update(delta) --handles takes & related messages
 		
 			if afterE and afterM and afterU then
 				if afterE > 1.0 or afterM > 1.0 or  afterU > 0 then
-					toSay = toSay .. "Left  " .. math.floor(afterU) .. " units, " .. math.floor(afterE) .. " air and " .. math.floor(afterM) .. " ore."
+					toSay = toSay .. "Left  " .. math.floor(afterU) .. " units, " .. math.floor(afterE) .. " energy crystals and " .. math.floor(afterM) .. " ore."
 				end
 			end
 			

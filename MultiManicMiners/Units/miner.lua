@@ -24,7 +24,6 @@ BuildPic = "miner.png",
     BuildCostEnergy = 0,
     BuildCostMetal = 0,
 	Buildtime = 20,
-	energyUpkeep = 10,
 --Pathfinding and related
     maxAcc = 0.35,
     BrakeRate = 0.1,

@@ -21,10 +21,9 @@ BuildPic = "smalldigger.png",
     SoundCategory = "TANK",
     Upright = 0,
 --Energy and metal related
-    BuildCostEnergy = 0,
-    BuildCostMetal = 50,  -- 1 crystal × 50 = 50 metal
+    BuildCostEnergy = 50,  -- 1 crystal × 50
+    BuildCostMetal = 0,
     Buildtime = 30,
-	energyUpkeep = 10,
 --Pathfinding and related
     maxAcc = 0.4,
     BrakeRate = 0.15,

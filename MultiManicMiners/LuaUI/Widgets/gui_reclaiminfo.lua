@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 --
 --  file:    gui_ReclaimInfo.lua
---  brief:   Shows the amount of ore/air when using area reclaim.
+--  brief:   Shows the amount of ore/energy crystals when using area reclaim.
 --  original author:  Janis Lukss
 --
 --  Copyright (C) 2007.
@@ -14,7 +14,7 @@
 function widget:GetInfo()
 return {
 name      = "ReclaimInfo",
-desc      = "Shows the amount of ore/air when using area reclaim.",
+desc      = "Shows the amount of ore/energy crystals when using area reclaim.",
 author    = "Pendrokar",
 date      = "Nov 17, 2007",
 license   = "GNU GPL, v2 or later",

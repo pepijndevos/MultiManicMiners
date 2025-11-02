@@ -396,7 +396,7 @@ function widget:DrawScreen()
 
 		DrawText(grey .. "Prog:", format(white .. "%d%%", 100 * buildProg))
 		DrawText(grey .. "Ore:", format(white .. "%d / %d (" .. yellow .. "%d" .. white .. ", %ds)", mTotal * buildProg, mTotal, mRem, mEta))
-		DrawText(grey .. "Air:", format(white .. "%d / %d (" .. yellow .. "%d" .. white .. ", %ds)", eTotal * buildProg, eTotal, eRem, eEta))
+		DrawText(grey .. "Crystals:", format(white .. "%d / %d (" .. yellow .. "%d" .. white .. ", %ds)", eTotal * buildProg, eTotal, eRem, eEta))
 		-- DrawText(grey .. "ETA: ", format(white .. "%d", math.max(mEta, eEta))) --Need to track bt progress, add that as a max
         --DrawText("MaxBP:", format(white .. '%d', buildRem * uDef.buildTime / math.max(mEta, eEta)))
 		cY = cY - fontSize

@@ -12,7 +12,7 @@ BuildPic = "SupportStation.png",
     script = "supportstationscript.lua",
 	icontype = "buildingenergy",
 --Unit limitations and properties
-    Description = "Generates energy to power miners.",
+    Description = "Provides food and support for miners.",
     MaxDamage = 500,
     damageModifier = 0.25,
     idleTime = 0,
@@ -23,10 +23,9 @@ BuildPic = "SupportStation.png",
     Upright = 0,
 	maxWaterDepth = 4,
 --Energy and metal related
-    BuildCostEnergy = 0,
-    BuildCostMetal = 150,
-    Buildtime = 20,
-    energyMake = 100, 
+    BuildCostEnergy = 150,  -- 3 crystals × 50
+    BuildCostMetal = 150,   -- 15 ore × 10
+    Buildtime = 20, 
 
 --Size and Abilites
    MaxSlope = 33,

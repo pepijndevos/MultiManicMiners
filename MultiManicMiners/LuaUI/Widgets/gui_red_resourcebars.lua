@@ -86,11 +86,11 @@ local Config = {
 		tooltip = {
 			background ="In CTRL+F11 mode: Hold \255\255\255\1middle mouse button\255\255\255\255 to drag the resource bar.\n\n"..
 			"\255\255\255\1Leftclick\255\255\255\255 on the bar to set team share.",
-			income = "Your air income.",
-			pull = "Your air pull.",
-			expense = "Your air expense, same as pull if not shown.",
-			storage = "Your maximum air storage.",
-			current = "Your current air storage.",
+			income = "Your energy crystal income.",
+			pull = "Your energy crystal pull.",
+			expense = "Your energy crystal expense, same as pull if not shown.",
+			storage = "Your maximum energy crystal storage.",
+			current = "Your current energy crystal storage.",
 		},
 	},
 }

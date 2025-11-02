@@ -23,8 +23,8 @@ BuildPic = "MiningLaser.png",
     floater = true,
 	corpse = [[mininglaser_dead]],
 --Energy and metal related
-    BuildCostEnergy = 0,
-    BuildCostMetal = 200,  -- 1 crystals (50) + 15 ore (150)
+    BuildCostEnergy = 50,   -- 1 crystal × 50
+    BuildCostMetal = 150,   -- 15 ore × 10
     buildTime = 20,
 
 --Size and Abilites

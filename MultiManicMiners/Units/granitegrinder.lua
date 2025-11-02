@@ -21,10 +21,9 @@ BuildPic = "GraniteGrinder.png",
     SoundCategory = "TANK",
     Upright = 0,
 --Energy and metal related
-    BuildCostEnergy = 0,
-    BuildCostMetal = 150,  -- 3 crystals × 50 = 150 metal
+    BuildCostEnergy = 150,  -- 3 crystals × 50
+    BuildCostMetal = 0,
     Buildtime = 60,
-	energyUpkeep = 25,
 --Pathfinding and related
     maxAcc = 0.3,
     BrakeRate = 0.1,

@@ -302,7 +302,7 @@ function GenerateNewTooltip()
 			elseif ( Game.armorTypes[fud.armorType] == "armor_medium" ) then armorTypeStr = "M" end
 			
 			NewTooltip = NewTooltip.."\n"..unitpre.."\n"..fud.humanName.." ("..fud.tooltip..")\n"..
-				"\255\200\200\200Ore: "..unitmetalcost.."    \255\255\255\0Air: "..unitenergycost..""..
+				"\255\200\200\200Ore: "..unitmetalcost.."    \255\255\255\0Crystals: "..unitenergycost..""..
 				"\255\213\213\255".."    Build time: ".."\255\170\170\255"..
 				floor((29+floor(31+fud.buildTime/(buildpower/32)))/30).."s".."  \n"..
 				--"..GetTooltipTransportability(fud).."         removed
@@ -415,7 +415,7 @@ function GenerateNewTooltip()
 			end
 					
 			-- cost
-			NewTooltip = NewTooltip.."\255\200\200\200Ore: "..totalMetalCost.."    \255\255\255\0Air: "..totalEnergyCost.."\n"
+			NewTooltip = NewTooltip.."\255\200\200\200Ore: "..totalMetalCost.."    \255\255\255\0Crystals: "..totalEnergyCost.."\n"
 			
 			-- health totals					
 			NewTooltip = NewTooltip.."\255\200\255\200Health: ".."\255\200\255\200"..floor(totalHealth).."\255\200\255\200/\255\200\255\200"..floor(totalMaxHealth)
@@ -424,7 +424,7 @@ function GenerateNewTooltip()
 			-- energy and metal upkeep totals
 			if true then
 				NewTooltip = NewTooltip.."\n\255\200\200\200Ore: \255\0\255\0+"..FormatNbr(totalMetalMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-totalMetalUse,1)
-				NewTooltip = NewTooltip.."    \255\255\255\0Air: \255\0\255\0+"..FormatNbr(totalEnergyMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-totalEnergyUse,1)
+				NewTooltip = NewTooltip.."    \255\255\255\0Crystals: \255\0\255\0+"..FormatNbr(totalEnergyMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-totalEnergyUse,1)
 				
 				
 			end
@@ -496,7 +496,7 @@ function GenerateNewTooltip()
 			end
 
 			-- cost
-			NewTooltip = NewTooltip.."\255\200\200\200Ore: "..ud.metalCost.."    \255\255\255\0Air: "..ud.energyCost.." \n"
+			NewTooltip = NewTooltip.."\255\200\200\200Ore: "..ud.metalCost.."    \255\255\255\0Crystals: "..ud.energyCost.." \n"
 		
 		
 			local armorTypeStr= "HP"
@@ -513,7 +513,7 @@ function GenerateNewTooltip()
 			-- energy and metal upkeep
 			if isFriendly then
 				NewTooltip = NewTooltip.."    \255\200\200\200Ore: \255\0\255\0+"..FormatNbr(metalMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-metalUse,1)
-				NewTooltip = NewTooltip.."    \255\255\255\0Air: \255\0\255\0+"..FormatNbr(energyMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-energyUse,1)
+				NewTooltip = NewTooltip.."    \255\255\255\0Crystals: \255\0\255\0+"..FormatNbr(energyMake,1).."\255\255\255\255/\255\255\0\0"..FormatNbr(-energyUse,1)
 				-- NewTooltip=NewTooltip.."\255\255\255\0     +E/M ratio: "..FormatNbr(energyMake / ud.metalCost,4).."\n"
 			end
 		

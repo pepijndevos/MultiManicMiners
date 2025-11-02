@@ -22,8 +22,8 @@ BuildPic = "SuperTeleport.png",
     Upright = 1,
 	maxWaterDepth = 4,
 --Energy and metal related
-    BuildCostEnergy = 0,
-    BuildCostMetal = 300,  -- 2 crystals (100) + 20 ore (200)
+    BuildCostEnergy = 100,  -- 2 crystals × 50
+    BuildCostMetal = 200,   -- 20 ore × 10
     Buildtime = 40,
 --Size and Abilites
    MaxSlope = 33,

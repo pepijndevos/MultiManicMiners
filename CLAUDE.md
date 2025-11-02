@@ -8,7 +8,7 @@ Multi Manic Miners is a Recoil/Spring RTS game mod inspired by Lego Rock Raiders
 
 ### Project Documentation
 - **Docs/LEGO_ROCK_RAIDERS_REFERENCE.md** - Original game unit stats, building costs, and mechanics reference
-- **Docs/implementation_suggestions.md** - Mapping of Rock Raiders concepts to Spring/Recoil mechanics (e.g., Air=Energy, Ore=Metal)
+- **Docs/implementation_suggestions.md** - Mapping of Rock Raiders concepts to Spring/Recoil mechanics (e.g., Energy Crystals=Energy, Ore=Metal)
 
 ## Engine Context
 
