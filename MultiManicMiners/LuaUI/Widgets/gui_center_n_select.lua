@@ -37,17 +37,16 @@ function widget:Update()
     local unitArray = Spring.GetTeamUnits(Spring.GetMyTeamID())
     if (go and unitArray[1]) then
       local x, y, z = Spring.GetUnitPosition(unitArray[1])
-	  
-	  value = tonumber(Spring.GetConfigInt("smoothcam", 1))
-		if value == 1 then
-					widgetHandler:DisableWidget("SmoothCam")
+
+	  local value = tonumber(Spring.GetConfigInt("smoothcam", 1))
+	  local smoothCamWidget = widgetHandler:FindWidget("SmoothCam")
+		if value == 1 and smoothCamWidget then
+			widgetHandler:DisableWidget("SmoothCam")
 			Spring.SetCameraTarget(x, y, z)
 			widgetHandler:EnableWidget("SmoothCam")
 		else
 			Spring.SetCameraTarget(x, y, z)
 		end
-     
-	  Spring.SetCameraTarget(x, y, z)
 
 	  
       Spring.SelectUnitArray{unitArray[1]}
